@@ -36,7 +36,7 @@ d_raw <- map_df(tasks, function(x) {
     mutate(task = x)
 }) |>
   janitor::clean_names() |>
-  select(-x1) 
+  select(-x1) %>% mutate(stimulus_type = coalesce(stimulus_type, stimulus_type_2)) %>% mutate(stimulus_type = ifelse(stimulus_type == "S", "Social", ifelse(stimulus_type == "NS", "Nonsocial", stimulus_type))) %>% mutate(stimulus_type = ifelse(stimulus_type == "Big", "5-item constant stream", ifelse(stimulus_type == "Small", "20-item constant stream", stimulus_type)))
 ```
 
 Outcomes:
@@ -57,7 +57,7 @@ d <- d_raw |>
                              task == "vpc" & version == "aim2" ~ novel_good_avg, 
                              task == "audiovisual" ~ synch_good, 
                              task == "prediction" ~ aem_prop,
-                             task == "word_comprehension" ~ diff + .5,
+                             task == "word_comprehension" ~ diff,
                              task == "numeracy" ~ change_good,
                              task == "helperhinderer" ~ helper_good), 
          sub_id = response_uuid) |>
@@ -66,26 +66,103 @@ d <- d_raw |>
          task = fct_relevel(task, tasks))
 
 d_sub <- d |>
-  group_by(version, sub_id, age, task) |>
+  group_by(version, sub_id, age, task, stimulus_type) |>
   summarise(measure = mean(measure, na.rm = TRUE)) |>
-  filter(!is.nan(measure))
+  filter(!is.nan(measure)) %>% mutate(version = ifelse(version == "aim1", "Study 1", "Study 2"))
 ```
 
 Plot. 
 
 
 ```{r}
-ggplot(d_sub, aes(x = age, y = measure, col = version)) + 
-  geom_point(alpha = .2, position = position_dodge(width = .4)) +
+p1 <- ggplot(d_sub %>% filter(task == "geosocial"), aes(x = age, y = measure, col = version)) + 
+  geom_point(alpha = .4, position = position_dodge(width = .4)) + stat_n_text(size = 4, y.pos = 0)+
   stat_summary(fun.data = "mean_cl_boot", position = position_dodge(width = .4), 
                pch = 2) + 
   geom_hline(yintercept = .5, lty = 2) + 
-  facet_wrap(~task) + 
-  ylim(.3, 1) + 
-  xlab("Proportion looking") +
-  ggthemes::theme_few()
+  #facet_wrap(~task) + 
+  ylim(0.2, 1)  + scale_color_manual(values=c("palevioletred2", "palevioletred4", "palevioletred2", "palevioletred4")) + 
+  ggthemes::theme_few() + 
+  labs(x = "Age", 
+       y = "Proportion of looks fixating on\nsocial stimuli")  + scale_y_continuous(breaks = c(0, 0.25, .50, .75, 1), limits = c(0, 1), labels = c("0.00", "0.25", "0.50", "0.75", "1.00"))
+p2 <- ggplot(d_sub %>% filter(task == "vpc"), aes(x = age, y = measure, col = version)) + 
+  geom_point(alpha = .4, position = position_dodge(width = .4)) + stat_n_text(size = 4)+
+  stat_summary(fun.data = "mean_cl_boot", position = position_dodge(width = .4), 
+               pch = 2) + 
+  geom_hline(yintercept = .5, lty = 2) + 
+  #facet_wrap(~task) + 
+  ylim(0., 1)  + scale_color_manual(values=c("lightpink1", "lightpink3", "lightpink1", "lightpink3")) + 
+  ggthemes::theme_few() + 
+  labs(x = "Age", 
+       y = "Proportion of looks fixating on\nnovel images")  + facet_wrap(~stimulus_type)
+
+p3 <- ggplot(d_sub %>% filter(task == "prediction"), aes(x = age, y = measure, col = version)) + 
+  geom_point(alpha = .4, position = position_dodge(width = .4)) + stat_n_text(size = 4)+
+  stat_summary(fun.data = "mean_cl_boot", position = position_dodge(width = .4), 
+               pch = 2) + 
+  geom_hline(yintercept = .5, lty = 2) + 
+  #facet_wrap(~task) + 
+  #ylim(0, 1)  + 
+  scale_color_manual(values=c("lightsalmon1", "lightsalmon3","lightsalmon1", "lightsalmon3")) + 
+  ggthemes::theme_few() + 
+  labs(x = "Age", 
+       y = "Proportion of AEMs")  
+
+p4 <- ggplot(d_sub %>% filter(task == "audiovisual"), aes(x = age, y = measure, col = version)) + 
+  geom_point(alpha = .4, position = position_dodge(width = .4)) + stat_n_text(size = 4, y.pos = 0)+
+  stat_summary(fun.data = "mean_cl_boot", position = position_dodge(width = .4), 
+               pch = 2) + 
+  geom_hline(yintercept = .5, lty = 2) + 
+  #facet_wrap(~task) + 
+  #ylim(0, 1)  + 
+  scale_color_manual(values=c("lightgoldenrod3", "lightgoldenrod4", "lightgoldenrod3", "lightgoldenrod4")) + 
+  ggthemes::theme_few() + 
+  labs(x = "Age", 
+       y = "Proportion of looks fixating on\nsynchronous stimuli")  + scale_y_continuous(breaks = c(0, 0.25, .50, .75, 1), limits = c(0, 1), labels = c("0.00", "0.25", "0.50", "0.75", "1.00"))
+
+p5 <- ggplot(d_sub %>% filter(task == "word_comprehension"), aes(x = age, y = measure, col = version)) + 
+  geom_point(alpha = .4, position = position_dodge(width = .4)) + stat_n_text(size = 4)+
+  stat_summary(fun.data = "mean_cl_boot", position = position_dodge(width = .4), 
+               pch = 2) + 
+  geom_hline(yintercept = 0, lty = 2) + 
+  #facet_wrap(~task) + 
+  #ylim(0, 1)  + 
+  scale_color_manual(values=c("darkolivegreen1", "darkolivegreen3", "darkolivegreen1", "darkolivegreen3")) + 
+  ggthemes::theme_few() + 
+  labs(x = "Age", 
+       y = "Difference in proportions\n(target (%) - distracter (%))")  
+
+p6 <- ggplot(d_sub %>% filter(task == "numeracy"), aes(x = age, y = measure, col = version)) + 
+  geom_point(alpha = .4, position = position_dodge(width = .4)) + stat_n_text(size = 4, y.pos = 0)+
+  stat_summary(fun.data = "mean_cl_boot", position = position_dodge(width = .4), 
+               pch = 2) + 
+  geom_hline(yintercept = .5, lty = 2) + 
+  #facet_wrap(~task) + 
+  #ylim(0, 1)  + 
+  scale_color_manual(values=c("mediumpurple1", "mediumpurple4", "mediumpurple1", "mediumpurple4")) + 
+  ggthemes::theme_few() + 
+  labs(x = "Age", 
+       y = "Proportion of looks fixating on\nchanging stimuli")   + facet_wrap(~stimulus_type) + scale_y_continuous(breaks = c(0, 0.25, .50, .75, 1), limits = c(0,1), labels = c("0.00", "0.25", "0.50", "0.75", "1.00"))
+
+p7 <- ggplot(d_sub %>% filter(task == "helperhinderer"), aes(x = age, y = measure, col = version)) + 
+  geom_point(alpha = .4, position = position_dodge(width = .4)) + stat_n_text(size = 4, y.pos = 0)+
+  stat_summary(fun.data = "mean_cl_boot", position = position_dodge(width = .4), 
+               pch = 2) + 
+  geom_hline(yintercept = .5, lty = 2) + 
+  #facet_wrap(~task) + 
+  #ylim(0, 1)  + 
+  scale_color_manual(values=c("lightblue3", "lightblue4", "lightblue3", "lightblue4")) + 
+  ggthemes::theme_few() + 
+  labs(x = "Age", 
+       y = "Proportion of looks fixating on\nhelper stimuli") + scale_y_continuous(breaks = c(0, 0.25, .50, .75, 1), limits = c(0, 1), labels = c("0.00", "0.25", "0.50", "0.75", "1.00"))
   
 ```
+
+```{r, fig.width= 15, fig.height=13}
+ggarrange(p1, p2, p3, p4,p5, p6, p7, ncol = 2, nrow = 4, labels = "auto", align= "hv")
+#ggarrange(rise_tot, plot6_rise, ncol = 1,  nrow = 2, labels = c("a", "g"),  common.legend = T, heights = c(3,1), widths = c(4,1))
+```
+
 # Stats
 
 vpc, av, and prediction have interactions (stimulus_type, stimulus_type, block)
