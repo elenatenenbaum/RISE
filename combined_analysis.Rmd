@@ -160,7 +160,6 @@ p7 <- ggplot(d_sub %>% filter(task == "helperhinderer"), aes(x = age, y = measur
 
 ```{r, fig.width= 15, fig.height=13}
 ggarrange(p1, p2, p3, p4,p5, p6, p7, ncol = 2, nrow = 4, labels = "auto", align= "hv")
-#ggarrange(rise_tot, plot6_rise, ncol = 1,  nrow = 2, labels = c("a", "g"),  common.legend = T, heights = c(3,1), widths = c(4,1))
 ```
 
 # Stats
