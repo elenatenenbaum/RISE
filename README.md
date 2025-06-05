@@ -4,7 +4,7 @@ This repo was created primarily to serve as a hub for data sharing and provide c
 
 ## Data 
 
-Folder "Data_Aim1" contains the final data files (.csv) for all 7 tasks for Aim 1. https://pubmed.ncbi.nlm.nih.gov/39531700/ 
+Folder "Data_Aim1" contains the final data files (.csv) for all 7 tasks for Aim 1. (Manuscript based on Aim 1 is here: https://pubmed.ncbi.nlm.nih.gov/39531700/) 
 Folder "Data_Aim2" contains the final data files (.csv) for all 7 tasks for Aim 2. manuscript under review (6/5/2025)
 
 
