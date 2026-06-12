@@ -1,0 +1,2217 @@
+---
+title: "RISE Aim 2 - Enrollment"
+date: "`r format(Sys.Date(), '%m/%d/%Y')`"
+author: "My Vu"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    theme: simplex
+  pdf_document:
+    toc: yes
+---
+  
+  <style>
+  .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    background-color: darkorchid;
+  }
+</style>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, warning = F, message =  F)
+
+library(readxl)
+library(readr)
+#library(tidyr)
+library(dplyr)
+#library(tidyverse)
+library(ggplot2)
+library(purrr)
+library(stringr)
+library(lme4)
+library(ggforce)
+library(corrplot)
+library(Hmisc)
+library(gtsummary)
+library(scales)
+library(kableExtra)
+library(ggpubr)
+library(EnvStats)
+library(multcomp)
+
+library(ggthemes)
+library(PupillometryR)
+library(openxlsx)
+
+library(emmeans)
+library(here)
+
+## load source code
+#devtools::source_gist("2a1bb0133ff568cbe28d", filename = "geom_flat_violin.R")
+```
+
+```{r all-files-loading, include=FALSE}
+# ------------------------------------------------------------
+# Load all R scripts from a folder
+# ------------------------------------------------------------
+
+
+r_files <- list.files(
+  path = here("Aim2", "Aim2_Analysis"),
+  pattern = "\\.R$",
+  full.names = TRUE
+)
+
+invisible(lapply(r_files, source))
+```
+
+Total N of 119 in enrollment log with 8 screenfailed/rejected => N = 111
+
+```{r id-file-loading}
+id_merge <- read.csv(here("Aim2", "Aim2_data", "enrollment_data.csv")
+)
+```
+
+
+```{r raw-data-loading}
+raw_data <- read.csv(here("Aim2", "Aim2_Data", "raw_frame_data.csv"))
+```
+
+
+```{r icatcher-files-loading}
+#imports annotated data from location on network (takes only test trials) note, must be VPNd in or onsite to run this
+icatcher_files <- list.files(path=here("Aim2", "Aim2_Data", "aim2_annotation"),
+                                recursive=T,
+                                #pattern="*test-trial*|*test-post*",
+                                full.names=T)
+icatcher_file_names<-icatcher_files
+
+n=length(icatcher_files)
+for(i in 1:n){
+    icatcher_file_names[i]<-str_extract(icatcher_files[i], "[^/]+$")
+  }
+
+#create df called icatcher_output with relevant information from icatcher file name
+icatcher_output<-data.frame(icatcher_files,icatcher_file_names,word(icatcher_file_names,1,sep="\\_"),word(icatcher_file_names,2,sep="\\_"))
+
+#rename columns to match Stim_Order
+icatcher_output<-rename(icatcher_output,frame_id=3,response_uuid=4)
+
+#remove id in babysibs, in retest, and extra IDs in consent ()
+icatcher_output <- icatcher_output
+```
+
+```{r stim-order}
+Stim_Order<-raw_data[raw_data$key == "videoShown",]
+#reduces to rows that contained "test"
+Stim_Order<-Stim_Order[grep("test",Stim_Order$frame_id),]
+
+Stim_Order <- Stim_Order %>% dplyr::select(response_uuid, child_hashed_id, frame_id, value)
+
+#check for duplicates
+Stim_Order %>% group_by(child_hashed_id, frame_id) %>% filter(n() > 1) %>% ungroup() %>% distinct(child_hashed_id)
+```
+
+```{r age}
+Part_Age <- id_merge %>% dplyr::mutate(Age = factor(Age, levels = c(6, 12))) %>% dplyr::select(response_uuid, Age, cohort, Gender) %>% filter(response_uuid %in% icatcher_output$response_uuid)
+```
+
+# Demographics
+
+```{r demographics, eval = T}
+demo <- read.csv(
+  here("Aim2", "Aim2_Data", "demographics.csv")
+) %>% 
+  mutate(demographic__annual_income2 = factor(demographic__annual_income2, levels = c( "< 50,000", "50,000 - 100,000","101,000 - 200,000", "> 200,000")))%>% 
+  mutate(Region = factor(Region, levels = c("Northeast", "Midwest", "South", "West"))) %>% 
+  mutate(demographic__education_level2 = factor(demographic__education_level2, levels = c("High school", "Associate (some college)",  "Bachelor/College", "Graduate and Professional"))) %>% 
+  mutate(race = factor(race, levels = c("American Indian or Alaska Native", "Asian", "Black or African American", "Native Hawaiian or Other Pacific Islander","White", "More than one race")))
+
+demo %>% merge(Part_Age) %>% dplyr::select(Age, Gender, race, Ethnicity, demographic__education_level2, demographic__annual_income2, Region)%>%
+  tbl_summary(
+    by = "Age",
+    statistic = list(all_continuous() ~ c("{mean} ({sd})",
+                                          "{median} ({p25}, {p75})",
+                                     "{min}, {max}"),
+                     all_categorical() ~ "{n} ({p})"),
+digits = list(all_continuous() ~ 1, all_categorical() ~ c(0, 1)),
+missing_text = "(Missing)"
+  ) %>% add_overall()
+
+```
+
+MAKE SURE TO REMOVE LONG VIDEOS and TRIM the extra frames
+
+```{r video-timing}
+video_time <- raw_data[grepl("test",raw_data$frame_id, ignore.case = T),]
+
+options(digits.secs = 3)
+
+video_time <- video_time %>%
+  filter(key %in% c("eventType", "timestamp")) %>%
+  tidyr::pivot_wider(
+    names_from = key,
+    values_from = value
+  ) %>%
+  dplyr::select(response_uuid, child_hashed_id, frame_id, event_number, eventType, timestamp) %>%
+  tidyr::pivot_wider(
+    names_from = eventType,
+    values_from = timestamp
+  ) %>%
+  mutate(across(starts_with("exp-lookit"),
+                ~ as.POSIXct(.x, format = "%Y-%m-%dT%H:%M:%OS", tz = "UTC")))
+
+# pull the timestamps of startRecording, videoStarted, videoPaused from frame data
+
+clean_df <- video_time %>% dplyr::select(1:3, `exp-lookit-video:startRecording`, `exp-lookit-video:videoStarted`, `exp-lookit-video:videoPaused`, `exp-lookit-video:trialCompleted`) %>%
+  tidyr::pivot_longer(
+    cols = starts_with("exp-lookit-video"),
+    names_to = "event_type",
+    values_to = "timestamp"
+  ) %>%
+  filter(!is.na(timestamp))%>%
+  group_by(response_uuid, child_hashed_id, frame_id, event_type) %>%
+  arrange(timestamp, .by_group = TRUE) %>%
+  mutate(event_idx = row_number()) %>%
+  ungroup()%>%
+  mutate(
+    event_type = if_else(
+      event_idx == 1,
+      event_type,
+      paste0(event_type, "_", event_idx)
+    )
+  )%>%
+  dplyr::select(response_uuid, child_hashed_id, frame_id, event_type, timestamp) %>%
+  tidyr::pivot_wider(
+    names_from = event_type,
+    values_from = timestamp
+  ) 
+
+clean_df <- clean_df %>% 
+  dplyr::select(1:3, `exp-lookit-video:startRecording`, `exp-lookit-video:videoStarted`,`exp-lookit-video:videoPaused`, `exp-lookit-video:videoStarted_2`,  `exp-lookit-video:videoPaused_2`, `exp-lookit-video:trialCompleted`)
+
+# calculate the time (secs) between recording and started, and paused and restarted
+df_diff <- clean_df %>%
+  mutate(record_1ststart = (as.numeric(difftime(`exp-lookit-video:videoStarted`, `exp-lookit-video:startRecording`, units = "secs")))) 
+
+```
+
+```{r exclusions-video-quality-issues}
+#videos that had video quality issues: glitching, frame repetition, or pixelation that need to be excluded
+
+exclusion_df <- read.csv(here("Aim2", "Aim2_Data", "longvideo_with_timestamp_march2026.csv")) %>% dplyr::select(-1)
+
+```
+
+
+# Geometric Social 
+
+Note on how outcome was derive:
+
+1. Remove frames coded as "nobabyface", "noface", "none", or "away" 
+2. Remove "left", "right" frames with confidence < 85%
+3. Use "left" vs "right" to code "target" vs "non-target" depending on the task and version. Calculate % looking for each social side as:
+ 
+    % looking =  (target) / (target + non-target)
+    
+    *left & right frames all need to have >= 85% confidence. A trial must have at least 33% usable data (i.e. left, right frames at 85% confidence) to be included.
+    
+```{r geosocial-stim-order}
+GS<-Stim_Order %>% filter(grepl("GeoSocial", value))
+#merges participant order with icatcher output
+GS_icatcher <- merge(x=GS,y=icatcher_output, 
+             by=c("response_uuid","frame_id"), all=F) %>%
+  anti_join(exclusion_df, by = c("response_uuid", "frame_id"))
+
+GS_icatcher <- GS_icatcher %>% merge(df_diff) %>% mutate(
+  frame_to_remove =
+   round((record_1ststart * 1000) / 33.3)) %>% dplyr::select(1:6, frame_to_remove) %>% mutate(frame_to_remove = ifelse(is.na(frame_to_remove), 0, frame_to_remove))
+```
+
+```{r geosocial-timestamps}
+
+aim2_timestamps_final <- here("Aim2", "Aim2_Data", "aim2_timestamps_final.xlsx")
+
+frame_ct_gs <- read_xlsx(
+  aim2_timestamps_final,
+  sheet = "GeoSocial"
+)
+frame_ct_gs <- frame_ct_gs %>%
+  mutate(frame = map2(`Frame Start` , `Frame End`, seq)) %>%
+  tidyr::unnest(frame) %>%
+  mutate(Trial = str_extract(`Trial Number`, "\\d+")) %>%
+  dplyr::select(frame, Position, Trial) %>% dplyr::rename(position = Position)
+
+
+frame_ct_gs <- frame_ct_gs %>%
+  mutate(position = case_when(
+    position == "left"  ~ "right",
+    position == "right" ~ "left",
+    TRUE ~ position
+  ))
+```
+
+```{r geosocial-results}
+GS_results <- process_icatcher(GS_icatcher, 
+                               frame_ct_gs, 
+                               Part_Age, 
+                               use_version = F)
+
+write.csv(GS_results$trial_counts %>%
+    merge(GS_results$quality_flags %>% dplyr::select(-Age),
+          by  = c("response_uuid", "Trial"),
+          all = TRUE)%>%
+    dplyr::mutate(
+      has_icatcher  = ifelse(noicatcherdata != frames | is.na(noicatcherdata), T, F) 
+    )%>%
+    mutate(noicatcherdata = tidyr::replace_na(noicatcherdata, 0),
+           n_icatcher     = frames - noicatcherdata) %>%
+    dplyr::mutate(
+      `Usable frames (%)` = round(count_85_non_na / frames,3)) %>% 
+  dplyr::select(response_uuid, Trial, `Usable frames (%)`, has_icatcher) %>% merge(GS_icatcher %>% dplyr::select(response_uuid, icatcher_file_names)),  here("Aim2", "Aim2_Computed_Data", "geosocial_usableframe.csv"), row.names = FALSE)
+```
+
+## Data count
+
+Number (and percent) of infants who viewed the task at all (2nd column, as % of consented sample with any icatcher data & in frame data , with sufficient usable data (3rd column, as % of infants who viewed the task),  with fixation on a single side >80% of the task (4th column, as % of infants with usable data), and final N in the analytic dataset. 
+
+```{r geosocial-data-count, fig.width=10}
+GS_enrollment <- compute_gaze_metrics(
+  GS_results,
+  Part_Age,
+  task_type = "dual",
+  usable_threshold = 0.33,
+  remove_fixations = TRUE,
+  remove_extreme_target = TRUE,
+  collapse_vpc_hh = FALSE,
+  type_task = NULL,
+  task_icatcher = NULL
+)
+```
+
+
+```{r geosocial-table, fig.width=10}
+make_flow_table(GS_results, GS_enrollment, Part_Age)
+summarise_quality_v2(GS_results, Part_Age)
+summarise_trials(GS_enrollment)
+```
+
+
+## Analysis
+
+```{r geosocial-analysis}
+tab_geo <- run_condition_model(
+    data = GS_enrollment$metrics,
+    condition_var = "Age",
+    metric = "target_prop",
+    chance_level = 0.5,
+    random_effects = c(
+      "(1 | response_uuid)",
+      "(1 | Trial)"
+    ),
+    interaction = FALSE
+)
+
+output_path <- here("Aim2", "Aim2_Computed_Data", "geosocial.csv")
+
+write.csv(
+    GS_enrollment$metrics %>%
+      dplyr::select(response_uuid, Age, Trial, target_prop),
+    output_path,
+    row.names = FALSE
+  )
+```
+
+```{r geosocial-plot}
+
+plot1_rise<- ggplot(data = GS_enrollment$metrics_avg, 
+       mapping = aes(x = Age, 
+                     y = target_prop_avg, 
+                     fill = Age)) + 
+  geom_flat_violin(scale = "count", 
+                   trim = FALSE) + 
+  stat_summary(fun.data = mean_sdl, 
+               fun.args = list(mult = 1), 
+               geom = "pointrange", 
+               position = position_nudge(0.05)) + 
+  geom_dotplot(binaxis = "y", 
+               dotsize = 0.6, 
+               stackdir = "down", 
+               #binwidth = 0.1, 
+               position = position_nudge(-0.025)) + 
+  theme(legend.position = "none") + 
+  labs(x = "Age", 
+       y = "Proportion of looks fixating on\nsocial stimuli\n")+ stat_n_text(size = 4, y.pos = 0)  +scale_fill_manual(values=c("palevioletred2", "palevioletred3")) + theme_few() + geom_hline(yintercept=0.5, linetype="dashed", color = "red") + theme(text = element_text(size = 15))+ guides(fill="none") + scale_y_continuous(breaks = c(0, 0.25, .50, .75, 1), limits = c(-0.1, 1), labels = c("0.00", "0.25", "0.50", "0.75", "1.00"))
+
+```    
+
+# VPC
+8 versions, participants sees both object & face stimuli
+
+Note on how outcome was derive:
+
+1. Remove frames coded as "nobabyface", "noface", "none", or "away" 
+2. Remove frames with with confidence < 85%
+3. Use "left" vs "right" to code "target" vs "non-target" depending on the task and version. Calculate % looking for each novel side as:
+ 
+    % looking =  (target) / (target + non-target)
+    
+    *left & right frames all need to have >= 85% confidence. A trial must have at least 33% usable data (i.e. left, right frames at 85% confidence) to be included.
+    
+```{r vpc-stim-order}
+vpc<-Stim_Order %>% filter(grepl("VPC", value))
+vpc_icatcher <- merge(x=vpc,y=icatcher_output, 
+             by=c("response_uuid","frame_id"), all=F) %>%
+  anti_join(exclusion_df, by = c("response_uuid", "frame_id"))
+
+vpc_icatcher <- vpc_icatcher %>% merge(df_diff) %>% mutate(
+  frame_to_remove =
+   round((record_1ststart * 1000) / 33.3)) %>% dplyr::select(1:6, frame_to_remove) %>% mutate(frame_to_remove = ifelse(is.na(frame_to_remove), 0, frame_to_remove)) %>% 
+  mutate(value = gsub(".*/([^/]+)\\.webm$", "\\1", value)) %>%
+  dplyr::mutate(value = gsub("_Aim2", "", value))
+
+vpc_icatcher$Version<- vpc_icatcher$value
+
+```
+
+```{r vpc-timestamps}
+
+labeled_frames_vpc <- read_xlsx(
+  aim2_timestamps_final,
+  sheet = "VPC"
+)
+
+labeled_frames_vpc <- labeled_frames_vpc %>%
+  mutate(Position = str_extract(Position, "left|right"))
+
+labeled_frames_vpc <- labeled_frames_vpc %>%
+  mutate(Position = case_when(
+    Position == "left"  ~ "right",
+    Position == "right" ~ "left",
+    TRUE ~ Position
+  ))
+
+
+# Step 2: expand frame ranges into one row per frame
+labeled_frames_vpc <- labeled_frames_vpc %>%
+  rowwise() %>%
+  mutate(frame = list(seq(`Frame Start`, `Frame End`))) %>%
+  tidyr::unnest(frame) %>%
+  ungroup() %>%
+  dplyr::select(frame, Trial = `Trial Number`, Version, Position)
+
+# Step 3: pivot so each version becomes its own column
+labeled_frames_vpc <- labeled_frames_vpc %>%
+  tidyr::pivot_wider(
+    names_from  = Version,
+    values_from = Position
+  )
+
+```
+
+```{r vpc-read-timstamps}
+type_vpc <- read_xlsx(aim2_timestamps_final,sheet = "VPC") %>%
+  dplyr::select(1:3)
+
+```
+
+```{r vpc-results}
+vpc_results <- process_icatcher(vpc_icatcher, 
+                                labeled_frames_vpc, 
+                                Part_Age,
+                                use_version = T)
+
+write.csv(vpc_results$trial_counts %>%
+    merge(vpc_results$quality_flags %>% dplyr::select(-Age),
+          by  = c("response_uuid", "Trial"),
+          all = TRUE)%>%
+    dplyr::mutate(
+      has_icatcher  = ifelse(noicatcherdata != frames | is.na(noicatcherdata), T, F) 
+    )%>%
+    mutate(noicatcherdata = tidyr::replace_na(noicatcherdata, 0),
+           n_icatcher     = frames - noicatcherdata) %>%
+    dplyr::mutate(
+      `Usable frames (%)` = round(count_85_non_na / frames,3)) %>% 
+  dplyr::select(response_uuid, Trial, `Usable frames (%)`, has_icatcher) %>% merge(vpc_icatcher %>% dplyr::select(response_uuid, icatcher_file_names)),   here("Aim2", "Aim2_Computed_Data", "vpc_usableframe.csv"), row.names = FALSE)
+```
+
+## Data count
+
+Number (and percent) of infants who viewed the task at all (2nd column, as % of consented sample with any icatcher data & in frame data , with sufficient usable data (3rd column, as % of infants who viewed the task),  with fixation on a single side >80% of the task (4th column, as % of infants with usable data), and final N in the analytic dataset. 
+
+```{r vpc-data-count, fig.width=10}
+vpc_enrollment <- compute_gaze_metrics(
+    vpc_results,
+    Part_Age,
+    task_type = c("dual"),
+    usable_threshold = 0.33,
+    remove_fixations = TRUE,
+    remove_extreme_target = TRUE,
+    collapse_vpc_hh = TRUE,
+    type_task = type_vpc,
+    task_icatcher = vpc_icatcher
+)
+```
+
+```{r vpc-table, fig.width=10}
+make_flow_table(vpc_results, vpc_enrollment, Part_Age)
+summarise_quality_v2(vpc_results, Part_Age)
+summarise_trials(vpc_enrollment)
+```
+
+
+## Analysis
+
+```{r vpc-analysis}
+output_path <- here("Aim2", "Aim2_Computed_Data", "vpc.csv")
+
+write.csv(
+    vpc_enrollment$metrics %>%
+      dplyr::select(response_uuid, Age, `Trial Total`, target_prop, `Stimulus type`),
+    output_path,
+    row.names = FALSE
+  )
+```
+
+```{r vpc-outcome-table}
+tab_vpc <- run_condition_model(
+    data = vpc_enrollment$metrics %>% dplyr::rename(Stimulus_type = "Stimulus type"),
+    condition_var = c("Age", "Stimulus_type"),
+    metric = "target_prop",
+    chance_level = 0.5,
+    random_effects = c(
+      "(1 | response_uuid)",
+      "(1 | `Trial Total`)"
+    ),
+    interaction = T
+) %>% filter(!grepl("6 - 12", Condition))
+```
+
+effect of stimulus type overall, among 6 (Social - Non-social) and among 12-mos (Social - Non-social); p-values: 
+
+```{r vpc-model-analysis}
+mod <-lmerTest::lmer(
+    formula = target_prop ~ Age*Stimulus_type + (1 | response_uuid) + (1 | `Trial Total`),
+    data = vpc_enrollment$metrics %>% dplyr::rename(Stimulus_type = "Stimulus type"),
+    REML = TRUE
+  )
+emmeans(mod, pairwise ~ Stimulus_type)$contrasts
+
+emmeans(mod, pairwise ~ Stimulus_type | Age)$contrasts
+```
+
+```{r vpc-plot}
+VP_fig <- vpc_enrollment$metrics %>%
+  dplyr::group_by(response_uuid, `Stimulus type`) %>%
+  dplyr::summarise(
+    target_prop_avg = mean(target_prop, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  dplyr::mutate(
+    `Stimulus type` = dplyr::case_when(
+      `Stimulus type` == "Non-social" ~ "Fribbles",
+      `Stimulus type` == "Social" ~ "Faces"
+    ),
+    `Stimulus type` = factor(
+      `Stimulus type`,
+      levels = c("Faces", "Fribbles")
+    )
+  )%>% merge(Part_Age,all.x=TRUE)  %>% dplyr::mutate(Age = factor(Age, levels = c(6, 12)))
+
+plot4_rise <- ggplot(data = VP_fig, 
+       mapping = aes(x = Age, 
+                     y = target_prop_avg, 
+                     fill = Age)) + facet_wrap(~`Stimulus type`) + 
+  geom_flat_violin(scale = "count", 
+                   trim = FALSE) + 
+  stat_summary(fun.data = mean_sdl, 
+               fun.args = list(mult = 1), 
+               geom = "pointrange", 
+               position = position_nudge(0.05)) + 
+  geom_dotplot(binaxis = "y", 
+               dotsize = 0.6, 
+               stackdir = "down", 
+               #binwidth = 0.1, 
+               position = position_nudge(-0.025)) + 
+  theme(legend.position = "none") + 
+  labs(x = "Age",
+       y = "Proportion of looks fixating on\nnovel images\n") + stat_n_text(size = 4, y.pos = -0.1)  +scale_fill_manual(values=c("lightpink1", "lightpink3")) + theme_few() + geom_hline(yintercept=0.5, linetype="dashed", color = "red") + theme(text = element_text(size = 15)) + guides(fill="none") + scale_y_continuous(breaks = c(0, 0.25, .50, .75, 1), limits = c(-0.1, 1), labels = c("0.00", "0.25", "0.50", "0.75", "1.00"))
+```
+
+
+# Prediction 
+2 versions LthenR vs RthenL
+
+Note on how outcome was derive:
+
+1. Remove frames coded as "nobabyface", "noface", "none", or "away" 
+2. Remove "left", "right" frames with confidence < 85%
+3. Use "left" vs "right" to code "target" vs "non-target" depending on the task and version. For each test trials for each block (2-8) and (10-16), an AEM = if participant looks at target at all during critical window. 
+
+For each block, compute total trials per participant, then calculate proportion of AEM trials as final outcome.
+
+    
+```{r prediciton-stim-order}
+prediction<-Stim_Order %>% filter(grepl("Prediction", value))
+prediction_icatcher <- merge(x=prediction,y=icatcher_output, 
+             by=c("response_uuid","frame_id"), all=F) %>%
+  anti_join(exclusion_df, by = c("response_uuid", "frame_id"))
+
+
+prediction_icatcher <- prediction_icatcher %>% merge(df_diff) %>% mutate(
+  frame_to_remove =
+   round((record_1ststart * 1000) / 33.3)) %>% dplyr::select(1:6, frame_to_remove) %>% mutate(frame_to_remove = ifelse(is.na(frame_to_remove), 0, frame_to_remove)) %>% 
+  mutate(value = gsub(".*/([^/]+)\\.webm$", "\\1", value))  %>% 
+  dplyr::mutate(value = gsub("_Aim2", "", value))
+
+prediction_icatcher$Version<- prediction_icatcher$value
+
+```
+
+```{r prediciton-timestamps}
+labeled_frames_prediction <- read_xlsx(aim2_timestamps_final,
+  sheet = "Prediction")
+
+labeled_frames_prediction <- labeled_frames_prediction %>%
+  mutate(frame = map2(`Frame Start` , `Frame End`, seq)) %>%
+  tidyr::unnest(frame) %>%
+  mutate(Trial = str_extract(`Trial Number`, "\\d+")) %>%
+  dplyr::select(frame, contains("PredictionTarget"), Trial) 
+
+labeled_frames_prediction <- labeled_frames_prediction %>%
+  mutate(PredictionTargetLthenR = case_when(
+    PredictionTargetLthenR == "left"  ~ "right",
+    PredictionTargetLthenR == "right" ~ "left",
+    TRUE ~ PredictionTargetLthenR
+  ))
+
+labeled_frames_prediction <- labeled_frames_prediction %>%
+  mutate(PredictionTargetRthenL = case_when(
+    PredictionTargetRthenL == "left"  ~ "right",
+    PredictionTargetRthenL == "right" ~ "left",
+    TRUE ~ PredictionTargetRthenL
+  ))
+```
+
+```{r prediciton-results}
+Prediction_results <- process_icatcher(
+    prediction_icatcher,
+    labeled_frames_prediction,
+    Part_Age,
+    use_version = T
+)
+  
+write.csv(Prediction_results$trial_counts %>%
+    merge(Prediction_results$quality_flags %>% dplyr::select(-Age),
+          by  = c("response_uuid", "Trial"),
+          all = TRUE)%>%
+    dplyr::mutate(
+      has_icatcher  = ifelse(noicatcherdata != frames | is.na(noicatcherdata), T, F) 
+    )%>%
+    mutate(noicatcherdata = tidyr::replace_na(noicatcherdata, 0),
+           n_icatcher     = frames - noicatcherdata) %>%
+    dplyr::mutate(
+      `Usable frames (%)` = round(count_85_non_na / frames,3)) %>% 
+  dplyr::select(response_uuid, Trial, `Usable frames (%)`, has_icatcher) %>% merge(prediction_icatcher %>% dplyr::select(response_uuid, icatcher_file_names)), here("Aim2", "Aim2_Computed_Data", "prediction_usableframe.csv"), row.names = FALSE)
+```
+
+
+```{r prediction-enrollment-fig, fig.width=10}
+Prediction_enrollment <- compute_gaze_metrics(
+    Prediction_results,
+    Part_Age,
+    task_type = "dual",
+    usable_threshold = 0.33,
+    remove_fixations = FALSE,
+    remove_extreme_target = FALSE,
+    collapse_vpc_hh = FALSE,
+    type_task = NULL,
+    task_icatcher = NULL
+)
+```
+
+## Data count
+
+Number (and percent) of infants who viewed the task at all (2nd column, as % of consented sample with any icatcher data & in frame data , with sufficient usable data (3rd column, as % of infants who viewed the task),  with fixation on a single side >80% of the task (4th column, as % of infants with usable data), and final N in the analytic dataset. 
+
+```{r prediction-data-count, fig.width=10}
+make_flow_table(Prediction_results, Prediction_enrollment, Part_Age)
+summarise_quality_v2(Prediction_results, Part_Age)
+```
+
+Filter out trials 1 and 9. Participants must have at least 1 AEM trial in Block 2.
+Must have usable data for at least 2 trials in block 1 for block 1 outcome to be included. Similarly for block 2.
+
+```{r prediction-results}
+# Filter out trials 1 and 9, then classify each trial as AEM or non-AEM
+# based on whether target_prop > 0, and assign trials to Block 1 (trials 2-8)
+# or Block 2 (remaining trials)
+
+prediction_enr <- Prediction_enrollment$metrics %>% filter(!Trial %in% c("1","9")) %>%
+  dplyr::mutate(aem = ifelse(target_prop > 0, "aem", "no aem")) %>% 
+  dplyr::mutate(block = ifelse(Trial %in% as.character(2:8), "Block 1", "Block 2"))
+
+# --- Block 2 Summary ---
+df_b2 <- prediction_enr %>% 
+  filter(block == "Block 2") %>%
+  # Count AEM and non-AEM trials per participant
+  dplyr::group_by(response_uuid, aem) %>% 
+  dplyr::summarise(n = n()) %>% 
+  ungroup() %>%
+  # Ensure every participant has both AEM and non-AEM rows (fill missing with 0)
+  tidyr::complete(response_uuid, aem) %>% 
+  dplyr::mutate(n = ifelse(is.na(n), 0, n)) %>%
+  # Compute total trials per participant, then calculate proportion of AEM trials
+  dplyr::group_by(response_uuid) %>% 
+  dplyr::mutate(n2 = sum(n)) %>% 
+  filter(aem == "aem") %>% 
+  dplyr::mutate(aem_prop = n / n2) %>% 
+  # Merge in participant age information
+  merge(Part_Age, all.x = T) %>%
+  dplyr::mutate(block = "Block 2") %>%
+  # Keep only participants who had at least 1 AEM trial in Block 2
+  filter(n > 0)  
+
+# --- Block 1 Summary ---
+df_b1 <- prediction_enr %>% 
+  filter(block == "Block 1") %>%
+  # Count AEM and non-AEM trials per participant
+  dplyr::group_by(response_uuid, aem) %>% 
+  dplyr::summarise(n = n()) %>% 
+  ungroup() %>%
+  # Ensure every participant has both AEM and non-AEM rows (fill missing with 0)
+  tidyr::complete(response_uuid, aem) %>% 
+  dplyr::mutate(n = ifelse(is.na(n), 0, n)) %>%
+  # Compute total trials per participant, then calculate proportion of AEM trials
+  dplyr::group_by(response_uuid) %>% 
+  dplyr::mutate(n2 = sum(n)) %>% 
+  filter(aem == "aem") %>% 
+  dplyr::mutate(aem_prop = n / n2) %>%
+  # Merge in participant age information
+  merge(Part_Age, all.x = T) %>%
+  dplyr::mutate(block = "Block 1") %>%
+  # Keep only participants who also appear in Block 2 (for matched comparison)
+  filter(response_uuid %in% df_b2$response_uuid) 
+
+prediction_final <- rbind(df_b1, df_b2) %>% 
+  filter(n2 >= 2)
+```
+
+```{r prediction-final}
+prediction_final %>% dplyr::select(1, Age, n2)  %>%
+  dplyr::group_by(response_uuid)%>%
+     summarise(n = sum(n2), Age = first(Age)) %>% dplyr::select(Age, n) %>%
+    tbl_summary(
+      by   = Age,
+      type = list(n ~ "continuous2"),
+      statistic = list(
+        all_continuous()  ~ c("{median} ({p25}, {p75})", "{min}, {max}"),
+        all_categorical() ~ "{n} / {N} ({p}%)"
+      ),
+      digits       = all_continuous() ~ 2,
+      missing_text = "(Missing)"
+    ) %>% modify_caption("**Median (IQR) number of test trials with usable data (final analytic)**")
+```
+
+
+```{r prediction-plot, fig.width= 12}
+trial_by_trial <- prediction_enr %>%
+  semi_join(prediction_final, by = c("response_uuid", "block")) %>% filter(Age == 6) %>%
+  dplyr::group_by(Trial, aem)%>%
+     summarise(n = n()) %>%
+     mutate(freq = (n / sum(n))) %>% group_by(Trial) %>% mutate(n2 = sum(n)) %>% filter(aem == "aem")  %>% ungroup() %>% mutate(time = paste0(Trial, " \n(N = ", n2, ")")) %>% mutate(Trial = as.numeric(as.character(Trial))) %>% arrange(Trial) 
+
+trial_by_trial <- trial_by_trial %>% rowwise()%>% mutate(p_val = prop.test(x = n, n = n2, alternative = "greater")[[3]]) %>% mutate(label_pp = paste0(round(freq,2))) %>% mutate(Color = ifelse(p_val < 0.05, "red", "black"))
+
+checkpred <- prediction_enr %>%
+  semi_join(prediction_final, by = c("response_uuid", "block")) %>% filter(Age == 6) 
+length(unique(checkpred$response_uuid))
+
+p1_aem <- trial_by_trial %>% ggplot(aes(x=Trial,
+                           y=freq)) + theme_bw() +
+ geom_point(aes(color = Color), size = 4) + geom_line() + scale_x_continuous(breaks=c(2:8, 10:16), labels= trial_by_trial$time) + ylab("Proportion of babies with an AEM to Target Side\n") + scale_y_continuous(breaks = c(0.0, .25, .50, .75, 1.0), limits = c(0, 1), labels = c(0.0, .25, .50, .75, 1.0))+ ggtitle("Age 6 (months)")+
+      theme(
+        #panel.grid.major.y = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        axis.text.y = element_text(size = 16),
+        axis.text.x = element_text(size = 16),
+        axis.title.x = element_text(size = 16),
+        axis.title.y = element_text(size = 16),
+        title = element_text(size = 16)
+        )+
+  geom_text(aes(label = label_pp),
+            size = 5, vjust = -1)  +
+  scale_color_identity() 
+
+
+trial_by_trial <- prediction_enr %>%
+  semi_join(prediction_final, by = c("response_uuid", "block")) %>% filter(Age == 12) %>%
+  dplyr::group_by(Trial, aem)%>%
+     summarise(n = n()) %>%
+     mutate(freq = (n / sum(n))) %>% group_by(Trial) %>% mutate(n2 = sum(n)) %>% filter(aem == "aem")  %>% ungroup() %>% mutate(time = paste0(Trial, " \n(N = ", n2, ")")) %>% mutate(Trial = as.numeric(as.character(Trial))) %>% arrange(Trial) 
+
+trial_by_trial <- trial_by_trial %>% rowwise()%>% mutate(p_val = prop.test(x = n, n = n2, alternative = "greater")[[3]]) %>% mutate(label_pp = paste0(round(freq,2))) %>% mutate(Color = ifelse(p_val < 0.05, "red", "black"))
+
+checkpred <- prediction_enr %>%
+  semi_join(prediction_final, by = c("response_uuid", "block")) %>% filter(Age == 12) 
+length(unique(checkpred$response_uuid))
+
+p2_aem <- trial_by_trial %>% ggplot(aes(x=Trial,
+                           y=freq)) + theme_bw() +
+ geom_point(aes(color = Color), size = 4) + geom_line() + scale_x_continuous(breaks=c(2:8, 10:16), labels= trial_by_trial$time) + ylab("Proportion of babies with an AEM to Target Side\n") + scale_y_continuous(breaks = c(0.0, .25, .50, .75, 1.0), limits = c(0, 1), labels = c(0.0, .25, .50, .75, 1.0))+ ggtitle("Age 12 (months)")+
+      theme(
+        #panel.grid.major.y = element_blank(),
+        panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        axis.text.y = element_text(size = 16),
+        axis.text.x = element_text(size = 16),
+        axis.title.x = element_text(size = 16),
+        axis.title.y = element_text(size = 16),
+        title = element_text(size = 16)
+        )+
+  geom_text(aes(label = label_pp),
+            size = 5, vjust = -1)  +
+  scale_color_identity() 
+```
+
+```{r predicition-output-fig, fig.height=12, fig.width=15}
+ggarrange(p1_aem, p2_aem, ncol = 1, nrow = 2, labels = "auto")
+
+output_path <- here("Aim2", "Aim2_Computed_Data", "prediction.csv")
+
+write.csv(
+    prediction_final %>%
+      dplyr::select(response_uuid, Age,block, aem_prop),
+    output_path,
+    row.names = FALSE
+  )
+```
+
+Age 6 estimate is significant for being < 0.5 - so just a note. 
+
+```{r prediction-table-results, eval = T}
+tab_pred <- run_condition_model(
+    data = prediction_final,
+    condition_var = c("Age", "block"),
+    metric = "aem_prop",
+    chance_level = 0.5,
+    random_effects =  c("(1 | response_uuid)"),
+    interaction = T
+)%>% filter(!grepl("6 - 12", Condition))
+```
+
+```{r prediction-plot2}
+
+plot3_rise <- ggplot(data = prediction_final, 
+       mapping = aes(x = Age, 
+                     y = aem_prop, 
+                     fill = Age)) + facet_wrap(~block) + 
+  geom_flat_violin(scale = "count", 
+                   trim = FALSE) + 
+  stat_summary(fun.data = mean_sdl, 
+               fun.args = list(mult = 1), 
+               geom = "pointrange", 
+               position = position_nudge(0.05)) + 
+  geom_dotplot(binaxis = "y", 
+               dotsize = 0.6, 
+               stackdir = "down", 
+               #binwidth = 0.1, 
+               position = position_nudge(-0.025)) + 
+  theme(legend.position = "none") + 
+  labs(x = "Age",
+       y = "Proportion of AEMs to Target Side\n") + stat_n_text(size = 4, y.pos = -0.6)  +scale_fill_manual(values=c("lightsalmon1", "lightsalmon2")) + theme_few() + geom_hline(yintercept=0.5, linetype="dashed", color = "red") + theme(text = element_text(size = 15)) + guides(fill="none") 
+```
+
+# AV 
+
+Note on how outcome was derive:
+
+1. Remove frames coded as "nobabyface", "noface", "none", or "away" 
+2. Remove "left", "right" frames  with confidence < 85%
+3. Use "left" vs "right" to code "target" vs "non-target" depending on the task and version. Calculate % looking for each synch side as:
+ 
+    % looking =  (target) / (target + non-target)
+    
+    *left & right frames all need to have >= 85% confidence. A trial must have at least 33% usable data (i.e. left, right frames at 85% confidence) to be included.
+    
+```{r av-stim-order}
+AV<-Stim_Order %>% filter(grepl("AV", value))
+
+AV_icatcher <- merge(x=AV,y=icatcher_output, 
+             by=c("response_uuid","frame_id"), all=F) %>%
+  anti_join(exclusion_df, by = c("response_uuid", "frame_id"))
+
+AV_icatcher <- AV_icatcher %>% merge(df_diff) %>% mutate(
+  frame_to_remove =
+   round((record_1ststart * 1000) / 33.3)) %>% dplyr::select(1:6, frame_to_remove) %>% mutate(frame_to_remove = ifelse(is.na(frame_to_remove), 0, frame_to_remove))
+```
+
+```{r av-timestamps}
+labeled_frames_av <- read_xlsx(aim2_timestamps_final, sheet = "AVSynch")
+
+labeled_frames_av <- labeled_frames_av %>%
+  mutate(frame = map2(`Frame Start` , `Frame End`, seq)) %>%
+  tidyr::unnest(frame) %>%
+  mutate(Trial = str_extract(`Trial Number`, "\\d+")) %>%
+  dplyr::select(frame, Position, Trial) %>% dplyr::rename(position = Position)
+
+labeled_frames_av <- labeled_frames_av %>%
+  mutate(position = case_when(
+    position == "left"  ~ "right",
+    position == "right" ~ "left",
+    TRUE ~ position
+  ))
+```
+
+```{r av-results}
+AV_results <- process_icatcher(AV_icatcher, 
+                               labeled_frames_av, 
+                               Part_Age, 
+                               use_version = F)
+
+write.csv(AV_results$trial_counts %>%
+    merge(AV_results$quality_flags %>% dplyr::select(-Age),
+          by  = c("response_uuid", "Trial"),
+          all = TRUE)%>%
+    dplyr::mutate(
+      has_icatcher  = ifelse(noicatcherdata != frames | is.na(noicatcherdata), T, F) 
+    )%>%
+    mutate(noicatcherdata = tidyr::replace_na(noicatcherdata, 0),
+           n_icatcher     = frames - noicatcherdata) %>%
+    dplyr::mutate(
+      `Usable frames (%)` = round(count_85_non_na / frames,3)) %>% 
+  dplyr::select(response_uuid, Trial, `Usable frames (%)`, has_icatcher) %>% merge(AV_icatcher %>% dplyr::select(response_uuid, icatcher_file_names)),   here("Aim2", "Aim2_Computed_Data", "av_usableframe.csv"), row.names = FALSE)
+
+```
+
+## Data count
+
+Number (and percent) of infants who viewed the task at all (2nd column, as % of consented sample with any icatcher data & in frame data , with sufficient usable data (3rd column, as % of infants who viewed the task),  with fixation on a single side >80% of the task (4th column, as % of infants with usable data), and final N in the analytic dataset. 
+
+```{r av-data-count, fig.width=10}
+AV_enrollment <- compute_gaze_metrics(
+  AV_results,
+  Part_Age,
+  task_type = "dual",
+  usable_threshold = 0.33,
+  remove_fixations = TRUE,
+  remove_extreme_target = TRUE,
+  collapse_vpc_hh = FALSE,
+  type_task = NULL,
+  task_icatcher = NULL
+)
+```
+
+
+```{r av-count-table, fig.width=10}
+make_flow_table(AV_results, AV_enrollment, Part_Age)
+summarise_quality_v2(AV_results, Part_Age)
+summarise_trials(AV_enrollment)
+```
+
+## Analysis
+
+```{r av-analysis-table}
+tab_av <- run_condition_model(
+    data = AV_enrollment$metrics,
+    condition_var = "Age",
+    metric = "target_prop",
+    chance_level = 0.5,
+    random_effects = c(
+      "(1 | response_uuid)",
+      "(1 | Trial)"
+    ),
+    interaction = FALSE
+)
+
+
+output_path <- here("Aim2", "Aim2_Computed_Data", "av.csv")
+  
+write.csv(
+    AV_enrollment$metrics %>%
+      dplyr::select(response_uuid, Age, Trial, target_prop),
+    output_path,
+    row.names = FALSE
+  )
+```
+
+```{r av-plot}
+
+plot2_rise<- ggplot(data = AV_enrollment$metrics_avg, 
+       mapping = aes(x = Age, 
+                     y = target_prop_avg, 
+                     fill = Age)) + 
+  geom_flat_violin(scale = "count", 
+                   trim = FALSE) + 
+  stat_summary(fun.data = mean_sdl, 
+               fun.args = list(mult = 1), 
+               geom = "pointrange", 
+               position = position_nudge(0.05)) + 
+  geom_dotplot(binaxis = "y", 
+               dotsize = 0.6, 
+               stackdir = "down", 
+               #binwidth = 0.1, 
+               position = position_nudge(-0.025)) + 
+  theme(legend.position = "none") + 
+  labs(x = "Age", 
+       y = "Proportion of looks fixating on\nsynchronous stimuli\n")+ stat_n_text(size = 4, y.pos = 0)  +scale_fill_manual(values=c("lightgoldenrod1", "lightgoldenrod2")) + theme_few() + geom_hline(yintercept=0.5, linetype="dashed", color = "red") + theme(text = element_text(size = 15))+ guides(fill="none") + scale_y_continuous(breaks = c(0, 0.25, .50, .75, 1), limits = c(-0.1, 1), labels = c("0.00", "0.25", "0.50", "0.75", "1.00"))
+
+```
+
+
+
+# Word recognition
+
+How outcome was derived:
+
+Example of foot and milk (paired).
+ 
+The word foot is the target in trial 1 and the distractor at trial 9.
+the difference for foot = % looking at the word foot in trial 1 - % looking at the word foot in trial 9. Simplified:
+ 
+foot_diff = trial1_target - trial9_distractor = trial1_target - (1 - trial9_target) = trial1_target + trial9_target - 1
+ 
+But remember that the words are paired (these pairs are always shown together):
+foot ~ milk
+banana ~ hair
+hand ~ yogurt
+eyes ~ cookie
+mouth ~ apple
+ 
+The word milk then the target at trial 9 but the distractor at trial 1. So then for “milk”:
+the difference for milk = % looking at the word milk in trial 9 - % looking at the word milk in trial 1. Simplified:
+ 
+milk_diff = trial9_target – trial1_distractor = trial9_target - (1 - trial1_target) = trial9_target + trial1_target - 1
+ 
+And then if you look at the math, foot_diff comes out to be the same as milk_diff (trial1_target + trial9_target – 1), so we just use this word-paired data once & we have 5 pairs in total. Kiddos will have up to 5 rows of final difference score.
+
+The same thing repeats for trial 11 and trial 19.
+
+Then the final data for foot ~ milk is: average %target - average %distractor = average of trial1_target & trial11_target - average of trial9_distractor & trial19_distractor. 
+
+
+```{r word-rec-stim-order}
+WL<-Stim_Order %>% filter(grepl("word", value))
+WL_icatcher <- merge(x=WL,y=icatcher_output, 
+             by=c("response_uuid","frame_id"), all=FALSE) %>%
+  anti_join(exclusion_df, by = c("response_uuid", "frame_id"))
+
+WL_icatcher <- WL_icatcher %>% merge(df_diff) %>% mutate(
+  frame_to_remove =
+   round((record_1ststart * 1000) / 33.3)) %>% dplyr::select(1:6, frame_to_remove) %>% mutate(frame_to_remove = ifelse(is.na(frame_to_remove), 0, frame_to_remove))
+```
+
+```{r word-rec-timestamps}
+frame_ct_wl <- read_xlsx(aim2_timestamps_final, sheet = "WordRecognition")
+
+frame_ct_wl <- frame_ct_wl %>% 
+  dplyr::mutate(Image = tolower(Image)) %>%
+  tidyr::separate(Image, c("Image #1", "Image #2"), sep = ",") %>%
+  dplyr::mutate(`Image #2` = trimws(`Image #2`))
+
+frame_ct_wl_fin <- frame_ct_wl  %>% dplyr::mutate(Audio = word(Audio,-1)) %>% 
+   dplyr::mutate(patterns = map_chr(strsplit(`Image #1`, " "),paste,collapse="|"),
+          match = ifelse(str_detect(Audio, patterns), `Image #1`, `Image #2`)) %>% 
+   dplyr::select(-patterns) %>%
+  dplyr::mutate(target.location = word(match,-1))
+
+WL_pair_1 <- frame_ct_wl_fin %>% mutate(Trial = row_number()) %>% dplyr::select(Trial, `Image #1`, match) %>% dplyr::relocate(Trial, .before = `Image #1`) %>% filter(Trial %in% c(1:10)) 
+
+
+for(word in unique(WL_pair_1$`Image #1`)){
+  WL_pair_1 <- WL_pair_1 %>% dplyr::mutate(TargTrial = ifelse(match == `Image #1`, Trial, NA)) %>%
+                              dplyr::mutate(DistTrial = ifelse(match != `Image #1`, Trial, NA))
+}
+
+WL_pair_1_1 <- WL_pair_1 %>%
+  dplyr::group_by(`Image #1`) %>%
+  tidyr::fill(everything(), .direction = "down") %>%
+  tidyr::fill(everything(), .direction = "up") %>%dplyr::slice(1)%>% arrange(Trial)  %>% dplyr::rename(Variable = `Image #1`)
+
+WL_pair_1 <- frame_ct_wl_fin %>% mutate(Trial = row_number()) %>% dplyr::select(Trial, `Image #2`, match) %>% dplyr::relocate(Trial, .before = `Image #2`) %>% filter(Trial %in% c(1:10)) 
+
+
+for(word in unique(WL_pair_1$`Image #2`)){
+  WL_pair_1 <- WL_pair_1 %>% dplyr::mutate(TargTrial = ifelse(match == `Image #2`, Trial, NA)) %>%
+                              dplyr::mutate(DistTrial = ifelse(match != `Image #2`, Trial, NA))
+}
+
+WL_pair_1_2 <- WL_pair_1 %>%
+  dplyr::group_by(`Image #2`) %>%
+   tidyr::fill(everything(), .direction = "down") %>%
+   tidyr::fill(everything(), .direction = "up") %>% filter(Trial %in% c(6:10))%>% arrange(Trial) %>% dplyr::rename(Variable = `Image #2`)
+
+WL_pair_part1 <- rbind(WL_pair_1_1[,-3], WL_pair_1_2[,-3])
+
+
+WL_pair_2 <-frame_ct_wl_fin %>% mutate(Trial = row_number()) %>% dplyr::select(Trial, `Image #1`, match) %>% dplyr::relocate(Trial, .before = `Image #1`) %>% filter(Trial %in% c(11:20)) 
+
+
+for(word in unique(WL_pair_2$`Image #1`)){
+  WL_pair_2 <- WL_pair_2 %>% dplyr::mutate(TargTrial = ifelse(match == `Image #1`, Trial, NA)) %>%
+                              dplyr::mutate(DistTrial = ifelse(match != `Image #1`, Trial, NA))
+}
+
+WL_pair_2_1 <- WL_pair_2 %>%
+  dplyr::group_by(`Image #1`) %>%
+   tidyr::fill(everything(), .direction = "down") %>%
+   tidyr::fill(everything(), .direction = "up") %>%dplyr::slice(1)%>% arrange(Trial) %>% dplyr::rename(Variable = `Image #1`)
+
+WL_pair_2 <- frame_ct_wl_fin %>% mutate(Trial = row_number()) %>% dplyr::select(Trial, `Image #2`, match) %>% dplyr::relocate(Trial, .before = `Image #2`) %>% filter(Trial %in% c(11:20)) 
+
+
+for(word in unique(WL_pair_2$`Image #2`)){
+  WL_pair_2 <- WL_pair_2 %>% dplyr::mutate(TargTrial = ifelse(match == `Image #2`, Trial, NA)) %>%
+                              dplyr::mutate(DistTrial = ifelse(match != `Image #2`, Trial, NA))
+}
+
+WL_pair_2_2 <- WL_pair_2 %>%
+  dplyr::group_by(`Image #2`) %>%
+   tidyr::fill(everything(), .direction = "down") %>%
+   tidyr::fill(everything(), .direction = "up") %>% filter(Trial %in% c(16:20)) %>% arrange(Trial)  %>% dplyr::rename(Variable = `Image #2`)
+
+WL_pair_part2 <- rbind(WL_pair_2_1[,-3], WL_pair_2_2[,-3])
+
+WL_item.pairs <- rbind(WL_pair_part1,WL_pair_part2) %>% arrange(TargTrial) %>% dplyr::select(-Trial) 
+
+```
+
+```{r word-rec-labeling}
+labeled_frames_WL <- frame_ct_wl_fin %>%
+  mutate(frame = map2(`Frame Start` , `Frame End`, seq)) %>%
+  tidyr::unnest(frame) %>%
+  mutate(Trial = str_extract(`Trial Number`, "\\d+")) %>%
+  dplyr::select(frame, target.location, Trial) 
+
+#labeled_frames %>% group_by(Trial) %>% summarise(frame_start = min(frame), frame_end = max(frame)) %>% mutate(diff = frame_end - frame_start) %>% arrange(diff)
+
+
+labeled_frames_WL <- labeled_frames_WL %>%
+  mutate(target.location = case_when(
+    target.location == "left"  ~ "right",
+    target.location == "right" ~ "left",
+    TRUE ~ target.location
+  )) %>% dplyr::rename(position = target.location)
+
+
+```
+
+```{r word-rec-results}
+WL_results <- process_icatcher(WL_icatcher, 
+                               labeled_frames_WL, 
+                               Part_Age,
+                               use_version = F)
+
+write.csv(WL_results$trial_counts %>%
+    merge(WL_results$quality_flags %>% dplyr::select(-Age),
+          by  = c("response_uuid", "Trial"),
+          all = TRUE)%>%
+    dplyr::mutate(
+      has_icatcher  = ifelse(noicatcherdata != frames | is.na(noicatcherdata), T, F) 
+    )%>%
+    mutate(noicatcherdata = tidyr::replace_na(noicatcherdata, 0),
+           n_icatcher     = frames - noicatcherdata) %>%
+    dplyr::mutate(
+      `Usable frames (%)` = round(count_85_non_na / frames,3)) %>% 
+  dplyr::select(response_uuid, Trial, `Usable frames (%)`, has_icatcher) %>% merge(WL_icatcher %>% dplyr::select(response_uuid, icatcher_file_names)),   here("Aim2", "Aim2_Computed_Data", "word_usableframe.csv"), row.names = FALSE)
+```
+
+## Time course
+
+```{r word-rec-timcourse, fig.width=15}
+check_num <- WL_results$frame_level %>%
+    mutate(target_num = case_when(
+        look == "target"     ~ 1,
+        look == "non_target" ~ 0,
+        TRUE                 ~ NA_real_
+    )) %>% merge(Part_Age, all.x = T) 
+
+WL_item.pairs_1 <- WL_item.pairs
+WL_item.pairs_1$Variable <- sub(" .*", "", WL_item.pairs_1$Variable)
+
+
+time_course_age <- WL_results$frame_level %>%
+  merge(Part_Age, all.x = T) %>%
+  group_by(Trial, frame_within_trial, Age) %>%
+  mutate(target_v1 = case_when(look == "target" ~ 1,
+                               look == "non_target" ~ 0,
+                               is.na(look) ~ NA_real_)) %>% 
+  summarise(
+    prop_target = mean(target_v1, na.rm = TRUE),
+    n_infants   = sum(!is.na(target_v1)),
+    .groups     = "drop"
+  ) %>%
+  mutate(Trial = factor(Trial, levels = sort(unique(as.numeric(Trial)))))
+
+ggplot(time_course_age %>%
+  mutate(
+    Trial = paste0("Trial ", Trial),
+    Trial = factor(Trial, levels = unique(Trial[order(as.numeric(gsub("Trial (\\d+).*", "\\1", Trial)))]))
+  )%>%  mutate(ms_within_trial = (frame_within_trial - 1) * 33.3 + 367), aes(x = ms_within_trial, y = n_infants,
+                             color = Age, fill = Age)) +
+  #geom_line() +
+  geom_smooth(method = "loess", span = 0.3, se = FALSE) +
+  facet_wrap(~ Trial, nrow = 1) +
+  labs(x = "\nMillisecond within trial (367ms after target word onset to last frame both objects visible)", y = "N infants with data",
+       color = NULL, fill = NULL) +
+  theme_classic(base_size = 12) +
+ theme(
+  legend.position = "top",
+  strip.text      = element_text(size = 10),
+  axis.text.x     = element_text(angle = 45, hjust = 1)
+)  
+
+
+# Define pair colors
+pair_colors <- c(
+    "foot ~ milk"    = "#E69F00",
+    "banana ~ hair"  = "#56B4E9",
+    "hand ~ yogurt"  = "#009E73",
+    "eyes ~ cookie"  = "#CC79A7",
+    "mouth ~ apple"  = "#D55E00"
+)
+
+# Prep data
+plot_data <- time_course_age %>%
+  merge(
+    WL_item.pairs_1 %>%
+      dplyr::select(1, 2) %>%
+      dplyr::rename(Trial = TargTrial)
+  ) %>%
+  mutate(
+    Word_Pair = case_when(
+      Variable %in% c("foot",   "milk")   ~ "foot ~ milk",
+      Variable %in% c("banana", "hair")   ~ "banana ~ hair",
+      Variable %in% c("hand",   "yogurt") ~ "hand ~ yogurt",
+      Variable %in% c("eyes",   "cookie") ~ "eyes ~ cookie",
+      Variable %in% c("mouth",  "apple")  ~ "mouth ~ apple"
+    ),
+    Trial = paste0("Trial ", Trial, ": ", Variable),
+    Trial = factor(
+      Trial,
+      levels = unique(Trial[order(as.numeric(gsub("Trial (\\d+):.*", "\\1", Trial)))])
+    ),
+    ms_within_trial = (frame_within_trial - 1) * 33.3 + 367
+  ) %>%
+  filter(n_infants >= 5)
+
+# Plot
+ggplot(plot_data,
+       aes(x        = ms_within_trial,
+           y        = prop_target,
+           color    = Word_Pair,
+           fill     = Word_Pair,
+           linetype = Age)) +
+  geom_line() +
+  geom_smooth(method = "loess", span = 0.3, se = TRUE, alpha = 0.2) +
+  geom_hline(yintercept = 0.5, linetype = "dashed", color = "black") +
+  facet_wrap(~ Trial, nrow = 2) +
+  scale_color_manual(values = pair_colors) +
+  scale_fill_manual(values  = pair_colors) +
+  scale_y_continuous(limits = c(0, 1), labels = scales::percent) +
+  labs(
+    x        = "\nMilliseconds within trial (367ms after target word onset)",
+    y        = "Proportion of infants looking at target",
+    color    = "Word Pair",
+    fill     = "Word Pair",
+    linetype = "Age (months)"
+  ) +
+  theme_classic(base_size = 12) +
+  theme(
+    legend.position = "top",
+    strip.text      = element_text(size = 10)
+  )
+
+```
+
+```{r, eval=T}
+ggplot(time_course_age %>% 
+         mutate(ms_within_trial = (frame_within_trial - 1) * 33.3 + 367),
+       aes(x = ms_within_trial, y = prop_target,
+           color = Age, fill = Age)) +
+  geom_point(size = 0.5, alpha = 0.3) + 
+  geom_smooth(method = "loess", span = 0.3, se = TRUE, alpha = 0.2) +
+  geom_hline(yintercept = 0.5, linetype = "dashed", color = "black") +
+  scale_y_continuous(limits = c(0, 1), labels = scales::percent) +
+  labs(
+    x     = "\nMillisecond  (367ms after target word onset to last frame both objects visible)",
+    y     = "Proportion of infants looking at target",
+    color = NULL,
+    fill  = NULL,
+    title = "Across all trials"
+  ) +
+  theme_classic(base_size = 12) +
+  theme(legend.position = "top") + scale_x_continuous(breaks = seq(367, 3400, by = 200))
+```
+
+Number (and percent) of infants who viewed the task at all (2nd column, as % of consented sample with any icatcher data & in frame data , with sufficient usable data (3rd column, as % of infants who viewed the task),  with fixation on a single side >80% of the task (4th column, as % of infants with usable data), and final N in the analytic dataset. 
+
+```{r word-rec-enrollment, fig.width=10}
+WL_enrollment <- compute_gaze_metrics(
+  WL_results,
+  Part_Age,
+  task_type = "dual",
+  usable_threshold = 0.33,
+  remove_fixations = TRUE,
+  remove_extreme_target = TRUE,
+  collapse_vpc_hh = FALSE,
+  type_task = NULL,
+  task_icatcher = NULL
+)
+```
+
+
+```{r word-rec-table, fig.width=10}
+make_flow_table(WL_results, WL_enrollment, Part_Age)
+summarise_quality_v2(WL_results, Part_Age)
+summarise_trials(WL_enrollment)
+```
+
+
+```{r word-rec-difference-score, eval = T}
+diff <- c()
+
+for(i in c(1:20)){
+ diff[[i]] <- WL_enrollment$metrics %>% 
+   filter(Trial %in% WL_item.pairs[i,2:3]) %>% 
+   mutate(distract_good = 1-target_prop) %>% 
+   dplyr::select(1,Trial, distract_good, target_prop) %>% 
+   dplyr::mutate(percent = ifelse(Trial == as.character(i), target_prop, distract_good)) %>%
+   dplyr::mutate(Trial = ifelse(Trial == as.character(i), "target", "distractor")) %>%
+   dplyr::select(response_uuid, Trial, percent) %>% tidyr::spread(Trial, percent) 
+}
+```
+
+```{r word-rec-list-count}
+df_list_count <- bind_rows(diff, .id = "Trial") %>% merge(WL_item.pairs[,2:3] %>% dplyr::rename(Trial = TargTrial)) %>% filter(!is.na(distractor) & !is.na(target)) %>% merge(Part_Age,all.x=TRUE)
+```
+
+```{r word-rec-item-pairs}
+WL_item.pairs$Variable <- sub(" .*", "", WL_item.pairs$Variable)
+
+df_list_diff_enroll <- bind_rows(diff, .id = "Trial") %>% 
+  merge(WL_item.pairs[,1:2] %>% dplyr::rename(Trial = TargTrial)) %>% 
+  filter(!is.na(distractor) & !is.na(target)) %>% 
+  tidyr::pivot_longer(cols = c(distractor, target), names_to = "location", values_to = "percent") %>% 
+  dplyr::group_by(response_uuid, Variable, location) %>% 
+  dplyr::summarise(percent_2 = mean(percent)) %>% 
+  tidyr::spread(key = location, value = percent_2) %>% 
+  dplyr::mutate(diff = target - distractor) %>% 
+  dplyr::rename(Word = Variable)  %>% 
+  merge(Part_Age,all.x=TRUE)  %>% dplyr::mutate(Age = factor(Age, levels = c(6,12)))
+
+df_list_diff_enroll <- df_list_diff_enroll %>% ungroup() %>% dplyr::mutate(Word_Pair = case_when(Word %in% c("foot", "milk") ~ "foot ~ milk",
+                                                                       Word %in% c("banana", "hair") ~ "banana ~ hair",
+                                                                       Word %in% c("hand", "yogurt") ~ "hand ~ yogurt",
+                                                                       Word %in% c("eyes", "cookie") ~ "eyes ~ cookie",
+                                                                       Word %in% c("mouth", "apple") ~ "mouth ~ apple"))  %>%
+  group_by(response_uuid, Word_Pair, Age, cohort) %>%
+  dplyr::slice(1) %>%
+  ungroup()
+
+# c("foot (milk)", "hair (banana)", "hand (yogurt)", "cookie (eyes)", "mouth (apple)
+```
+
+Final word recognition N (lower due to % target or % distractor is not available for the "difference" calculation)
+
+```{r word-rec-list-diff-enroll}
+df_list_diff_enroll %>% distinct() %>%
+  dplyr::group_by(response_uuid)%>%
+     summarise(n = n(), Age = first(Age)) %>% ungroup()%>% dplyr::select(Age, n)%>%
+    tbl_summary(
+      by   = Age,
+      type = list(n ~ "continuous2"),
+      statistic = list(
+        all_continuous()  ~ c("{median} ({p25}, {p75})", "{min}, {max}"),
+        all_categorical() ~ "{n} / {N} ({p}%)"
+      ),
+      digits       = all_continuous() ~ 2,
+      missing_text = "(Missing)"
+    ) %>% modify_caption("**Median (IQR) number of test trials with usable data (final analytic)**")
+```
+
+```{r word-rec-output}
+output_path <- here("Aim2", "Aim2_Computed_Data", "word_comp.csv")
+  
+write.csv(
+    df_list_diff_enroll %>%
+      dplyr::select(response_uuid, Age, Word_Pair,diff),
+    output_path,
+    row.names = FALSE
+  )
+
+tab_word <- run_condition_model(
+    data = df_list_diff_enroll,
+    condition_var = "Age",
+    metric = "diff",
+    chance_level = 0,
+    random_effects = c(
+        "(1 | response_uuid)",
+        "(1 | Word_Pair)"
+    ),
+    interaction = FALSE
+)
+
+```
+
+```{r word-rec-plot}
+word_fig <- df_list_diff_enroll %>% dplyr::group_by(response_uuid) %>% dplyr::summarise(diff_good_avg = mean(diff)) %>% merge(Part_Age,all.x=TRUE)  %>% dplyr::select(response_uuid, Age, diff_good_avg)%>% dplyr::mutate(Age = factor(Age, levels = c(6, 12)))
+
+plot5_rise <- ggplot(data = word_fig, 
+       mapping = aes(x = Age, 
+                     y = diff_good_avg, 
+                     fill = Age)) + 
+  geom_flat_violin(scale = "count", 
+                   trim = FALSE) + 
+  stat_summary(fun.data = mean_sdl, 
+               fun.args = list(mult = 1), 
+               geom = "pointrange", 
+               position = position_nudge(0.05)) + 
+  geom_dotplot(binaxis = "y", 
+               dotsize = 0.6, 
+               stackdir = "down", 
+               #binwidth = 0.1, 
+               position = position_nudge(-0.025)) + 
+  theme(legend.position = "none") + 
+  labs(x = "Age",
+       y = "Difference in proportions\n(target - distractor)\n") + stat_n_text(size = 4,y.pos = -0.7)  +scale_fill_manual(values=c("darkolivegreen2", "darkolivegreen3")) + theme_few() + geom_hline(yintercept=0, linetype="dashed", color = "red") + theme(text = element_text(size = 15)) + guides(fill="none") 
+
+```
+
+```{r word-rec-plot2}
+word_fig_1 <- df_list_diff_enroll %>% dplyr::group_by(response_uuid) %>% dplyr::summarise(distractor_avg = mean(distractor), target_avg = mean(target)) %>% dplyr::select(response_uuid, distractor_avg, target_avg)
+
+word_fig_long <- word_fig_1 %>%
+  tidyr::pivot_longer(
+    cols = c(distractor_avg, target_avg),
+    names_to = "condition",
+    values_to = "avg"
+  ) %>%
+  mutate(condition = recode(condition,
+    "distractor_avg" = "Distractor",
+    "target_avg" = "Target"
+  ))
+
+plot5_rise_2 <- ggplot(
+  data = word_fig_long,
+  mapping = aes(x = condition, y = avg, fill = condition)
+) + 
+  geom_flat_violin(
+    scale = "count",
+    trim = FALSE,
+    position = position_nudge(x = 0.2)   # push violin to the right
+  ) + 
+  stat_summary(
+    fun.data = mean_sdl,
+    fun.args = list(mult = 1),
+    geom = "pointrange",
+    position = position_nudge(x = 0.2)
+  ) + 
+  geom_dotplot(
+    binaxis = "y",
+    binwidth = 0.05,
+    stackdir = "center",
+    method = "histodot",
+    stackratio = 1,
+    dotsize = 0.6
+  ) + 
+  scale_fill_manual(values = c(
+    "Distractor" = "darkolivegreen3",
+    "Target"     = "steelblue"
+  )) +
+  scale_y_continuous(
+    limits = c(0, 1),
+    breaks = seq(0, 1, by = 0.25)
+  ) +
+  labs(
+    x = "",
+    y = "Average proportion of looks\n fixating on the distractor vs the target"
+  ) + 
+  stat_n_text(size = 4, y.pos = 0) +
+  theme_few() +
+  geom_hline(yintercept = 0.5, linetype = "dashed", color = "red") +
+  theme(
+    text = element_text(size = 15),
+    legend.position = "none"
+    # axis.text.x = element_blank(),
+    # axis.ticks.x = element_blank()
+  )
+```
+
+```{r word-rec-stats, eval = T}
+df_list_diff <- bind_rows(diff, .id = "Trial") %>% 
+  merge(WL_item.pairs[,1:2] %>% dplyr::rename(Trial = TargTrial)) %>% 
+  filter(!is.na(distractor) & !is.na(target))%>% tidyr::pivot_longer(cols = c(distractor, target), names_to = "location", values_to = "percent") %>% merge(Part_Age,all.x=TRUE) 
+
+stat_n_stuff <- df_list_diff %>% filter(Trial %in% c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")) %>% mutate(Age = factor(Age, levels = c("6", "12")))%>% mutate(Variable = factor(Variable, levels = c("foot" , "hair" , "hand" , "cookie", "mouth" ,"banana" ,"apple" ,"yogurt" ,"milk" , "eyes"))) %>% distinct(response_uuid, Trial,Variable, .keep_all = T)
+  
+word_bl_1 <- df_list_diff %>% filter(Trial %in% c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")) %>% mutate(Age = factor(Age, levels = c("6", "12")))%>% mutate(Variable = factor(Variable, levels = c("foot" , "hair" , "hand" , "cookie", "mouth" ,"banana", "apple" ,"yogurt" ,"milk" , "eyes")))  %>%  ggplot(aes(x = Variable, y = percent, fill = location)) + geom_boxplot(show.legend = T) +
+    geom_jitter(color="black", size=0.1, alpha=0.9) + geom_hline(yintercept=0.5, linetype="dashed", color = "red") +scale_fill_manual(values=c("skyblue3", "skyblue4")) + theme_bw() +
+    xlab("Age") + ylab("Proportion of looks at object when object is a target \nand when it is a distractor (%)")+ ggtitle("Block 1: Word comparisons") + stat_n_text(size = 3, data = stat_n_stuff)  + theme(text = element_text(size = 12), plot.title = element_text(size = 9)) + facet_wrap(vars(Age), nrow = 2, labeller = labeller(Age = 
+    c("6" = "Age: 6 months",
+      "12" = "Age: 12 months"))) + xlab("")  
+
+
+df_list_diff <- bind_rows(diff, .id = "Trial") %>% 
+  merge(WL_item.pairs[,1:2] %>% dplyr::rename(Trial = TargTrial)) %>% 
+  filter(!is.na(distractor) & !is.na(target))%>% tidyr::pivot_longer(cols = c(distractor, target), names_to = "location", values_to = "percent") %>% merge(Part_Age,all.x=TRUE) 
+
+stat_n_stuff <- df_list_diff %>% filter(!Trial %in% c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")) %>% mutate(Age = factor(Age, levels = c("6", "12")))%>% mutate(Variable = factor(Variable, levels = c("foot" , "hair" , "hand" , "cookie", "mouth" ,"banana", "apple" ,"yogurt" ,"milk" , "eyes")))  %>% distinct(response_uuid, Trial,Variable, .keep_all = T)
+  
+word_bl_2 <- df_list_diff %>% filter(!Trial %in% c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")) %>% mutate(Age = factor(Age, levels = c("6", "12")))%>% mutate(Variable = factor(Variable, levels = c("foot" , "hair" , "hand" , "cookie", "mouth" ,"banana", "apple" ,"yogurt" ,"milk" , "eyes"))) %>%  ggplot(aes(x = Variable, y = percent, fill = location)) + geom_boxplot(show.legend = T) +
+    geom_jitter(color="black", size=0.1, alpha=0.9) + geom_hline(yintercept=0.5, linetype="dashed", color = "red") +scale_fill_manual(values=c("skyblue3", "skyblue4")) + theme_bw() +
+    xlab("Age") + ylab("Proportion of looks at object when object is a target \nand when it is a distractor (%)")+ ggtitle("Block 2: Word comparisons") + stat_n_text(size = 3, data = stat_n_stuff)  + theme(text = element_text(size = 12), plot.title = element_text(size = 9)) + facet_wrap(vars(Age), nrow = 2, labeller = labeller(Age = 
+    c("6" = "Age: 6 months",
+      "12" = "Age: 12 months"))) + xlab("")  
+```
+
+# Numeracy 
+
+4 versions, participants sees ONLY small constant in 2 versions, and ONLY large constant in the other 2 versions.
+
+Note on how outcome was derive:
+
+1. Remove frames coded as "nobabyface", "noface", "none", or "away" 
+2. Remove "left", "right" frames with confidence < 85%
+3. Use "left" vs "right" to code "target" vs "non-target" depending on the task and version. Calculate % looking for each alternating/changing side as:
+ 
+    % looking =  (target) / (target + non-target)
+    
+    *left & right frames all need to have >= 85% confidence. A trial must have at least 33% usable data (i.e. left, right frames at 85% confidence) to be included.
+
+```{r numeracy-stim-order}
+Numeracy<-Stim_Order %>% filter(grepl("Nume", value))
+
+Numeracy_icatcher <- merge(x=Numeracy,y=icatcher_output, 
+             by=c("response_uuid","frame_id"), all=FALSE) %>%
+  anti_join(exclusion_df, by = c("response_uuid", "frame_id"))
+
+Numeracy_icatcher <- Numeracy_icatcher %>% merge(df_diff) %>% mutate(
+  frame_to_remove =
+   round((record_1ststart * 1000) / 33.3)) %>% dplyr::select(1:6, frame_to_remove) %>% mutate(frame_to_remove = ifelse(is.na(frame_to_remove), 0, frame_to_remove))%>%
+  mutate(value = gsub(".*/([^/]+)\\.webm$", "\\1", value))%>% 
+  dplyr::mutate(value = gsub("_Aim2", "", value))
+
+
+Numeracy_icatcher$Version<- Numeracy_icatcher$value
+```
+
+```{r numeracy-timestamps}
+labeled_frames_numeracy <- read_xlsx(aim2_timestamps_final,
+  sheet = "Numeracy")
+
+labeled_frames_numeracy <- labeled_frames_numeracy %>%
+  mutate(Position = str_extract(Position, "Left|Right"))
+
+labeled_frames_numeracy <- labeled_frames_numeracy %>%
+  mutate(Position = case_when(
+    Position == "Left"  ~ "right",
+    Position == "Right" ~ "left",
+    TRUE ~ Position
+  ))
+
+
+# Step 2: expand frame ranges into one row per frame
+labeled_frames_numeracy <- labeled_frames_numeracy %>%
+  rowwise() %>%
+  mutate(frame = list(seq(`Frame Start`, `Frame End`))) %>%
+  tidyr::unnest(frame) %>%
+  ungroup() %>%
+  dplyr::select(frame, Trial = `Trial Number`, Version, Position)
+
+# Step 3: pivot so each version becomes its own column
+labeled_frames_numeracy <- labeled_frames_numeracy %>%
+  tidyr::pivot_wider(
+    names_from  = Version,
+    values_from = Position
+  )
+```
+
+```{r numeracy-results}
+numeracy_results <- process_icatcher(Numeracy_icatcher, 
+                                     labeled_frames_numeracy, 
+                                     Part_Age, 
+                                     use_version = T)
+
+write.csv(numeracy_results$trial_counts %>%
+    merge(numeracy_results$quality_flags %>% dplyr::select(-Age),
+          by  = c("response_uuid", "Trial"),
+          all = TRUE)%>%
+    dplyr::mutate(
+      has_icatcher  = ifelse(noicatcherdata != frames | is.na(noicatcherdata), T, F) 
+    )%>%
+    mutate(noicatcherdata = tidyr::replace_na(noicatcherdata, 0),
+           n_icatcher     = frames - noicatcherdata) %>%
+    dplyr::mutate(
+      `Usable frames (%)` = round(count_85_non_na / frames,3)) %>% 
+  dplyr::select(response_uuid, Trial, `Usable frames (%)`, has_icatcher) %>% merge(Numeracy_icatcher %>% dplyr::select(response_uuid, icatcher_file_names)), here("Aim2", "Aim2_Computed_Data", "numeracy_usableframe.csv"), row.names = FALSE)
+```
+
+```{r numeracy-enrollment, fig.width=10}
+numeracy_enrollment <- compute_gaze_metrics(
+    numeracy_results,
+    Part_Age,
+    task_type = c("dual"),
+    usable_threshold = 0.33,
+    remove_fixations = TRUE,
+    remove_extreme_target = TRUE,
+    collapse_vpc_hh = FALSE,
+    type_task = NULL,
+    task_icatcher = NULL
+)
+```
+
+## Data count
+
+Number (and percent) of infants who viewed the task at all (2nd column, as % of consented sample with any icatcher data & in frame data , with sufficient usable data (3rd column, as % of infants who viewed the task),  with fixation on a single side >80% of the task (4th column, as % of infants with usable data), and final N in the analytic dataset. 
+
+
+```{r numeracy-data-count, fig.width=10}
+make_flow_table(numeracy_results, numeracy_enrollment, Part_Age)
+summarise_quality_v2(numeracy_results, Part_Age)
+summarise_trials(numeracy_enrollment)
+```
+
+## Analysis
+
+```{r numeracy-analysis}
+type_num <- read_xlsx(
+  aim2_timestamps_final,
+  sheet = "Numeracy") %>%
+  dplyr::select(2:3)
+
+df_numeracy_enrollment <- numeracy_enrollment$metrics %>% 
+  merge(Numeracy_icatcher %>% dplyr::select(1, Version)) %>% 
+  merge(type_num %>% distinct()) %>%
+  dplyr::mutate(`Stimulus type` = ifelse(grepl("Large", `Stimulus type`), "Large Constant", "Small Constant")) %>%
+  dplyr::mutate(`Stimulus type` = factor(`Stimulus type`, 
+                                        levels = c("Small Constant", "Large Constant")))
+```
+
+```{r numeracy-output}
+
+output_path <- here("Aim2", "Aim2_Computed_Data", "numeracy.csv")
+  
+write.csv(
+    df_numeracy_enrollment %>%
+      dplyr::select(response_uuid, Age, Trial,target_prop, `Stimulus type`),
+    output_path,
+    row.names = FALSE
+  )
+
+tab_num <- run_condition_model(
+    data = df_numeracy_enrollment %>% dplyr::rename(Stimulus_type = `Stimulus type`),
+    condition_var = c("Age" ,"Stimulus_type"),
+    metric = "target_prop",
+    chance_level = 0.5,
+    random_effects = c(
+        "(1 | response_uuid)",
+        "(1 | Trial)"
+    ),
+    interaction = T
+)%>% filter(!grepl("6 - 12", Condition))
+
+
+```
+
+```{r numeracy-figure}
+
+num_fig <- numeracy_enrollment$metrics_avg %>%
+  merge(
+    Numeracy_icatcher %>%
+      dplyr::select(1, Version)
+  ) %>%
+  merge(
+    type_num %>%
+      dplyr::distinct()
+  ) %>%
+  dplyr::mutate(
+    `Stimulus type` = dplyr::case_when(
+      grepl("Large", `Stimulus type`) ~ "20-item constant stream",
+      TRUE ~ "5-item constant stream"
+    ),
+    `Stimulus type` = factor(
+      `Stimulus type`,
+      levels = c(
+        "5-item constant stream",
+        "20-item constant stream"
+      )
+    )
+  )
+
+plot6_rise <- ggplot(data = num_fig, 
+       mapping = aes(x = Age, 
+                     y = target_prop_avg, 
+                     fill = Age)) + facet_wrap(~`Stimulus type`) + 
+  geom_flat_violin(scale = "count", 
+                   trim = FALSE) + 
+  stat_summary(fun.data = mean_sdl, 
+               fun.args = list(mult = 1), 
+               geom = "pointrange", 
+               position = position_nudge(0.05)) + 
+  geom_dotplot(binaxis = "y", 
+               dotsize = 0.6, 
+               stackdir = "down", 
+               #binwidth = 0.1, 
+               position = position_nudge(-0.025)) + 
+  theme(legend.position = "none") + 
+  labs(x = "Age",
+       y = "Proportion of looks fixating on\nalternating stimuli\n") + stat_n_text(size = 4, y.pos = -0.1)  +scale_fill_manual(values=c("mediumpurple1", "mediumpurple2")) + theme_few() + geom_hline(yintercept=0.5, linetype="dashed", color = "red") + theme(text = element_text(size = 15)) + guides(fill="none") + scale_y_continuous(breaks = c(0, 0.25, .50, .75, 1), limits = c(-0.1, 1), labels = c("0.00", "0.25", "0.50", "0.75", "1.00"))
+```
+
+
+# Helper Hinderer
+8 versions, participants sees both helper and hinderer. 
+
+Note on how outcome was derive:
+
+1. Remove frames coded as "nobabyface", "noface", "none", or "away" 
+2. Remove "left", "right" frames with confidence < 85%
+2. Use "left" vs "right" to code "target" vs "non-target" depending on the task and version. Calculate % looking for each helper side as:
+ 
+    % looking =  (target) / (target + non-target)
+    
+    *left & right frames all need to have >= 85% confidence. A trial must have at least 33% usable data (i.e. left, right frames at 85% confidence) to be included.
+
+```{r hh-stim-order}
+hh<-Stim_Order %>% filter(grepl("condition", value))
+
+hh_icatcher <- merge(x=hh,y=icatcher_output, 
+             by=c("response_uuid","frame_id"), all=FALSE) %>%
+  anti_join(exclusion_df, by = c("response_uuid", "frame_id"))
+
+hh_icatcher <- hh_icatcher %>% merge(df_diff) %>% mutate(
+  frame_to_remove =
+   round((record_1ststart * 1000) / 33.3)) %>% dplyr::select(1:6, frame_to_remove) %>% mutate(frame_to_remove = ifelse(is.na(frame_to_remove), 0, frame_to_remove))%>%
+  mutate(value = gsub(".*/([^/]+)\\.webm$", "\\1", value))%>% 
+  dplyr::mutate(value = gsub("_Aim2", "", value))
+
+
+hh_icatcher$Version<- hh_icatcher$value
+
+```
+
+```{r hh-timestamps}
+labeled_frames_hh <- read_xlsx(aim2_timestamps_final, sheet = "HelperHinderer")
+
+labeled_frames_hh <- labeled_frames_hh %>%
+  mutate(Position = str_extract(Position, "left|right"))
+
+labeled_frames_hh <- labeled_frames_hh %>%
+  mutate(Position = case_when(
+    Position == "left"  ~ "right",
+    Position == "right" ~ "left",
+    TRUE ~ "habituation"
+  ))
+
+
+# Step 2: expand frame ranges into one row per frame
+labeled_frames_hh <- labeled_frames_hh %>%
+  rowwise() %>%
+  mutate(frame = list(seq(`Frame Start`, `Frame End`))) %>%
+  tidyr::unnest(frame) %>%
+  ungroup() %>%
+  dplyr::select(frame, Trial = `Trial Number`, Version, Position)
+
+# Step 3: pivot so each version becomes its own column
+labeled_frames_hh <- labeled_frames_hh %>%
+  tidyr::pivot_wider(
+    names_from  = Version,
+    values_from = Position
+  )
+```
+
+```{r hh-results}
+hh_results <- process_icatcher(hh_icatcher, 
+                                     labeled_frames_hh, 
+                                     Part_Age, 
+                                     use_version = T)
+
+write.csv(hh_results$trial_counts %>%
+    merge(hh_results$quality_flags %>% dplyr::select(-Age),
+          by  = c("response_uuid", "Trial"),
+          all = TRUE)%>%
+    dplyr::mutate(
+      has_icatcher  = ifelse(noicatcherdata != frames | is.na(noicatcherdata), T, F) 
+    )%>%
+    mutate(noicatcherdata = tidyr::replace_na(noicatcherdata, 0),
+           n_icatcher     = frames - noicatcherdata) %>%
+    dplyr::mutate(
+      `Usable frames (%)` = round(count_85_non_na / frames,3)) %>% 
+  dplyr::select(response_uuid, Trial, `Usable frames (%)`, has_icatcher) %>% merge(hh_icatcher %>% dplyr::select(response_uuid, icatcher_file_names)),   here("Aim2", "Aim2_Computed_Data", "hh_usableframe.csv"), row.names = FALSE)
+```
+
+```{r hh-enrollment, fig.width=10}
+# look at the test trials only
+hh_enrollment <- compute_gaze_metrics(
+    hh_results,
+    Part_Age,
+    task_type = c("dual"),
+    usable_threshold = 0.33,
+    remove_fixations = TRUE,
+    remove_extreme_target = TRUE,
+    collapse_vpc_hh = FALSE,
+    type_task = NULL,
+    task_icatcher = NULL,
+    trial_filter = c("7", "14")
+)
+```
+
+## Data count
+
+Number (and percent) of infants who viewed the task at all (2nd column, as % of consented sample with any icatcher data & in frame data , with sufficient usable data (3rd column, as % of infants who viewed the task),  with fixation on a single side >80% of the task (4th column, as % of infants with usable data), and final N in the analytic dataset. 
+
+
+```{r hh-data-count, fig.width=10}
+make_flow_table(hh_results, hh_enrollment, Part_Age)
+summarise_quality_v2(hh_results, Part_Age)
+summarise_trials(hh_enrollment)
+```
+
+For each block, a participant was required to have at least one usable helper trial and at least one hinderer trial (Block 1: trials 1–6; Block 2: trials 8–13), where usable trials were defined as having at least 33% of frames with valid iCatcher+ detections at ≥85% confidence.
+
+```{r hh-includes}
+data_include <- hh_results$trial_counts %>%
+  dplyr::mutate(
+    `Usable frames (%)` = round(count_85_non_na / frames, 3),
+  ) %>%
+  merge(Part_Age, all.x = TRUE) %>%
+  filter(`Usable frames (%)` >= 0.33) %>%
+  filter(!Trial %in% c("7", "14")) %>%
+  mutate(Trial = as.numeric(Trial)) %>%
+  group_by(response_uuid) %>%
+  mutate(
+    include_block1 = any(Trial[Trial %in% 1:6] %% 2 == 1) &
+                     any(Trial[Trial %in% 1:6] %% 2 == 0),
+    include_block2 = any(Trial[Trial %in% 8:13] %% 2 == 1) &
+                     any(Trial[Trial %in% 8:13] %% 2 == 0)
+  ) %>%
+  ungroup() %>%
+  dplyr::select(response_uuid, include_block1, include_block2) %>%
+  distinct()
+
+df_hh <- hh_enrollment$metrics %>% merge(data_include) %>%
+  filter(
+    (Trial == 7  & include_block1) |
+    (Trial == 14 & include_block2)
+  ) 
+```
+
+```{r hh-distinct}
+df_hh %>% distinct() %>%
+  dplyr::group_by(response_uuid)%>%
+     summarise(n = n(), Age = first(Age)) %>% ungroup()%>% dplyr::select(Age, n)%>%
+    tbl_summary(
+      by   = Age,
+      type = list(n ~ "continuous2"),
+      statistic = list(
+        all_continuous()  ~ c("{median} ({p25}, {p75})", "{min}, {max}"),
+        all_categorical() ~ "{n} / {N} ({p}%)"
+      ),
+      digits       = all_continuous() ~ 2,
+      missing_text = "(Missing)"
+    ) %>% modify_caption("**Median (IQR) number of test trials with usable data (final analytic)**")
+```
+
+## Analysis
+
+```{r hh-output-path}
+output_path <- here("Aim2", "Aim2_Computed_Data", "hh.csv")
+
+write.csv(
+    df_hh %>%
+      dplyr::select(response_uuid, Age, Trial,target_prop),
+    output_path,
+    row.names = FALSE
+  )
+
+tab_hh <- run_condition_model(
+    data = df_hh,
+    condition_var = "Age",
+    metric = "target_prop",
+    chance_level = 0.5,
+    random_effects = c(
+        "(1 | response_uuid)"
+    ),
+    interaction = FALSE
+)
+```
+
+
+```{r hh-plot}
+
+hh_fig <- df_hh %>% dplyr::group_by(response_uuid) %>% dplyr::summarise(helper_good_avg = mean(target_prop)) %>% merge(Part_Age,all.x=TRUE)  %>% dplyr::select(response_uuid, Age, helper_good_avg)%>% dplyr::mutate(Age = factor(Age, levels = c(6, 12)))
+
+plot7_rise <- ggplot(data = hh_fig, 
+       mapping = aes(x = Age, 
+                     y = helper_good_avg, 
+                     fill = Age))+ 
+  geom_flat_violin(scale = "count", 
+                   trim = FALSE) + 
+  stat_summary(fun.data = mean_sdl, 
+               fun.args = list(mult = 1), 
+               geom = "pointrange", 
+               position = position_nudge(0.05)) + 
+  geom_dotplot(binaxis = "y", 
+               dotsize = 0.6, 
+               stackdir = "down", 
+               #binwidth = 0.1, 
+               position = position_nudge(-0.025)) + 
+  theme(legend.position = "none") + 
+  labs(x = "Age",
+       y = "Proportion of looks fixating on\nhelper stimuli\n") + stat_n_text(size = 4, y.pos = -0.1)  +scale_fill_manual(values=c("lightblue1", "lightblue2")) + theme_few() + geom_hline(yintercept=0.5, linetype="dashed", color = "red") + theme(text = element_text(size = 15)) + guides(fill="none") + scale_y_continuous(breaks = c(0, 0.25, .50, .75, 1), limits = c(-0.1, 1), labels = c("0.00", "0.25", "0.50", "0.75", "1.00"))
+```
+
+# Figures 
+
+```{figures-total, fig.width= 15, fig.height=16}
+ggarrange(plot1_rise, plot4_rise,
+          plot3_rise, plot2_rise, 
+          plot5_rise, plot6_rise, 
+          plot7_rise, ncol = 2, nrow = 4, labels = "auto", align= "hv")
+```
+
+```{r show-plots, fig.height= 5, eval = F}
+plot1_rise
+plot3_rise
+plot5_rise
+plot2_rise
+plot4_rise
+plot6_rise
+plot7_rise
+```
+
+```{r arrange-plots, fig.width= 12, fig.height=10}
+ggarrange(word_bl_1,word_bl_2, ncol = 1, nrow = 2, labels = "auto", align= "hv", common.legend = T)
+```
+
+
+```{r usable-frames}
+usableframes <- list.files(
+   here("Aim2", "Aim2_Computed_Data"),
+  full.names = TRUE,
+  pattern = "_usable"
+) %>%
+  lapply(function(x) {
+    read.csv(x) %>%
+      mutate(Trial = as.character(Trial))
+  })
+
+tot_usable <- bind_rows(usableframes) 
+
+tcatcher_processed <- icatcher_output %>% dplyr::select(response_uuid, icatcher_file_names, frame_id) %>% arrange(response_uuid, frame_id) %>% 
+  merge(Stim_Order[,c(1,3,4)])  %>% 
+  mutate(value = gsub(".*/([^/]+)\\.webm$", "\\1", value))
+
+tot_usable  <- tot_usable %>% merge(tcatcher_processed)  %>% dplyr::select(response_uuid, frame_id, value, Usable.frames...., has_icatcher) %>% merge(Part_Age)
+  
+
+tot_usable <- tot_usable %>% mutate(value = case_when(grepl("Geo", value) ~ "Geo-Social Attention",
+                                        grepl("AV", value) ~ "Audiovisual Synchrony",
+                                        grepl("VPC", value) ~ "Visual Paired Comparison",
+                                        grepl("word", value) ~ "Word Recognition",
+                                        grepl("Pred", value) ~ "Prediction",
+                                        grepl("Num", value) ~ "Numeracy",
+                                        grepl("condi", value) ~ "Social Evaluation")) %>%
+  dplyr::rename(task = value) %>% 
+  dplyr::mutate(task_order = case_when(
+    str_detect(frame_id, "trial") ~ as.numeric(str_extract(frame_id, "\\d+$")),
+    str_detect(frame_id, "post")  ~ case_when(
+      str_extract(frame_id, "\\d+$") == "1" ~ 6,
+      str_extract(frame_id, "\\d+$") == "2" ~ 7
+    )
+  )) %>% arrange(response_uuid, task_order)
+
+```
+
+```{r usable-frames-overall, eval = T, fig.width= 15, fig.height=5}
+# Per-task usable frame summary (excluding missing iCatcher trials)
+task_usable <- tot_usable %>% dplyr::rename(usable_pct = Usable.frames....)%>%
+  filter(has_icatcher) %>%                            # exclude missing iCatcher trials
+  group_by(response_uuid, task) %>%
+  summarise(
+    task_order = first(task_order),
+    avg_usable_pct   = mean(usable_pct, na.rm = TRUE),  # avg over reached trials only
+    n_trials_reached = n(),                              # how many trials they reached
+    .groups = "drop"
+  ) %>%
+  merge(Part_Age, all.x = TRUE) %>%
+  mutate(
+    task = factor(task, levels = c(                      # order by presentation
+      "Geo-Social Attention",
+      "Visual Paired Comparison",
+      "Prediction",
+      "Audiovisual Synchrony",
+      "Word Recognition",
+      "Numeracy",
+      "Social Evaluation"
+    ))
+  )
+
+
+# Separate completion rate summary
+task_completion <- tot_usable %>% dplyr::rename(usable_pct = Usable.frames....) %>%
+  group_by(response_uuid, task) %>%
+  summarise(
+    n_reached = sum(has_icatcher),  # trials iCatcher ran
+    n_total   = n(),                                          # total expected trials
+    completion_pct = n_reached / n_total * 100,
+    .groups = "drop"
+  ) %>%
+  merge(Part_Age, all.x = TRUE)
+
+# Plot 1: Attention quality (usable frames %)
+p_vals <- task_usable %>%
+  group_by(task) %>%
+  summarise(
+    p = wilcox.test(avg_usable_pct ~ Age)$p.value,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    p_label = paste0("p = ", sprintf("%.3f", p)),
+    y = 105
+  ) %>%
+  mutate(
+    p_label = ifelse(p_label == "p = 0.000", "p < 0.001", p_label),
+    y = 105
+  )
+
+n_labels <- task_usable %>%
+  group_by(task, Age) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  mutate(label = paste0("n = ", n))
+
+# Then replace stat_compare_means with:
+
+ggplot(task_usable, aes(x = Age, y = avg_usable_pct * 100, fill = Age)) +
+  geom_boxplot(width = 0.6, outlier.shape = NA, alpha = 0.7) +
+  geom_jitter(aes(color = Age), width = 0.15, alpha = 0.5, size = 1.5) +
+  geom_text(
+    data = p_vals,
+    aes(x = 1.5, y = 108, label = p_label),
+    inherit.aes = FALSE,
+    size = 4
+  ) +
+  geom_text(
+    data = n_labels,
+    aes(x = Age, y = -2, label = label),
+    inherit.aes = FALSE,
+    size = 4
+  ) +
+  facet_wrap(~ task, nrow = 1) +
+  scale_y_continuous(limits = c(-6, 112), labels = function(x) paste0(x, "%")) +
+  scale_fill_manual(values = c("6" = "grey70", "12" = "grey30")) +
+  scale_color_manual(values = c("6" = "grey70", "12" = "grey30")) +
+  labs(
+    x     = NULL,
+    y     = "Average % usable frames",
+    fill  = NULL,
+    color = NULL
+  ) +
+  theme_classic(base_size = 14) +
+  theme(
+    legend.position = "none",
+    panel.spacing   = unit(0.5, "lines")
+  )
+
+# task_completion %>%
+#   mutate(high_completion = completion_pct == 0) %>%
+#   group_by(task, Age) %>%
+#   dplyr::summarise(
+#     n    = sum(high_completion),
+#     N    = n(),
+#     pct  = mean(high_completion) * 100,
+#     .groups = "drop"
+#   ) %>%
+#   mutate(cell = sprintf("%d (%.1f%%)", n, pct)) %>%
+#   dplyr::select(task, Age, cell) %>%
+#   tidyr::pivot_wider(names_from = Age, values_from = cell) 
+```
+
+
+
+```{r figure-usable-data, eval = T}
+taskfin_1_6 <- task_usable  %>% 
+  filter(Age == 6) %>% 
+  filter(!task_order %in%  c(6,7)) %>% 
+  mutate(task_order = factor(task_order)) %>%  
+  ggplot(aes(x = task_order, y = avg_usable_pct * 100)) + 
+  geom_boxplot(show.legend = T) +
+  geom_jitter(color="black", size=0.3, alpha=0.9) + 
+  #geom_hline(yintercept=33, linetype="dashed", color = "red") + 
+  theme_bw() +
+  xlab("Task order") + ylab("Average % usable frames")+ ggtitle("Age: 6 months") + stat_n_text(size = 4)  + 
+  theme(text = element_text(size = 15), plot.title = element_text(size = 15)) + facet_wrap(vars(task), nrow = 2)+ stat_compare_means(
+ aes(label = paste0("p = ", after_stat(p.format))),label.x = 3, label.y = 120, color = "red", size = 4) + ylim(-15, 150)
+
+taskfin_2_6 <- task_usable  %>% 
+  filter(Age == 6) %>% 
+  filter(task_order %in%  c(6,7)) %>% 
+  mutate(task_order = factor(task_order)) %>%  
+  ggplot(aes(x = task_order, y = avg_usable_pct * 100)) + 
+  geom_boxplot(show.legend = T) +
+  geom_jitter(color="black", size=0.3, alpha=0.9) + 
+  #geom_hline(yintercept=33, linetype="dashed", color = "red") + 
+  theme_bw() +
+    xlab("Task order") + ylab("Average % usable frames")+ ggtitle("Age: 6 months") + stat_n_text(size = 4)  + 
+  theme(text = element_text(size = 15), plot.title = element_text(size = 15)) + facet_wrap(vars(task), nrow = 1)+ stat_compare_means(
+ aes(label = paste0("p = ", after_stat(p.format))),label.x = 1.5, label.y = 100, color = "red", size = 4) + ylim(-10, 100)
+
+
+taskfin_1_12 <- task_usable  %>% 
+  filter(Age == 12) %>% 
+  filter(!task_order %in%  c(6,7)) %>% 
+  mutate(task_order = factor(task_order)) %>%  
+  ggplot(aes(x = task_order, y = avg_usable_pct * 100)) + 
+  geom_boxplot(show.legend = T) +
+  geom_jitter(color="black", size=0.3, alpha=0.9) + 
+  #geom_hline(yintercept=33, linetype="dashed", color = "red") + 
+  theme_bw() +
+    xlab("Task order") + ylab("Average % usable frames")+ ggtitle("Age: 12 months") + stat_n_text(size = 4)  + 
+  theme(text = element_text(size = 15), plot.title = element_text(size = 15)) + facet_wrap(vars(task), nrow = 2)+ stat_compare_means(
+ aes(label = paste0("p = ", after_stat(p.format))),label.x = 3, label.y = 120, color = "red", size = 4) + ylim(-15, 150)
+
+taskfin_2_12 <- task_usable  %>% 
+  filter(Age == 12) %>% 
+  filter(task_order %in%  c(6,7)) %>% 
+  mutate(task_order = factor(task_order)) %>%  
+  ggplot(aes(x = task_order, y = avg_usable_pct * 100)) + 
+  geom_boxplot(show.legend = T) +
+  geom_jitter(color="black", size=0.3, alpha=0.9) + 
+  #geom_hline(yintercept=33, linetype="dashed", color = "red") + 
+  theme_bw() +
+    xlab("Task order") + ylab("Average % usable frames")+ ggtitle("Age: 12 months") + stat_n_text(size = 4)  + 
+  theme(text = element_text(size = 15), plot.title = element_text(size = 15)) + facet_wrap(vars(task), nrow = 1)+ stat_compare_means(
+ aes(label = paste0("p = ", after_stat(p.format))),label.x = 1.5, label.y = 100, color = "red", size = 4) + ylim(-10, 100)
+
+```
+
+```{r arrange-figs2, fig.width= 12, fig.height=10, eval=T}
+ggarrange(taskfin_1_6,taskfin_1_12, ncol = 1, nrow = 2, labels = "auto", align= "hv", common.legend = T)
+```
+
+```{r arrange-figs3, fig.width= 12, eval = T}
+ggarrange(taskfin_2_6,taskfin_2_12, ncol = 2, nrow = 1, labels = "auto", align= "hv", common.legend = T)
+```
+
+# Final Tables 
+
+```{r final-tables}
+# ------------------------------------------------------------------------------
+# Build Table 3
+# ------------------------------------------------------------------------------
+GS_quality_tbl         <- summarise_quality_v2(GS_results,        Part_Age)
+vpc_quality_tbl        <- summarise_quality_v2(vpc_results,        Part_Age)
+prediction_quality_tbl <- summarise_quality_v2(Prediction_results, Part_Age)
+AV_quality_tbl         <- summarise_quality_v2(AV_results, Part_Age)
+WL_quality_tbl         <- summarise_quality_v2(WL_results,         Part_Age)
+numeracy_quality_tbl   <- summarise_quality_v2(numeracy_results,   Part_Age)
+hh_quality_tbl         <- summarise_quality_v2(hh_results,         Part_Age)
+
+age_levels <- sort(unique(Part_Age$Age))  # e.g. c("6mo", "12mo")
+
+table3 <- bind_rows(
+  compute_table3_row(GS_results,         GS_icatcher,         "Geo-Social Attention",               10, Part_Age, show_away = TRUE,  quality_tbl = GS_quality_tbl),
+  compute_table3_row(vpc_results,        vpc_icatcher,        "Visual Paired Comparison (VPC)",      12, Part_Age, show_away = TRUE,  quality_tbl = vpc_quality_tbl),
+  compute_table3_row(Prediction_results, prediction_icatcher, "Prediction",                          16, Part_Age, show_away = TRUE,  quality_tbl = prediction_quality_tbl),
+  compute_table3_row(AV_results,         AV_icatcher,         "Audiovisual Synchrony",                6, Part_Age, show_away = TRUE,  quality_tbl = AV_quality_tbl),
+  compute_table3_row(WL_results,         WL_icatcher,         "Word Comprehension",                  20, Part_Age, show_away = TRUE,  quality_tbl = WL_quality_tbl),
+  compute_table3_row(numeracy_results,   Numeracy_icatcher,   "Numeracy",                             4, Part_Age, show_away = TRUE,  quality_tbl = numeracy_quality_tbl),
+  compute_table3_row(hh_results,         hh_icatcher,         "Social Evaluation",                   14, Part_Age, show_away = TRUE,  quality_tbl = hh_quality_tbl)
+)
+
+table3 <- table3 %>% dplyr::select(Task, N_trials_QC, contains("valid"), contains("zero"), contains("noface"), contains("away"), contains("lowconf"))
+
+colnames(table3) <- c(
+  "Task",
+  "N trials (QC)",
+  paste0("N valid iCatcher+ (", age_levels, ")"),
+  paste0("N 0% completion (", age_levels, ")"),
+  paste0("Median (IQR) % no-face frames (", age_levels, ")"),
+  paste0("Median (IQR) % away frames (", age_levels, ")"),
+  paste0("Median (IQR) % low-confidence frames (", age_levels, ")")
+)
+
+
+
+table3 %>%
+  knitr::kable(format = "html",
+               caption = "Table 3: Data quality metrics from iCatcher+ output across all administered trials.") %>%
+  kableExtra::kable_styling("striped", full_width = TRUE) 
+
+# ------------------------------------------------------------------------------
+# Build Table 4
+# ------------------------------------------------------------------------------
+
+table4 <- bind_rows(
+  make_table4_row(GS_enrollment,        GS_results,         GS_icatcher,         "Geo-Social Attention",         10, Part_Age, "Trial"),
+  make_table4_row(vpc_enrollment,        vpc_results,        vpc_icatcher,        "Visual Paired Comparison",      6, Part_Age, "Trial Total"),
+  make_table4_row(Prediction_enrollment, Prediction_results, prediction_icatcher, "Prediction",                   14, Part_Age, "Trial",
+                  final_df = prediction_final,
+                  final_id_col = "response_uuid",
+                  trials_per_person_override = prediction_final %>%
+                    group_by(response_uuid) %>%
+                    summarise(n_trials = sum(n2), Age = first(Age), .groups = "drop")),
+  make_table4_row(AV_enrollment,         AV_results,         AV_icatcher,         "Audiovisual Synchrony",         6, Part_Age, "Trial"),
+  make_table4_row(WL_enrollment,         WL_results,         WL_icatcher,         "Word Comprehension",            5, Part_Age, "Trial",
+                  final_df = df_list_diff_enroll, final_trial_col = "Word_Pair"),
+  make_table4_row(numeracy_enrollment,   numeracy_results,   Numeracy_icatcher,   "Numeracy",                      4, Part_Age, "Trial"),
+  make_table4_row(hh_enrollment,         hh_results,         hh_icatcher,         "Social Evaluation",             2, Part_Age, "Trial Total")
+)
+
+table4 <- table4 %>% dplyr::select(Task, Analytic_trials, contains("valid"), contains("usable"), contains("sidebias"), contains("final"), contains("Med_trials"))
+
+
+colnames(table4) <- c(
+  "Task",
+  "Analytic trials/word pairs",
+  paste0("N valid iCatcher+ (", age_levels, ")"),
+  paste0("N \u226533% usable frames (", age_levels, ")"),
+  paste0("N side bias (", age_levels, ")"),
+  paste0("N final analytic sample (", age_levels, ")"),
+  paste0("Median (IQR) trials (", age_levels, ")")
+)
+
+table4 %>%
+  knitr::kable(format = "html",
+               caption = "Table 4: Participant retention across data quality and inclusion criteria steps, by task and age group.") %>%
+  kableExtra::kable_styling("striped", full_width = TRUE) 
+
+```
+
+```{r final-list}
+results_list <- list(
+  list(label = "Geo-Social Attention",      tab = tab_geo),
+  list(
+    label       = "VPC",
+    tab         = tab_vpc,
+    stim_levels = c("Social", "Non-social"),      # must match what's in tab$Condition
+    stim_labels = c("VPC Social (face)",
+                    "VPC Non-social (fribbles)")
+  ),
+  list(
+    label       = "Prediction",
+    tab         = tab_pred,
+    stim_levels = c("Block 1", "Block 2"),      # must match what's in tab$Condition
+    stim_labels = c("Prediction Block 1",  # optional: custom Task column labels
+                    "Prediction Block 2")
+  ),
+  list(label = "AV Synchrony",      tab = tab_av),
+  list(label = "Word comprehension",      tab = tab_word),
+  list(
+    label       = "Numeracy",
+    tab         = tab_num,
+    stim_levels = c("Small Constant", "Large Constant"),      # must match what's in tab$Condition
+    stim_labels = c("Numeracy 5-item stream constant",  # optional: custom Task column labels
+                    "Numeracy 20-item stream constant")
+  ),
+  list(label = "Social Evaluation",      tab = tab_hh)
+)
+
+make_summary_table(results_list, age_levels = c("6", "12"))
+
+```
