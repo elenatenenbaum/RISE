@@ -1412,6 +1412,107 @@ word_comp_timecourse_by_pair
 
 ```
 
+```{r timecourse-graphs-by-item, fig.width=10, fig.height=7, out.width='95%', fig.align='center'}
+
+# by item
+word_comp_timeseries_plot_item <- WL_results$frame_level %>%
+  merge(Part_Age, all.x = TRUE) %>%
+  mutate(
+    propt = case_when(
+      look == "target" ~ 1,
+      look == "non_target" ~ 0,
+      TRUE ~ NA_real_
+    ),
+    age_group = factor(as.character(Age), levels = c("6", "12")),
+    t_onset = (frame_within_trial - 1) * 33.3
+  ) %>%
+  merge(
+    WL_item.pairs_1 %>%
+      dplyr::select(Variable, TargTrial),
+    by.x = "Trial",
+    by.y = "TargTrial"
+  ) %>% mutate(
+  Variable = factor(
+    Variable,
+    levels = c(
+      "foot", "milk",
+      "banana", "hair",
+      "hand", "yogurt",
+      "eyes", "cookie",
+      "mouth", "apple"
+    )
+  )
+)  %>%
+  filter(
+    !is.na(propt),
+    !is.na(age_group),
+    !is.na(Variable),
+    t_onset >= 0,
+    t_onset <= 3000
+  )
+
+word_comp_timecourse_by_item <-
+  ggplot(
+    word_comp_timeseries_plot_item,
+    aes(
+      x = t_onset,
+      y = propt,
+      color = age_group,
+      fill = age_group
+    )
+  ) +
+  stat_smooth(
+    geom = "errorbar",
+    size = 0.3,
+    alpha = 0.3
+  ) +
+  geom_hline(yintercept = 0.5, linetype = "dashed") +
+  geom_vline(xintercept = c(367, 3000), linetype = "dashed") +
+  scale_x_continuous(
+    breaks = c(0, 367, 1000, 2000, 3000),
+    limits = c(0, 3000)
+  ) +
+  scale_y_continuous(
+    limits = c(0, 1)
+  ) +
+  facet_wrap(
+    ~ Variable,
+    ncol = 4
+  ) +
+  scale_color_manual(
+    name = "Age",
+    values = c(
+      "6" = "#2563EB",
+      "12" = "#F59E0B"
+    )
+  ) +
+  scale_fill_manual(
+    name = "Age",
+    values = c(
+      "6" = "#2563EB",
+      "12" = "#F59E0B"
+    )
+  ) +
+  theme_bw() +
+  theme(
+    text = element_text(size = 18),
+    axis.text.x = element_text(size = 10),
+    strip.text = element_text(size = 12),
+    panel.spacing.x = unit(1.2, "lines"),
+    legend.position = "bottom"
+  ) +
+  labs(
+    x = "Time since Target Word Onset",
+    y = "Mean Proportion Target-Looking"
+  ) +
+  guides(
+    color = guide_legend(
+      override.aes = list(linewidth = 8)
+    )
+  )
+
+word_comp_timecourse_by_item
+```
 
 Number (and percent) of infants who viewed the task at all (2nd column, as % of consented sample with any icatcher data & in frame data , with sufficient usable data (3rd column, as % of infants who viewed the task),  with fixation on a single side >80% of the task (4th column, as % of infants with usable data), and final N in the analytic dataset. 
 
