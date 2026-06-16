@@ -2,7 +2,7 @@
 title: ""
 
 bibliography: references.bib
-# nocite: '@*'
+nocite: '@*'
 
 output:
   word_document:
