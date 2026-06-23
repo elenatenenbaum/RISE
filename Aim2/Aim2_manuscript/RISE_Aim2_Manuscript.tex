@@ -1,0 +1,1116 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\subsection{Abstract}\label{abstract}
+
+The study of infant cognitive and language development has been limited
+by small samples and the need for in-person visits. The Remote Infant
+Studies of Early Learning (RISE) (Tenenbaum et al. 2024) was designed to
+assess early development on a larger scale. The battery includes seven
+tasks to remotely assess developmental trajectories. This study expands
+on previous pilot work with a larger sample and modified methods. Data
+from 111 infants (55 6-month-olds and 56 12-month-olds) were collected
+asynchronously. Infant looking behavior was recorded with open-source
+software. Results for attention, memory, and prediction were consistent
+with preregistered predictions. Here we demonstrate replication as well
+as new information with an overlapping set of tasks with some
+modifications to the approach.
+
+\textbf{Keywords:} cognitive development, remote, infant
+
+\newpage
+
+\subsection{Introduction}\label{introduction}
+
+Our understanding of early cognitive and linguistic development draws on
+more decades of laboratory-based studies that have generally required
+caregivers to travel to the lab with their infants for in-person
+assessments. While this approach brought us much of our foundational
+knowledge about infant cognitive development, a number of important
+findings have failed to replicate from one lab to the next (Lavelle,
+2024). It is unclear whether these replication failures are because the
+findings are unreliable, the populations studied in the different
+locations differ in some way that has a meaningful effect on the
+results, or because the labs used different methods. Recent movements in
+``Big Science'' (Byers-Heinlein, Tsui, Bergmann, et al., 2021;
+Byers-Heinlein, Tsui, van Renswoude, et al., 2021; Frank et al., 2017;
+ManyBabies Consortium, 2020; Soderstrom et al., 2024; Zettersten et al.,
+2024) have improved our efforts to reproduce studies in larger samples,
+in some cases, with mixed results as some recent studies have failed to
+replicate seminal studies (e.g., Lucca et al., 2025; Schreiner et al.,
+2024).
+
+The Remote Infant Studies of Early Learning (RISE) Battery was
+established to expand on these efforts using a single platform to
+present a consistent set of stimuli and one automated approach to
+responses. One of its overall aims is to facilitate the study of
+cognitive and linguistic development in early infancy in a scalable,
+generalizable manner; this in turn would allow for its application in
+other populations, such as infants with high risk of Autism Spectrum
+Disorders in future work. The RISE Battery consists of seven tasks
+modeled on traditional laboratory measures, adapted for remote use in
+the home. In conjunction with remote administration options through the
+Children Helping Science platform (Scott et al., 2017; Scott \& Schulz,
+2017) and automated coding of infant looking behavior via the open
+source software, iCatcher+ (Erel et al., 2023), the RISE Battery allows
+us to test developmental milestones without sources of unintentional
+experimenter bias and inconsistent stimuli presentation associated with
+lab-specific methods. Therefore, the RISE battery greatly reduces
+possible epistemic uncertainty. Recent work demonstrated the feasibility
+of this approach in a small sample of infants at 6 (n = 29) and 12
+months (n = 26) (Tenenbaum et al., 2024). In the current study, we
+expand on those findings with (1) updated stimuli adapted from the pilot
+work and (2) a larger sample of infants.
+
+\emph{The RISE Battery}
+
+The RISE Battery includes assessments of attention, memory, prediction,
+multisensory processing, word comprehension, social evaluation, and
+numeracy. These originally lab-based tasks were selected due to their
+demonstrated or hypothesized associations with developmental outcomes,
+including language skills, mathematical abilities, social skills, or
+autism diagnosis (Arunachalam \& Luyster, 2015; Bradshaw et al., 2011;
+Decarli et al., 2022; Hamlin et al., 2007; Li et al., 2023; Pierce et
+al., 2016; Reuter et al., 2018; Senju, 2013; Sinha et al., 2014; Starr
+et al., 2013) (see Figure 1). With mixed success, the pilot study
+(Tenenbaum et al., 2024) added to growing evidence that established
+laboratory-based measures of language and cognitive development can be
+translated to in-home remote assessment (Bacon et al., 2021; Bánki et
+al., 2022; Chuey et al., 2024; Silver et al., 2021).
+
+In addition to establishing consistent methods for presentation of the
+experiment on the Children Helping Science platform, creating unified
+stimuli across infants, and exploring automated (i.e., scalable) coding
+methods, the RISE Battery adds a number of methodological advances that
+increase accessibility. These advances include testing infants in the
+comfort of their own homes, thereby reducing the demands and disruption
+of travel to a novel location and interaction with unfamiliar (and
+perhaps overwhelming) new experimenters. This approach also increases
+the feasibility of testing large populations (e.g., for population
+effect studies of environmental variables such as food or income
+supplements on infant development; in studies comparing populations
+across several locations, etc.). Further, it improves access for infants
+from special populations, including infant siblings of autistic children
+and infants with rare genetic profiles who may be too dispersed
+geographically to allow for in-person testing.
+
+Though the described merits of a scalable automated assessment of infant
+cognitive and language development are clear, there are, of course,
+potential challenges associated with this approach as well. These
+include concerns about (1) whether we can recruit diverse participants
+given the requirement of a home computer, (2) whether infants will
+reliably attend to a full battery of experimental stimuli, and (3)
+whether data quality will be sufficient given potential variability in
+the internet connection speeds and possible dropouts in connection
+during the experiment. The current study assessed these concerns in 6
+and 12-month-old infants recruited through the Children Helping Science
+Platform. In addition, we were interested in making modifications to the
+task battery used in Tenenbaum et al.~(2024) in light of the data
+reported there, as well as adding new exploratory tasks to expand our
+coverage of different cognitive constructs. Below, we enumerate the
+constructs we measured and note modifications from the previous versions
+of these tasks, as relevant (see Figure 1 and Table 1).
+
+\emph{Attention:} To explore social preference, infants viewed dynamic
+geometric shapes contrasted with children dancing (Chawarska et al.,
+2016; Pierce et al., 2016). In our pilot work, 12-month-olds, but not
+6-month-olds, looked reliably longer at the social stimuli (cf.~Imafuku
+et al., 2017). Here, the stimuli were modified for younger participants
+by muting the colors of the geometric figures and zooming in on the
+faces of the children.
+
+\emph{Memory:} Visual paired comparison (VPC) (Manns et al., 2000) was
+used to evaluate memory of both face and non-face stimuli (``Fribbles,''
+which maintain the complexity of face processing while removing the
+social elements of the task (Barry et al., 2014)). In the pilot study,
+results showed consistent preference for the novel face at test among
+12-month-olds, but not 6-month-olds. Given the expected developmental
+gains between 6 and 12 months, this task was unchanged from the pilot
+study. Prediction: The RISE Prediction task explores anticipatory looks
+to a cued visual location following familiarization. Previous research
+has shown correlations between this type of prediction and language
+abilities in infants without autism (Reuter et al., 2018). In the pilot
+study, infants consistently made anticipatory eye movements at 12 months
+but not at 6 months. Given the expected developmental shift, this task
+was unchanged from the pilot study.
+
+\emph{Multimodal Processing:} Language abilities have been associated
+with sensitivity to audiovisual alignment at young ages in both autistic
+and typically developing toddlers (Righi et al., 2018; Tenenbaum et al.,
+2014). In the pilot study, infants did not show a significant preference
+for audiovisual (AV) synchrony when the audio preceded the video by
+666ms. In the current study, we extended the delay to 1000ms. \emph{Word
+Comprehension:} To assess real-time word comprehension and its links to
+later language outcomes (Fernald \& Marchman, 2012), infants view a
+looking-while-listening task in which they viewed two images, one of
+which is labeled (Bergelson \& Swingley, 2012). Contrary to
+preregistered predictions, neither 6-month-olds nor 12-month-olds
+demonstrated reliable comprehension of these familiar words in the pilot
+study. Here, stimuli were adapted to align more precisely with Bergelson
+\& Swingley (2012) by adding attention getters and reverting to
+previously tested stimulus pairs and images.
+
+\emph{Social Evaluation:} To evaluate prosocial evaluation, the RISE
+Battery uses animated stimuli in which social agents either push each
+other up (prosocial) or down (antisocial) a hill (Margoni \& Surian,
+2018). Though the pilot remote study did not replicate the previous
+findings, this result may have been related to the small sample size or
+translation to the remote setting. In the current study, the same pilot
+stimuli were used to assess social evaluation in infants in a larger
+sample.
+
+\emph{Numeracy:} In the pilot study, infants' non-symbolic number
+discrimination abilities were examined with a preferential-looking
+paradigm contrasting constant and alternating quantities of dots.
+Results suggested the ability to discriminate quantities differing by a
+1:4-ratio (i.e., 5 vs 20 dots) at 12 months but not 6 months. Because
+the results among 12-month-olds were consistent with preregistered
+hypotheses, and the lack of effect among 6-month-olds may have been
+related to the small sample size in the pilot study, in the current
+study, the same pilot stimuli were used.
+
+The hypotheses for the current study were the same as those set out in
+the pre-registration for the pilot study: {[}Anonymized link:
+\url{https://osf.io/2xqmn/?view_only=0f976572eda04c7fa2ef0a45bfc45a3b}{]}.
+
+\subsection{Methods}\label{methods}
+
+\emph{Ethical Compliance} The research presented in this manuscript was
+completed in compliance with the APA ethical principles regarding
+research with human participants. All methods were approved by the
+University Institutional Review Boards. The data reported here are part
+of an ongoing study in which infants with and without an older autistic
+sibling are tested on the RISE Battery, and caregivers are asked to
+complete surveys regarding their infant's developmental milestones. The
+current manuscript focuses on confirming the validity of the adapted
+RISE battery in a larger group of infants from the general population
+(i.e., without an autistic sibling).
+
+\emph{Participants} Recruitment was completed through the Children
+Helping Science platform. Inclusion criteria were (1) \textgreater50\%
+English spoken in the home, (2) full-term birth (\textgreater37 weeks),
+(3) without known developmental delays, and (4) without known relatives
+with a diagnosis of autism. A total of 111 participants were included
+with data collected at 6 months of age (6:0-6:30;n = 55) or 12 months of
+age (12:0-12:30; 56). The final sample included participants from 31 of
+the 50 states and was largely consistent with the racial composition of
+the United States (Scott \& Schulz, 2017), but participants were skewed
+towards higher education and income (see Table 2). Participants were
+compensated with a \$25 Amazon gift card.
+
+\emph{Stimuli} Except as noted here or in Table 1, stimuli were
+consistent with those used in the pilot study (Tenenbaum et al., 2024).
+
+\emph{Procedure} The Children Helping Science platform (formerly LookIt;
+Scott et al., 2017; Scott \& Schulz, 2017) allows families to enroll in
+studies from their home computer. Consent was obtained through video
+recordings that were reviewed by study personnel before video data could
+be accessed. Families participated at their convenience and were
+encouraged to take breaks between tasks to promote attention to the
+stimuli. As long as the browser remained open, they were able to
+continue the experiment. The time between tasks ranged from 3 seconds to
+73 minutes with a median of 11 seconds.
+
+\emph{Video Coding} Infant gaze direction was detected using iCatcher+
+(Erel et al., 2023), open-access software. iCatcher+ uses an artificial
+neural network to identify and classify gaze direction from
+low-resolution videos. To address concerns in the pilot study that the
+caregiver gaze was at times mistakenly identified as infant gaze
+(despite the fact that iCatcher+ is designed to select the lowest
+bounding face), caregivers were asked to avert their gaze by looking
+down, away, or by wearing darkened glasses. To assess the success of
+this modification, 5\% of the videos were re-coded by a human coder
+frame by frame using open-source software for gaze direction coding
+called Peyecoder (Olson et al., 2020). For comparison with iCatcher+
+output, analysis was restricted to frames that would have been included
+in the statistical models (i.e., those specific to the trials for each
+task and where iCatcher+ reported 85\% or more confidence). Cohen's κ
+was used to assess reliability. While these results fall short of the
+pre-registered goal of κ =0.9, they are consistent with the
+preregistered target of κ≥0.70 as an acceptable reliability.
+
+\emph{Data quality \& usable data} Frames were defined as usable if (1)
+the infant's face was visible, (2) the infant's gaze was directed at the
+screen, and (3) iCatcher+ classification confidence was ≥.85 (see
+Tenenbaum et al., 2024); frames failing any criterion were excluded.
+Data quality metrics were evaluated across all administered trials for
+each task (see Table 3); note that the number of trials entering the
+analytic dataset differs from the total administered trials due to
+task-specific inclusion criteria described below (see Table 4 for
+analytic trial counts). For the analytic dataset, for a trial to be
+considered usable, infants were required to have ≥33\% usable frames.
+Participants were additionally excluded from a given task if they showed
+a side bias, defined as fixating on a single side for ≥80\% of the task.
+Task-specific inclusion criteria were applied as follows. For the Visual
+Paired Comparison (VPC) task, each object was presented twice in
+succession (trials 1a and 1b); looking time was averaged across the
+pair, yielding 6 analytic units from 12 administered trials. For the
+Prediction task, trials 1 and 9 were excluded as the first trial of each
+block; participants were additionally required to have at least one
+anticipatory eye movement in Block 2 and at least two usable trials per
+block for the corresponding block outcome to be included (Reuter et al.,
+2018). The Word Comprehension task presented five word--image pairs
+across two repetition blocks (trials 1--10 and trials 11--20). For each
+pair, the target word appeared as the fixation target in one block and
+as the distractor in the other (e.g., foot was the target in trial 1 and
+the distractor in trial 9; milk was the target in trial 9 and the
+distractor in trial 1). The outcome for each pair was computed as the
+average proportion of looking time to the target minus the average
+proportion of looking time to the distractor, with proportions averaged
+across both repetition blocks before subtraction, yielding up to 5
+difference scores per participant. For the Social Evaluation task, only
+trials 7 and 14 served as test trials (one per block); participants were
+required to have at least one usable helper trial and one usable
+hinderer trial within each block (Block 1: trials 1--6; Block 2: trials
+8--13) for the corresponding test trial to be included. No additional
+task-specific criteria were applied for Geo-Social Attention,
+Audiovisual Synchrony, or Numeracy. The number of analytic trials,
+therefore, differs from the total administered trials for four tasks;
+Table 4 summarizes analytic sample size and trial counts.
+
+\emph{Statistical Analysis} Demographics and participant characteristics
+were summarized using median and interquartile range (IQR) for
+continuous variables and frequency and percentage for categorical
+variables. The dependent variable differed by task. For the preferential
+looking tasks (Geo-Social Attention, Visual Paired Comparison,
+Audiovisual Synchrony, Numeracy, and Social Evaluation), the dependent
+measure was the proportion of looks to the target stimulus relative to
+total looking time to the screen, treated as continuous with an expected
+proportion greater than 0.5. For the Word Comprehension task, the
+dependent measure was a difference score calculated as the proportion of
+attention to the target image when it was named by the auditory stimulus
+minus the same proportion when it served as the distracter image,
+averaged across trials. This was treated as continuous with an expected
+mean difference score greater than 0. For the Prediction task, the
+dependent measure was the proportion of anticipatory eye movements
+(AEMs) to the target side, calculated as the number of usable trials
+with at least one AEM divided by the total number of usable trials,
+separately for each block (Block 1: trials 2--8; Block 2: trials
+10--16), with an expected mean proportion greater than 0.5. All
+statistical analyses were conducted in R (version 4.5.2) using the
+packages lme4 and lmerTest. Linear mixed-effects models were fit with
+child and stimulus as crossed random effects to test for expected
+patterns in the overall cohort and by age group (e.g.,
+proportion\_of\_looks\_to\_target \textasciitilde{} age +
+(1\textbar child\_id) + (1\textbar trial)). Three tasks required
+additional model terms to account for within-task design features. For
+the Visual Paired Comparison task, a Stimulus Type term (faces
+vs.~fribbles) was included as a within-participant factor, as all
+infants viewed both stimulus types; an Age × Stimulus Type interaction
+term was included to test whether novelty preferences differed by
+stimulus type across age groups. For the Prediction task, a Block term
+(Block 1 vs.~Block 2) was included as a within-participant factor, as
+all infants contributed data to both blocks; an Age × Block interaction
+was included to examine whether anticipatory eye movements differed
+across the two blocks. For the Numeracy task, Constant Stream Size
+(5-item vs.~20-item) was included as a between-participant factor, as
+infants were randomly assigned to view only one constant stream
+condition for the entire task; an Age × Constant Stream Size interaction
+was included to test whether preferences for the alternating stream
+differed by condition. Where consent was provided, videos are available
+on Databrary (\url{https://nyu.databrary.org/volume/1774}). Code and
+data are available through GitHub
+(\url{https://github.com/elenatenenbaum/RISE}).
+
+\subsection{Results}\label{results}
+
+\emph{Infant Attention and Side Bias Across All Administered Trials}
+
+Table 3 summarizes data quality metrics across tasks, including the
+proportion of frames excluded due to no face detected, off-screen gaze,
+and low iCatcher+ confidence. Valid iCatcher+ output was obtained for
+the majority of participants across all tasks (range: 85.7\%--98.2\%).
+Zero percent task completion was rare, with the exception of the VPC
+task where 4.0\% of 6-month-olds and 5.7\% of 12-month-olds had no
+usable trials. Across tasks, frame exclusions were driven by all three
+sources, though away looks were consistently the largest contributor
+relative to no-face frames. Low-confidence frames were also notably
+prevalent, particularly for the Prediction task (18.0\% and 22.1\% for
+6- and 12-month-olds, respectively). Social Evaluation showed the
+highest rates of both no-face and away frames (no-face: 13.5\% and
+6.8\%; away: 22.9\% and 14.4\% for 6- and 12-month-olds, respectively).
+Figure 2 displays the average percentage of usable frames per
+participant across the seven tasks. Overall, usable frame rates were
+moderate to high, with median values ranging from approximately 50\%
+(Social Evaluation, 6-month-olds) to 85\% (Geo-Social Attention,
+12-month-olds), suggesting adequate data quality for most participants.
+Wilcoxon rank-sum tests indicated that 12-month-olds had significantly
+higher usable frame rates than 6-month-olds for Word Comprehension
+(\emph{p} = .018) and Social Evaluation (p \textless{} .001); no
+significant age differences were observed for the remaining five tasks.
+There was no significant difference in usable frame rates as a function
+of task presentation order for either age group across the five base
+tasks (all ps \textgreater{} .05; see Supplementary Figure 1) or the two
+exploratory tasks, Social Evaluation and Numeracy (see Supplementary
+Figure 2).
+
+\emph{Analytic Dataset}
+
+Table 4 summarizes participant retention across inclusion criteria
+steps. Attrition was most pronounced for Social Evaluation, where only
+52.0\% of 6-month-olds with valid iCatcher+ output met the usable trial
+threshold, and for Numeracy, where side bias exclusions resulted in the
+smallest final analytic samples (6-month-olds: n = 27; 12-month-olds: n
+= 31). Participants who fixated on a single side of the screen for ≥80\%
+of usable frames within a task were excluded from that task's analysis;
+this criterion was not applied to the Prediction task due to its short
+anticipatory eye movement analysis window. Note that for Prediction,
+Word Comprehension, and Social Evaluation, the final analytic N reflects
+additional task-specific criteria beyond side bias exclusion (see
+Methods); these are reflected in Table 4.
+
+\emph{Task Outcomes}
+
+Results are reported as model-based estimates, corresponding 95\%
+confidence limits, and p-value of the corresponding hypothesis test
+(with significance defined as two-sided p \textless{} 0.05).
+
+\subsection{Geo-Social Attention Task}\label{geo-social-attention-task}
+
+The pre-registered prediction for the Geo-Social Attention Task was that
+infants would look more (mean \textgreater{} 0.50) to the social
+stimuli. This prediction held true for both 12- and 6-month-olds (Figure
+3a) 12-m: M = 0.70 {[}0.64, 0.76{]}, \emph{p} = \textless{} 0.001; 6-m:
+M = 0.66 {[}0.60, 0.72{]}, \emph{p} = \textless{} 0.001) without a
+significant effect of age (0.04 {[}-0.01, 0.09{]}, \emph{p} = 0.127).
+These findings are consistent with the results of the 12-month-olds in
+the pilot study and with prior work in toddlers Pierce et al., 2011;
+Tenenbaum et al., 2024), and further show that this preference is
+present in infants as young as 6 months (as in Imafuku et al., 2017).
+See Figure 3a and Table 5.
+
+\subsection{Visual Paired Comparison (VPC)
+Task}\label{visual-paired-comparison-vpc-task}
+
+Our preregistered hypothesis was that 12-month-olds would show a
+stronger novelty effect than 6-month-olds and that the effects of
+novelty would be stronger for faces than for Fribbles. Contrary to those
+predictions, results showed that both 6- and 12-month-olds demonstrated
+reliable preference for novel faces (12-m: M = 0.58 {[}0.51, 0.66{]},
+\emph{p} = 0.033; 6-m: M = 0.56 {[}0.49, 0.64{]}, \emph{p} = 0.084),
+without a significant effect of age (\emph{p} = 0.508). For non-face
+objects (Fribbles), 6-month-olds (M = 0.56 {[}0.51, 0.62{]}, \emph{p} =
+0.026), and 12-month-olds (M = 0.56 {[}0.51, 0.62{]}, \emph{p} = 0.025)
+showed a reliable preference for the novel object at test, and again
+there was not a significant effect of age (\emph{p} = 0.969). The effect
+of stimulus type was not significant for either 6- or 12-month-olds
+(\emph{p} = 0.984 and \emph{p} = 0.615, respectively). See Figure 3b and
+Table 5.
+
+\subsection{Prediction Task}\label{prediction-task}
+
+The pre-registered hypothesis was that 12-month-old infants would
+demonstrate more AEMs to the target side (versus the distractor side)
+than 6-month-old infants. As seen in Table 5, this hypothesis held true
+in that there were more AEMs to target amongst the 12-month-olds;
+however, these differences between age groups were not significant
+(Block 1: 12-m: M = 0.52 {[}0.39, 0.64{]}, \emph{p} = 0.778; 6-m: M =
+0.38 {[}0.26, 0.50{]}, \emph{p} = 0.044; 12-m vs.~6-m: M = -0.14
+{[}-0.31, 0.03{]}, \emph{p} = 0.108. Block 2: 12-m: M = 0.68 {[}0.55,
+0.80{]}, \emph{p} = 0.005; 6-m: M = 0.62 {[}0.50, 0.74{]}, \emph{p} =
+0.059; 12-m vs.~6-m: M = -0.06 {[}-0.23, 0.11{]}, \emph{p} = 0.507). See
+Figure 3c and Table 5.Both 6-month-olds and 12-month-olds failed to show
+reliable AEMs to the target side in Block 1. This was surprising given
+that the 12-month-olds seem to show reliable predictions to the updated
+location in Block 2. To clarify the source of these unexpected results,
+we ran an exploratory analysis comparing the proportion of infants with
+AEMs to chance on each trial (uncorrected). In Block 1, results
+indicated that overall, neither 6-month-olds nor 12-month-olds did not
+reliably demonstrate AEMs on any individual trial (Figure 4). In Block
+2, most 12-month-olds were able to update their predictions about the
+new location reliably by Trial 11 (the 2nd trial in Block 2). In Block
+2, whereas 6-month-olds were able to do so on Trial 11 and Trial 14 and
+were not consistent on other trials (and as such on average across the
+trials in Block 2 did not show a reliable tendency to predict the
+updated location).
+
+\subsection{Audiovisual Synchrony
+Task}\label{audiovisual-synchrony-task}
+
+In contrast to our pre-registered predictions, we did not find a
+reliable preference for the synchronous stimuli at either age (12-m: M =
+0.51 {[}0.46, 0.55{]}, \emph{p} = 0.742; 6-m: M = 0.50 {[}0.46, 0.55{]},
+\emph{p} = 0.851), nor was there a significant effect of age (\emph{p} =
+0.897). See Figure 3d and Table 5.
+
+\subsection{Word Comprehension Task}\label{word-comprehension-task}
+
+Differing from our preregistered hypothesis, the 12-month-olds did not
+differ from the 6-month-olds in displaying a difference in looks to the
+target (M = 0.03 {[}-0.03, 0.08{]}, \emph{p} = 0.33). Neither the
+12-month-olds nor the 6-month-olds looked more to the target object when
+it was the target than when it was the distractor (12-m: M = 0.02
+{[}-0.02, 0.07{]}, \emph{p} = 0.258; 6-m: M = -0.00 {[}-0.05, 0.04{]},
+\emph{p} = 0.841). See Figure 3e and Table 5.
+
+\subsection{Numeracy Task}\label{numeracy-task}
+
+In the Numeracy task, we predicted that infants at both 6 and 12 months
+would prefer the numerically alternating streams compared to the
+constant streams irrespective of the relative size of the quantity in
+the constant stream (i.e., 5 or 20 items). Contrary to our predictions,
+6-month-olds preferred, and 12-month-olds trended toward preferring, the
+alternating stream only when the constant stream contained the smaller
+quantity (12-m: M = 0.56 {[}0.49, 0.63{]}, \emph{p} = 0.082; 6-m: M =
+0.63 {[}0.56, 0.70{]}, \emph{p} = 0.001) not when the constant stream
+contained the larger quantity (12-m: M = 0.49 {[}0.41, 0.57{]}, \emph{p}
+= 0.864; 6-m: M = 0.49 {[}0.40, 0.57{]}, \emph{p} = 0.738). There was no
+significant effect of age for large or small constant (\emph{p} = 0.902
+and \emph{p} = 0.147, respectively). See Figure 3f and Table 5.
+
+\subsection{Social Evaluation Task}\label{social-evaluation-task}
+
+Inconsistent with preregistered predictions, we found no reliable
+difference in looks to the helper character relative to the hindering
+character (12-mo: M = 0.49 {[}0.43, 0.54{]}, \emph{p} = 0.657; 6-mo: M =
+0.51 {[}0.45, 0.57{]}, \emph{p} = 0.665) and no significant effect of
+age (\emph{p} = 0.537). See Figure 3g and Table 5.
+
+\subsection{Summary in Relation to Pilot
+Study}\label{summary-in-relation-to-pilot-study}
+
+In summary, the current study replicated pilot results with Geo-Social
+(12-month-olds), VPC and Prediction tasks (12-month-olds). Changes to
+the stimuli (and overall increased data collection) as described in
+Table 1 resulted in outcomes consistent with the prior literature for
+6-month-olds in the Geo-Social task. Audiovisual Synchrony, Social
+Evaluation, and Word Comprehension failed to show the predicted
+outcomes. The larger sample size shifted the interpretation of the
+Numeracy findings to be associated with increased numbers of items on
+the screen, rather than solely discrimination of quantities, per se.
+
+\subsection{Discussion}\label{discussion}
+
+To improve the generalizability of studies of the early stages of
+cognitive and language development, we need objective, remote, and
+scalable measures that can be tested in large cohorts of infants. To
+address this gap, our team developed the Remote Infant Studies of Early
+Learning. The RISE Battery includes tasks that assess the mechanisms
+that serve as fthe building blocks for early cognitive and language
+development through a remote, computer-based platform that can be
+accessed in the home. The benefits of this approach are substantial. The
+RISE Battery allows for unbiased assessment via presentation of a
+standardized set of stimuli via one platform, with video coding of
+infant behaviors using a single, consistent, automated process. This
+approach also increases infant comfort during assessment by allowing the
+families to participate from home without interaction with novel
+settings and people in the context of their engagement with the stimuli.
+Additionally, this approach is conducted asynchronously, allowing
+families to participate at a convenient time for their schedules. This
+approach also displays a continuing effort to replicate studies over
+large samples. In an initial pilot study (Tenenbaum et al., 2024), we
+demonstrated the predicted results for a subset of the tasks
+(Geo-Social, Visual Paired Comparison, Prediction, and Numeracy) in a
+group of infants recruited from the general population. Here, we
+demonstrate replication (Geo-Social, Visual Paired Comparison,
+Prediction) as well as more information (Word Comprehension) in an
+overlapping set of tasks with some modifications to the approach.
+
+\subsection{Task-Based Results}\label{task-based-results}
+
+Consistent with decades of research showing that young infants are drawn
+to face stimuli (Fantz, 1964; Johnson et al., 1991), both 12- and
+6-month-olds showed a preference for social stimuli in the Social
+Attention Task. The current results extend our pilot findings down to
+6-month-olds and could provide a means to test for social preference in
+infants with an elevated likelihood of atypical social development.
+
+In the Visual Paired Comparison Task, we found that both 6- and
+12-month-old infants showed a preference for novel stimuli overall (both
+faces and objects). However, we did not find significant effects of age
+or stimulus type. In the Prediction Task, we measured prediction to a
+cued visual stimulus over a single trained location and then an
+alternate location that required updated predictions. Within-trial
+results suggest that in Block 1, both 12-month-olds and 6-month-olds did
+not reliably predict the new location on any trial. However, in Block 2,
+12-month-olds recognized the pattern by the eleventh trial, whereas
+6-month-olds did do so in the eleventh trial but not reliably throughout
+Block 2. This capacity to update one's predictions in the visual domain
+was previously linked to language abilities (Reuter et al., 2018). Data
+collection for language outcomes to address this question in the current
+sample is underway. In the Audiovisual Synchrony task, we did not find
+the anticipated preference for the synchronous stimuli at either age.
+While previous work identified a reliable preference for synchronous
+videos in typically developing toddlers (M = 3.04 years; range: 1-7
+years) (Righi et al., 2018), the lack of effect here is likely due to
+the younger age of the participants. It is also possible that remote
+administration of these multimodal stimuli was affected by variable
+internet connection reliability.
+
+Between the pilot and current versions of the Word Comprehension task,
+we increased the number of attention getters from 1 (every 10 trials) to
+3 (every 5 trials) and used the same word pairs as in Bergelson and
+Swingley (2015). Of note, as compared to the original Bergelson and
+Swingley (2015) study, the current task had significantly fewer trials,
+and trials were shorter (5 seconds instead of 10 seconds) with the task
+having reduced critical windows. These differences, intended to reduce
+task length, may have contributed to the lack of success among the
+infants. Future versions of the task have been updated to maintain
+slightly longer trials to match the critical window of the original
+study. For Numeracy, both 6- and 12-month-olds looked longer at the
+numerically alternating stream (i.e., the stream alternating between 5
+and 20 dots), but only when the constant stream contained the smaller
+quantity (i.e., 5 dots). This suggests that the effect may have been
+driven in part by infants attending more to larger numbers of objects.
+The fact that infants did not significantly prefer the constant stream
+when it contained the larger quantity suggests that infants' preference
+may be driven by a mix of attention to the alternating quantities and
+the large quantity. Regardless, our findings do not support the claim
+that infants' preferences were solely reflective of discrimination of
+the alternating numbers of objects in a stream. Importantly, this
+version of the task was shortened relative to the studies on which it
+was based (from 60 to 20 seconds per trial) (Libertus \& Brannon, 2010;
+Starr et al., 2013). Further, the current study differed from previous
+instantiations in that stimuli were presented on a single screen (rather
+than on two separate screens).
+
+In the Social Evaluation task, our results were similar to those from
+the pilot study, with infants at 6 months and 12 months showing no
+preference for the helper. Previous lab research has shown that infants
+show a reliable preference for the prosocial agent (the helper) in this
+task when using a habituation paradigm in many individual lab studies,
+but this effect was not found in a large multi-lab study (see review in
+Margoni \& Surian, 2018; Lucca et al., 2025). Our continued finding of
+no preference for the helper character and no age effects suggests a
+need to reframe the task. Future remote work may adjust the task by
+presenting side-by-side displays of helping versus hindering events to
+better capture infants' preferences with the remote preferential-looking
+paradigm.
+
+\subsection{Limitations}\label{limitations}
+
+Though not outside the range of typical performance among infants, even
+in laboratory-based experiments (Chawarska et al., 2013; Elsabbagh et
+al., 2009; Frank et al., 2009; Narayan et al., 2010; Peltola et al.,
+2009), substantial data loss is a limitation of this battery.
+Additionally, this study requires access to adequate high-speed internet
+and a laptop, which may lead to overrepresentation of high-SES families
+and that could ultimately undermine some of the clinical
+generalizability of the findings. Though the use of remote methods was
+designed to improve the diversity of participant samples relative to
+laboratory-based studies (Scott et al., 2017; Scott \& Schulz, 2017), we
+are still not reaching a sample that is representative of the US
+population with respect to SES. Given known relations between SES and
+language development, for example (Arriaga et al., 1998; Gogate et al.,
+2006; Huttenlocher et al., 1991), establishing predicted patterns of
+performance with predominantly high-SES populations creates risk for
+over-identification of divergence in developmental trajectories among
+lower-SES families.
+
+\subsection{Conclusions}\label{conclusions}
+
+This work provides a demonstration of the feasibility of remote
+assessment and automated coding of group-level measures of infant
+abilities in tasks assessing attention (Geo-Social task), memory (Visual
+Paired Comparison), learning (Prediction). We plan to continue our
+investigation of the potential for this battery of tasks to inform our
+understanding of early cognitive development in large samples of infants
+so that we can better understand varied developmental trajectories. This
+approach has significant potential to allow for assessment of large
+populations of infants that could make it more feasible to assess the
+effects of interventions that require extremely large samples (e.g.,
+food and income supplement programs). This approach also provides a way
+to quickly test large populations, asynchronously, at times that work
+best for families. Without remote methods, many populations are
+unintentionally excluded from testing. The RISE battery could improve
+the feasibility of assessing challenging-to-reach populations such as
+those at elevated likelihood for autism spectrum disorder due to the
+presence of a sibling with autism, and to those with rare genetic
+conditions. This approach highlights the potential to test such
+populations using the same automated measures. Finally, for
+interventions targeting child development a single mode of assessment
+that can be administered in multiple locations could allow us to examine
+how different interventions function in different communities around the
+world.
+
+\newpage
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-Arriaga1998}
+Arriaga, R. I., L. Fenson, T. Cronan, and S. J. Pethick. 1998. {``Scores
+on the MacArthur Communicative Development Inventory of Children from
+Low- and Middle-Income Families.''} \emph{APPLIED PSYCHOLINGUISTICS} 19
+(2): 209--23. \url{https://doi.org/10.1017/S0142716400010043}.
+
+\bibitem[\citeproctext]{ref-Arunachalam2015}
+Arunachalam, S., and R. J. Luyster. 2015. {``The Integrity of Lexical
+Acquisition Mechanisms in Autism Spectrum Disorders: A Research
+Review.''} \emph{Autism Research}.
+
+\bibitem[\citeproctext]{ref-Bacon2021}
+Bacon, D., H. Weaver, and J. Saffran. 2021. {``A Framework for Online
+Experimenter-Moderated Looking-Time Studies Assessing Infants'
+Linguistic Knowledge.''} \emph{Frontiers in Psychology}, 4078.
+
+\bibitem[\citeproctext]{ref-Banki2022}
+Bánki, A., M. de Eccher, L. Falschlehner, S. Hoehl, and G. Markova.
+2022. {``Comparing Online Webcam- and Laboratory-Based Eye-Tracking for
+the Assessment of Infants' Audio-Visual Synchrony Perception.''}
+\emph{Frontiers in Psychology} 12.
+\url{https://www.frontiersin.org/articles/10.3389/fpsyg.2021.733933}.
+
+\bibitem[\citeproctext]{ref-Barry2014}
+Barry, T., J. Griffith, S. De Rossi, and D. Hermans. 2014. {``Meet the
+Fribbles: Novel Stimuli for Use Within Behavioural Research.''}
+\emph{Frontiers in Psychology} 5.
+\url{https://www.frontiersin.org/articles/10.3389/fpsyg.2014.00103}.
+
+\bibitem[\citeproctext]{ref-Bergelson2012}
+Bergelson, E., and D. Swingley. 2012. {``At 6--9 Months, Human Infants
+Know the Meanings of Many Common Nouns.''} \emph{Proceedings of the
+National Academy of Sciences} 109 (9): 3253--58.
+
+\bibitem[\citeproctext]{ref-Bergelson2015}
+---------. 2015. {``Early Word Comprehension in Infants: Replication and
+Extension.''} \emph{Language Learning and Development} 11 (4): 369--80.
+\url{https://doi.org/10.1080/15475441.2014.979387}.
+
+\bibitem[\citeproctext]{ref-Bradshaw2011}
+Bradshaw, J., F. Shic, and K. Chawarska. 2011. {``Brief Report:
+Face-Specific Recognition Deficits in Young Children with Autism
+Spectrum Disorders.''} \emph{Journal of Autism and Developmental
+Disorders} 41 (10): 1429--35.
+
+\bibitem[\citeproctext]{ref-ByersHeinlein2021a}
+Byers-Heinlein, K., A. S. M. Tsui, C. Bergmann, A. K. Black, A. Brown,
+M. J. Carbajal, S. Durrant, et al. 2021. {``A Multilab Study of
+Bilingual Infants: Exploring the Preference for Infant-Directed
+Speech.''} \emph{Advances in Methods and Practices in Psychological
+Science} 4 (1): 2515245920974622.
+\url{https://doi.org/10.1177/2515245920974622}.
+
+\bibitem[\citeproctext]{ref-ByersHeinlein2021b}
+Byers-Heinlein, K., R. K.-Y. Tsui, D. van Renswoude, A. K. Black, R.
+Barr, A. Brown, M. Colomer, et al. 2021. {``The Development of Gaze
+Following in Monolingual and Bilingual Infants: A Multi-Laboratory
+Study.''} \emph{Infancy} 26 (1): 4--38.
+\url{https://doi.org/10.1111/infa.12360}.
+
+\bibitem[\citeproctext]{ref-Campbell2019}
+Campbell, K., K. L. Carpenter, J. Hashemi, S. Espinosa, S. Marsan, J. S.
+Borg, Z. Chang, Q. Qiu, S. Vermeer, and E. Adler. 2019. {``Computer
+Vision Analysis Captures Atypical Attention in Toddlers with Autism.''}
+\emph{Autism} 23 (3): 619--28.
+
+\bibitem[\citeproctext]{ref-Cannon2021}
+Cannon, J., A. M. O'Brien, L. Bungert, and P. Sinha. 2021. {``Prediction
+in Autism Spectrum Disorder: A Systematic Review of Empirical
+Evidence.''} \emph{Autism Research} 14 (4): 604--30.
+\url{https://doi.org/10.1002/aur.2482}.
+
+\bibitem[\citeproctext]{ref-Chawarska2013}
+Chawarska, K., S. Macari, and F. Shic. 2013. {``Decreased Spontaneous
+Attention to Social Scenes in 6-Month-Old Infants Later Diagnosed with
+Autism Spectrum Disorders.''} \emph{Biological Psychiatry} 74 (3):
+195--203. \url{http://dx.doi.org/10.1016/j.biopsych.2012.11.022}.
+
+\bibitem[\citeproctext]{ref-Chawarska2016}
+Chawarska, K., S. Ye, F. Shic, and L. Chen. 2016. {``Multilevel
+Differences in Spontaneous Social Attention in Toddlers with Autism
+Spectrum Disorder.''} \emph{Child Development}.
+
+\bibitem[\citeproctext]{ref-Chuey2024}
+Chuey, A., V. Boyce, A. Cao, and M. C. Frank. 2024. {``Conducting
+Developmental Research Online Vs. In-Person: A Meta-Analysis.''}
+\url{https://doi.org/10.31234/osf.io/qc6fw}.
+
+\bibitem[\citeproctext]{ref-Colombo2004}
+Colombo, J., D. J. Shaddy, W. A. Richman, J. M. Maikranz, and O. M.
+Blaga. 2004. {``The Developmental Course of Habituation in Infancy and
+Preschool Outcome.''} \emph{Infancy} 5 (1): 1--38.
+
+\bibitem[\citeproctext]{ref-Decarli2022}
+Decarli, G., M. Piazza, and V. Izard. 2022. {``Are Infants' Preferences
+in the Number Change Detection Paradigm Driven by Sequence Patterns?''}
+\emph{Infancy} 28 (2): 206--17.
+\url{https://doi.org/10.1111/infa.12505}.
+
+\bibitem[\citeproctext]{ref-Elsabbagh2009}
+Elsabbagh, M., A. Volein, K. Holmboe, L. Tucker, G. Csibra, S.
+Baron-Cohen, P. Bolton, T. Charman, G. Baird, and M. H. Johnson. 2009.
+{``Visual Orienting in the Early Broader Autism Phenotype: Disengagement
+and Facilitation.''} \emph{Journal of Child Psychology and Psychiatry}
+50 (5): 637--42. \url{https://doi.org/10.1111/j.1469-7610.2008.02051.x}.
+
+\bibitem[\citeproctext]{ref-Erel2023}
+Erel, Y., K. A. Shannon, J. Chu, K. Scott, M. Kline Struhl, P. Cao, X.
+Tan, et al. 2023. {``iCatcher+: Robust and Automated Annotation of
+Infants' and Young Children's Gaze Behavior from Videos Collected in
+Laboratory, Field, and Online Studies.''} \emph{Advances in Methods and
+Practices in Psychological Science} 6 (2): 25152459221147250.
+\url{https://doi.org/10.1177/25152459221147250}.
+
+\bibitem[\citeproctext]{ref-Fantz1964}
+Fantz, R. L. 1964. {``Visual Experience in Infants: Decreased Attention
+to Familiar Patterns Relative to Novel Ones.''} \emph{Science} 146
+(3644): 668--70.
+
+\bibitem[\citeproctext]{ref-Fernald2012}
+Fernald, A., and V. A. Marchman. 2012. {``Individual Differences in
+Lexical Processing at 18 Months Predict Vocabulary Growth in Typically
+Developing and Late-Talking Toddlers.''} \emph{Child Development} 83
+(1): 203--22. \url{https://doi.org/10.1111/j.1467-8624.2011.01692.x}.
+
+\bibitem[\citeproctext]{ref-Frank2017}
+Frank, M. C., E. Bergelson, C. Bergmann, A. Cristia, C. Floccia, J.
+Gervain, J. K. Hamlin, et al. 2017. {``A Collaborative Approach to
+Infant Research: Promoting Reproducibility, Best Practices, and
+Theory-Building.''} \emph{Infancy} 22 (4): 421--35.
+
+\bibitem[\citeproctext]{ref-Frank2009}
+Frank, M. C., E. Vul, and S. P. Johnson. 2009. {``Development of
+Infants' Attention to Faces During the First Year.''} \emph{Cognition}
+110 (2): 160--70. \url{https://doi.org/10.1016/j.cognition.2008.11.010}.
+
+\bibitem[\citeproctext]{ref-Gogate2006}
+Gogate, L. J., L. H. Bolzani, and E. A. Betancourt. 2006. {``Attention
+to Maternal Multimodal Naming by 6- to 8-Month-Old Infants and Learning
+of Word-Object Relations.''} \emph{Infancy} 9 (3): 259--88.
+
+\bibitem[\citeproctext]{ref-Guiraud2012}
+Guiraud, J. A., P. Tomalski, E. Kushnerenko, H. Ribeiro, K. Davies, T.
+Charman, M. Elsabbagh, M. H. Johnson, and BASIS Team. 2012. {``Atypical
+Audiovisual Speech Integration in Infants at Risk for Autism.''}
+\emph{PLoS One} 7 (5): e36428.
+
+\bibitem[\citeproctext]{ref-Hamlin2007}
+Hamlin, J. K., K. Wynn, and P. Bloom. 2007. {``Social Evaluation by
+Preverbal Infants.''} \emph{Nature} 450 (7169): 557--59.
+
+\bibitem[\citeproctext]{ref-Huttenlocher1991}
+Huttenlocher, J., W. Haight, A. Bryk, M. Seltzer, and T. Lyons. 1991.
+{``Early Vocabulary Growth: Relation to Language Input and Gender.''}
+\emph{Developmental Psychology} 27 (2): 236--48.
+
+\bibitem[\citeproctext]{ref-Imafuku2017}
+Imafuku, M., M. Kawai, F. Niwa, Y. Shinya, M. Inagawa, and M.
+Myowa-Yamakoshi. 2017. {``Preference for Dynamic Human Images and
+Gaze-Following Abilities in Preterm Infants at 6 and 12 Months of Age:
+An Eye-Tracking Study.''} \emph{Infancy} 22 (2): 223--39.
+
+\bibitem[\citeproctext]{ref-Jeste2015}
+Jeste, S. S., N. Kirkham, D. Senturk, K. Hasenstab, C. Sugar, C.
+Kupelian, E. Baker, A. J. Sanders, C. Shimizu, and A. Norona. 2015.
+{``Electrophysiological Evidence of Heterogeneity in Visual Statistical
+Learning in Young Children with ASD.''} \emph{Developmental Science} 18
+(1): 90--105.
+
+\bibitem[\citeproctext]{ref-Johnson1991}
+Johnson, M., S. Dziurawiec, H. Ellis, and J. Morton. 1991. {``Newborns'
+Preferential Tracking of Face-Like Stimuli and Its Subsequent
+Decline.''} \emph{Cognition} 40 (1): 1--19.
+
+\bibitem[\citeproctext]{ref-Jones2013}
+Jones, W., and A. Klin. 2013. {``Attention to Eyes Is Present but in
+Decline in 2-6-Month-Old Infants Later Diagnosed with Autism.''}
+\emph{Nature}.
+
+\bibitem[\citeproctext]{ref-Kuhl1982}
+Kuhl, P. K., and A. N. Meltzoff. 1982. {``The Bimodal Perception of
+Speech in Infancy.''}
+
+\bibitem[\citeproctext]{ref-Lavelle2024}
+Lavelle, J. S. 2024. {``Growth from Uncertainty: Understanding the
+Replication {`Crisis'} in Infant Cognition.''} \emph{Philosophy of
+Science} 91 (2): 390--409. \url{https://doi.org/10.1017/psa.2023.157}.
+
+\bibitem[\citeproctext]{ref-Li2023}
+Li, X., J. Li, S. Zhao, Y. Liao, L. Zhu, and Y. Mou. 2023. {``Magnitude
+Representation of Preschool Children with Autism Spectrum Condition.''}
+\emph{Autism}, 13623613231185408.
+\url{https://doi.org/10.1177/13623613231185408}.
+
+\bibitem[\citeproctext]{ref-Libertus2010}
+Libertus, M. E., and E. M. Brannon. 2010. {``Stable Individual
+Differences in Number Discrimination in Infancy.''} \emph{Developmental
+Science} 13 (6): 900--906.
+
+\bibitem[\citeproctext]{ref-Lucca2025}
+Lucca, K., F. Yuen, Y. Wang, N. Alessandroni, O. Allison, M. Alvarez, E.
+L. Axelsson, et al. 2025. {``Infants' Social Evaluation of Helpers and
+Hinderers: A Large-Scale, Multi-Lab, Coordinated Replication Study.''}
+\emph{Developmental Science} 28 (1): e13581.
+\url{https://doi.org/10.1111/desc.13581}.
+
+\bibitem[\citeproctext]{ref-Manns2000}
+Manns, J. R., C. E. L. Stark, and L. R. Squire. 2000. {``The Visual
+Paired-Comparison Task as a Measure of Declarative Memory.''}
+\emph{Proceedings of the National Academy of Sciences} 97 (22):
+12375--79. \url{https://doi.org/10.1073/pnas.220398097}.
+
+\bibitem[\citeproctext]{ref-ManyBabies2020}
+ManyBabies Consortium. 2020. {``Quantifying Sources of Variability in
+Infancy Research Using the Infant-Directed-Speech Preference.''}
+\emph{Advances in Methods and Practices in Psychological Science} 3 (1):
+24--52.
+
+\bibitem[\citeproctext]{ref-Margoni2018}
+Margoni, F., and L. Surian. 2018. {``Infants' Evaluation of Prosocial
+and Antisocial Agents: A Meta-Analysis.''} \emph{Developmental
+Psychology} 54 (8): 1445.
+
+\bibitem[\citeproctext]{ref-Narayan2010}
+Narayan, C. R., J. F. Werker, and P. S. Beddor. 2010. {``The Interaction
+Between Acoustic Salience and Language Experience in Developmental
+Speech Perception: Evidence from Nasal Place Discrimination.''}
+\emph{Developmental Science} 13 (3): 407--20.
+\url{https://doi.org/10.1111/j.1467-7687.2009.00898.x}.
+
+\bibitem[\citeproctext]{ref-Oakes2018}
+Oakes, L., and D. Amso. 2018. {``Development of Visual Attention.''} In
+\emph{Stevens' Handbook of Experimental Psychology and Cognitive
+Neuroscience}, 4:1--33.
+
+\bibitem[\citeproctext]{ref-Olson2020}
+Olson, R. H., R. Pomper, C. E. Potter, J. F. Hay, J. R. Saffran, S.
+Ellis Weismer, and C. Lew-Williams. 2020. {``Peyecoder: An Open-Source
+Program for Coding Eye Movements (Version V1.0.2-Beta).''} Zenodo.
+\url{https://doi.org/10.5281/ZENODO.3939234}.
+
+\bibitem[\citeproctext]{ref-Patterson1999}
+Patterson, M. L., and J. F. Werker. 1999. {``Matching Phonetic
+Information in Lips and Voice Is Robust in 4.5-Month-Old Infants.''}
+\emph{Infant Behavior and Development} 22 (2): 237--47.
+\url{https://doi.org/Doi:\%252010.1016/s0163-6383(99)00003-x}.
+
+\bibitem[\citeproctext]{ref-Peltola2009}
+Peltola, M. J., J. M. Leppänen, S. Mäki, and J. K. Hietanen. 2009.
+{``Emergence of Enhanced Attention to Fearful Faces Between 5 and 7
+Months of Age.''} \emph{Social Cognitive and Affective Neuroscience} 4
+(2): 134--42. \url{https://doi.org/10.1093/scan/nsn046}.
+
+\bibitem[\citeproctext]{ref-Pierce2011}
+Pierce, K., D. Conant, R. Hazin, R. Stoner, and J. Desmond. 2011.
+{``Preference for Geometric Patterns Early in Life as a Risk Factor for
+Autism.''} \emph{Archives of General Psychiatry} 68 (1): 101--9.
+
+\bibitem[\citeproctext]{ref-Pierce2016}
+Pierce, K., S. Marinero, R. Hazin, B. McKenna, C. C. Barnes, and A.
+Malige. 2016. {``Eye Tracking Reveals Abnormal Visual Preference for
+Geometric Images as an Early Biomarker of an Autism Spectrum Disorder
+Subtype Associated with Increased Symptom Severity.''} \emph{Biological
+Psychiatry} 79 (8): 657--66.
+
+\bibitem[\citeproctext]{ref-Reuter2018}
+Reuter, T., L. Emberson, A. Romberg, and C. Lew-Williams. 2018.
+{``Individual Differences in Nonverbal Prediction and Vocabulary Size in
+Infancy.''} \emph{Cognition} 176: 215--19.
+
+\bibitem[\citeproctext]{ref-Righi2018}
+Righi, G., E. J. Tenenbaum, C. McCormick, M. Blossom, D. Amso, and S. J.
+Sheinkopf. 2018. {``Sensitivity to Audio-Visual Synchrony and Its
+Relation to Language Abilities in Children with and Without ASD.''}
+\emph{Autism Research} 11 (4): 645--53.
+
+\bibitem[\citeproctext]{ref-Saffran2018}
+Saffran, J. R., and N. Z. Kirkham. 2018. {``Infant Statistical
+Learning.''} \emph{Annual Review of Psychology} 69: 181--203.
+
+\bibitem[\citeproctext]{ref-Schreiner2024}
+Schreiner, M. S., M. Zettersten, C. Bergmann, M. C. Frank, T. Fritzsche,
+N. Gonzalez-Gomez, K. Hamlin, et al. 2024. {``Limited Evidence of
+Test-Retest Reliability in Infant-Directed Speech Preference in a Large
+Preregistered Infant Experiment.''} \emph{Developmental Science} 27 (6):
+e13551. \url{https://doi.org/10.1111/desc.13551}.
+
+\bibitem[\citeproctext]{ref-Scott2017a}
+Scott, K., J. Chu, and L. Schulz. 2017. {``Lookit (Part 2): Assessing
+the Viability of Online Developmental Research, Results from Three Case
+Studies.''} \emph{Open Mind} 1 (1): 15--29.
+
+\bibitem[\citeproctext]{ref-Scott2017b}
+Scott, K., and L. Schulz. 2017. {``Lookit (Part 1): A New Online
+Platform for Developmental Research.''} \emph{Open Mind} 1 (1): 4--14.
+
+\bibitem[\citeproctext]{ref-Senju2013}
+Senju, A. 2013. {``Atypical Development of Spontaneous Social Cognition
+in Autism Spectrum Disorders.''} \emph{Brain and Development} 35 (2):
+96--101. \url{https://doi.org/10.1016/j.braindev.2012.08.002}.
+
+\bibitem[\citeproctext]{ref-Silver2021}
+Silver, A. M., L. Elliott, E. J. Braham, H. J. Bachman, E.
+Votruba-Drzal, C. S. Tamis-LeMonda, N. Cabrera, and M. E. Libertus.
+2021. {``Measuring Emerging Number Knowledge in Toddlers.''}
+\emph{Frontiers in Psychology} 12.
+\url{https://doi.org/10.3389/fpsyg.2021.703598}.
+
+\bibitem[\citeproctext]{ref-Sinha2014}
+Sinha, P., M. M. Kjelgaard, T. K. Gandhi, K. Tsourides, A. L. Cardinaux,
+D. Pantazis, S. P. Diamond, and R. M. Held. 2014. {``Autism as a
+Disorder of Prediction.''} \emph{Proceedings of the National Academy of
+Sciences} 111 (42): 15220--25.
+
+\bibitem[\citeproctext]{ref-Soderstrom2024}
+Soderstrom, M., J. Rocha-Hidalgo, L. E. Muñoz, A. Bochynska, J. F.
+Werker, B. Skarabela, A. Seidl, et al. 2024. {``Testing the Relationship
+Between Preferences for Infant-Directed Speech and Vocabulary
+Development: A Multi-Lab Study.''} \emph{Journal of Child Language},
+1--26. \url{https://doi.org/10.1017/S0305000924000254}.
+
+\bibitem[\citeproctext]{ref-Starr2013}
+Starr, A., M. E. Libertus, and E. M. Brannon. 2013. {``Number Sense in
+Infancy Predicts Mathematical Abilities in Childhood.''}
+\emph{Proceedings of the National Academy of Sciences} 110 (45):
+18116--20. \url{https://doi.org/10.1073/pnas.1302751110}.
+
+\bibitem[\citeproctext]{ref-Stevenson2015}
+Stevenson, R. A., M. Segers, S. Ferber, M. D. Barense, S. Camarata, and
+M. T. Wallace. 2015. {``Keeping Time in the Brain: Autism Spectrum
+Disorder and Audiovisual Temporal Processing.''} \emph{Autism Research}.
+
+\bibitem[\citeproctext]{ref-Tan2022}
+Tan, E., and J. K. Hamlin. 2022. {``Infants' Neural Responses to Helping
+and Hindering Scenarios.''} \emph{Developmental Cognitive Neuroscience}
+54: 101095. \url{https://doi.org/10.1016/j.dcn.2022.101095}.
+
+\bibitem[\citeproctext]{ref-Tan2018}
+Tan, E., A. Y. Mikami, and J. K. Hamlin. 2018. {``Do Infant Sociomoral
+Evaluation and Action Studies Predict Preschool Social and Behavioral
+Adjustment?''} \emph{Journal of Experimental Child Psychology} 176:
+39--54.
+
+\bibitem[\citeproctext]{ref-Tenenbaum2014}
+Tenenbaum, E. J., D. M. Sobel, S. J. Sheinkopf, B. F. Malle, and J. L.
+Morgan. 2014. {``Attention to the Mouth and Gaze Following in Infancy
+Predict Language Development.''} \emph{Journal of Child Language},
+1--18.
+
+\bibitem[\citeproctext]{ref-Tenenbaum2024}
+Tenenbaum, E. J., C. Stone, M. H. Vu, M. Hare, K. R. Gilyard, S.
+Arunachalam, E. Bergelson, et al. 2024. {``Remote Infant Studies of
+Early Learning (RISE): Scalable Online Replications of Key Findings in
+Infant Cognitive Development.''} \emph{Developmental Psychology}.
+\url{https://doi.org/10.1037/dev0001849}.
+
+\bibitem[\citeproctext]{ref-Venker2018}
+Venker, C. E., A. Bean, and S. T. Kover. 2018. {``Auditory-Visual
+Misalignment: A Theoretical Perspective on Vocabulary Delays in Children
+with ASD.''} \emph{Autism Research} 11 (12): 1621--28.
+
+\bibitem[\citeproctext]{ref-Zettersten2024}
+Zettersten, M., C. Cox, C. Bergmann, A. S. M. Tsui, M. Soderstrom, J.
+Mayor, R. A. Lundwall, et al. 2024. {``Evidence for Infant-Directed
+Speech Preference Is Consistent Across Large-Scale, Multi-Site
+Replication and Meta-Analysis.''} \emph{Open Mind} 8: 439--61.
+\url{https://doi.org/10.1162/opmi_a_00134}.
+
+\end{CSLReferences}
+
+\end{document}

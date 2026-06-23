@@ -2139,9 +2139,10 @@ ggarrange(plot1_rise, plot4_rise,
           plot3_rise, plot2_rise, 
           plot5_rise, plot6_rise, 
           plot7_rise, ncol = 2, nrow = 4, labels = "auto", align= "hv")
+# eb2mv: not sure why this one isn't rendering! i made eval = T below so i can see the graphs
 ```
 
-```{r show-plots, fig.height= 5, eval = F}
+```{r show-plots, fig.height= 5, eval = T}
 plot1_rise
 plot3_rise
 plot5_rise
