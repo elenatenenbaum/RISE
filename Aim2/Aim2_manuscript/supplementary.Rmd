@@ -1,0 +1,212 @@
+---
+title: "Supplementary Materials: Remote Infant Studies of Early Learning (RISE): Expansion of an online battery for infant cognitive and language development"
+shorttitle: "Expansion of an online battery for infant cognitive and language development"
+output:
+  papaja::apa6_pdf:
+    latex_engine: xelatex
+    keep_tex: true
+    floatsintext: yes
+header-includes:
+  - \usepackage{amssymb}
+  - \usepackage{float}
+  - \usepackage{placeins}
+  - \floatplacement{table}{H}
+  - \raggedbottom
+  - \usepackage{flafter}
+  - \usepackage{needspace}
+  - \usepackage{float}\floatplacement{figure}{H} 
+  - \newcommand{\beginsupplement}{\setcounter{table}{0}\renewcommand{\thetable}{S\arabic{table}}\setcounter{figure}{0}\renewcommand{\thefigure}{S\arabic{figure}}}
+editor_options:
+  chunk_output_type: inline
+toc: false
+
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r libraries, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(plotrix)
+library(see)
+library(papaja) 
+library(stringr)
+library(reshape2)
+library(lubridate)
+library(corrplot)
+library(tibble)
+library(psych)
+library(glue)
+library(gtsummary)
+library(gt)
+library(scales)
+library(DiagrammeR) 
+library(DiagrammeRsvg)
+library(rsvg)
+library(knitr)
+library(janitor)
+library(kableExtra)
+library(irr)
+library(udpipe)
+library(cowplot)
+library(ggpubr)
+library(ggplot2)
+library(lme4) 
+library(lmerTest)
+library(glmmTMB)
+library(readr)
+library(sjPlot) 
+library(gridExtra) 
+library(here)
+library(dplyr)
+library(MuMIn)
+library(emmeans)
+library(performance)
+library(cowplot)
+library(tidyr)
+library(broom.mixed)
+library(modelsummary)
+
+#helper to do the bracketed v
+format_bv <- function(x) {
+  x <- gsub("\\(", "[", x)
+  x <- gsub("\\)", "]", x)
+  x
+}
+```
+
+```{r loading-objects, include=FALSE}
+load(here::here("Aim2","Aim2_Computed_Data",
+    "manuscript_objects.RData"))
+
+```
+
+```{r supp-usable-task-order, echo=FALSE, warning=FALSE, message=FALSE, fig.width=11, fig.height=8, out.width="100%", out.width="100%", fig.cap="Percentage of usable frames by task order of presentation among (a) 6-month-olds and (b) 12-month-olds. Each point represents one participant at a given task order position. Kruskal-Wallis tests were used to assess differences across task order positions within each task."}
+
+
+n_df <- task_usable %>%
+  filter(task_order %in% 1:5) %>%
+  group_by(Age, task, task_order) %>%
+  summarise(n = n(), .groups = "drop")
+
+ggplot(
+  task_usable %>%
+    filter(task_order %in% 1:5),
+  aes(
+    x = factor(task_order),
+    y = avg_usable_pct * 100
+  )
+) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(width = 0.15, size = 0.5) +
+  geom_text(
+    data = n_df,
+    aes(
+      x = factor(task_order),
+      y = -5,
+      label = paste0("n=", n)
+    ),
+    inherit.aes = FALSE,
+    size = 2.8
+  ) +
+  stat_compare_means(
+    method = "kruskal.test",
+    aes(label = paste0("p = ", after_stat(p.format))),
+    label.x = 3,
+    label.y = 120,
+    color = "red",
+    size = 3
+  ) +
+  facet_grid(
+    Age ~ task,
+    labeller = labeller(
+      Age = c(
+        `6` = "Age: 6 months",
+        `12` = "Age: 12 months"
+      )
+    )
+  ) +
+  coord_cartesian(ylim = c(-10, 150)) +
+  labs(
+    x = "Task order",
+    y = "Average % usable frames"
+  ) +
+  theme_bw() +
+  theme(
+    strip.background = element_rect(fill = "grey90"),
+    strip.text = element_text(size = 9),
+    panel.spacing = unit(0.5, "lines")
+  )
+```
+
+
+```{r supp-usable-task-order-exploratory, echo=FALSE, warning=FALSE, message=FALSE, fig.width=10, fig.height=4.5, out.width="100%", fig.cap="Percentage of usable frames by task order of presentation, among (a) 6-month-olds and (b) 12-month-olds. Wilcoxon rank-sum p-values reflect pairwise comparisons between task order positions within each task."}
+
+exploratory_tasks <- c("Numeracy", "Social Evaluation")
+
+plot_data_s2 <- task_usable %>%
+  filter(
+    task %in% exploratory_tasks,
+    task_order %in% c(6, 7)
+  ) %>%
+  mutate(
+    task = factor(task, levels = exploratory_tasks),
+    task_order = factor(task_order)
+  )
+
+n_df_s2 <- plot_data_s2 %>%
+  group_by(Age, task, task_order) %>%
+  summarise(n = n(), .groups = "drop")
+
+make_s2_plot <- function(age_value, title_text) {
+  ggplot(
+    plot_data_s2 %>% filter(Age == age_value),
+    aes(x = task_order, y = avg_usable_pct * 100)
+  ) +
+    geom_boxplot(width = 0.7, outlier.shape = NA) +
+    geom_jitter(width = 0.15, size = 0.5, alpha = 0.8) +
+    geom_text(
+      data = n_df_s2 %>% filter(Age == age_value),
+      aes(
+        x = task_order,
+        y = -5,
+        label = paste0("n=", n)
+      ),
+      inherit.aes = FALSE,
+      size = 2.8
+    ) +
+    stat_compare_means(
+      method = "wilcox.test",
+      aes(label = paste0("p = ", after_stat(p.format))),
+      label.x = 1.5,
+      label.y = 110,
+      color = "red",
+      size = 3
+    ) +
+    facet_wrap(~ task, nrow = 1) +
+    coord_cartesian(ylim = c(-10, 120)) +
+    labs(
+      title = title_text,
+      x = "Task order",
+      y = "Average % usable frames"
+    ) +
+    theme_bw() +
+    theme(
+      plot.title = element_text(size = 11),
+      strip.background = element_rect(fill = "grey90"),
+      strip.text = element_text(size = 9)
+    )
+}
+
+s2_a <- make_s2_plot(6, "Age: 6 months")
+s2_b <- make_s2_plot(12, "Age: 12 months")
+
+ggarrange(
+  s2_a,
+  s2_b,
+  ncol = 2,
+  labels = c("a", "b")
+)
+```
+

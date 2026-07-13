@@ -80,7 +80,7 @@ raw_data <- read.csv(here("Aim2", "Aim2_Data", "raw_frame_data.csv"))
 
 
 ```{r icatcher-files-loading}
-#imports annotated data from location on network (takes only test trials) note, must be VPNd in or onsite to run this
+#imports annotated data from folder
 icatcher_files <- list.files(path=here("Aim2", "Aim2_Data", "aim2_annotation"),
                                 recursive=T,
                                 #pattern="*test-trial*|*test-post*",
@@ -231,7 +231,7 @@ GS_icatcher <- GS_icatcher %>% merge(df_diff) %>% mutate(
 
 ```{r geosocial-timestamps}
 
-aim2_timestamps_final <- here("Aim2", "Aim2_Data", "aim2_timestamps_final.xlsx")
+aim2_timestamps_final <- here("Aim2", "Aim2_Data", "aim2_timestamps_final_2.xlsx")
 
 frame_ct_gs <- read_xlsx(
   aim2_timestamps_final,
@@ -781,6 +781,38 @@ p2_aem <- trial_by_trial %>% ggplot(aes(x=Trial,
 ```{r predicition-output-fig, fig.height=12, fig.width=15}
 ggarrange(p1_aem, p2_aem, ncol = 1, nrow = 2, labels = "auto")
 
+p1_aem <- p1_aem +
+  theme(
+    axis.text.x = element_text(
+      angle = 0,
+      size = 10,    
+      hjust = 0.5,
+      vjust = 0.5
+    ),
+    axis.title.x = element_text(size = 14)
+  )
+
+p2_aem <- p2_aem +
+  theme(
+    axis.text.x = element_text(
+      angle = 0,
+      size = 10,
+      hjust = 0.5,
+      vjust = 0.5
+    ),
+    axis.title.x = element_text(size = 14)
+  )
+
+prediction_aem_fig <- ggarrange(
+  p1_aem,
+  p2_aem,
+  ncol = 1,
+  nrow = 2,
+  labels = "auto",
+  font.label = list(face = "bold", size = 10),
+  hjust = -0.3
+)
+
 output_path <- here("Aim2", "Aim2_Computed_Data", "prediction.csv")
 
 write.csv(
@@ -1006,7 +1038,7 @@ WL_icatcher <- WL_icatcher %>% merge(df_diff) %>% mutate(
 ```
 
 ```{r word-rec-timestamps}
-frame_ct_wl <- read_xlsx(aim2_timestamps_final, sheet = "WordRecognition")
+frame_ct_wl <- read_xlsx(aim2_timestamps_final, sheet = "WordRecognition_Timecourse")
 
 frame_ct_wl <- frame_ct_wl %>% 
   dplyr::mutate(Image = tolower(Image)) %>%
@@ -1279,10 +1311,10 @@ word_comp_timecourse_by_age <-
   ) +
   stat_smooth(geom = "errorbar", size = 0.3, alpha = 0.3) +
   geom_hline(yintercept = 0.5, linetype = "dashed") +
-  geom_vline(xintercept = c(0, 367, 3000), linetype = "dashed") +
+  geom_vline(xintercept = c(0, 367, 3500), linetype = "dashed") +
   scale_x_continuous(
-    breaks = c( 0, 367, 1000, 2000, 3000),
-    limits = c(0, 3000)
+    breaks = c( 0, 367, 1000, 2000, 3500),
+    limits = c(0, 3500)
   ) +
   scale_y_continuous(
     limits = c(0, 1)
@@ -1370,10 +1402,10 @@ word_comp_timecourse_by_pair <-
     alpha = 0.3
   ) +
   geom_hline(yintercept = 0.5, linetype = "dashed") +
-  geom_vline(xintercept = c(367, 3000), linetype = "dashed") +
+  geom_vline(xintercept = c(367, 3500), linetype = "dashed") +
   scale_x_continuous(
-    breaks = c(0, 367, 1000, 2000, 3000),
-    limits = c(0, 3000)
+    breaks = c(0, 367, 1000, 2000, 3500),
+    limits = c(0, 3500)
   ) +
   facet_wrap(
     ~ word_pair,
@@ -1448,7 +1480,7 @@ word_comp_timeseries_plot_item <- WL_results$frame_level %>%
     !is.na(age_group),
     !is.na(Variable),
     t_onset >= 0,
-    t_onset <= 3000
+    t_onset <= 3500
   )
 
 word_comp_timecourse_by_item <-
@@ -1467,10 +1499,10 @@ word_comp_timecourse_by_item <-
     alpha = 0.3
   ) +
   geom_hline(yintercept = 0.5, linetype = "dashed") +
-  geom_vline(xintercept = c(367, 3000), linetype = "dashed") +
+  geom_vline(xintercept = c(367, 3500), linetype = "dashed") +
   scale_x_continuous(
-    breaks = c(0, 367, 1000, 2000, 3000),
-    limits = c(0, 3000)
+    breaks = c(0, 367, 1000, 2000, 3500),
+    limits = c(0, 3500)
   ) +
   scale_y_continuous(
     limits = c(0, 1)
@@ -2134,14 +2166,6 @@ plot7_rise <- ggplot(data = hh_fig,
 
 # Figures 
 
-```{figures-total, fig.width= 15, fig.height=16}
-ggarrange(plot1_rise, plot4_rise,
-          plot3_rise, plot2_rise, 
-          plot5_rise, plot6_rise, 
-          plot7_rise, ncol = 2, nrow = 4, labels = "auto", align= "hv")
-# eb2mv: not sure why this one isn't rendering! i made eval = T below so i can see the graphs
-```
-
 ```{r show-plots, fig.height= 5, eval = T}
 plot1_rise
 plot3_rise
@@ -2254,7 +2278,7 @@ n_labels <- task_usable %>%
 
 # Then replace stat_compare_means with:
 
-ggplot(task_usable, aes(x = Age, y = avg_usable_pct * 100, fill = Age)) +
+usable_frames_plot <- ggplot(task_usable, aes(x = Age, y = avg_usable_pct * 100, fill = Age)) +
   geom_boxplot(width = 0.6, outlier.shape = NA, alpha = 0.7) +
   geom_jitter(aes(color = Age), width = 0.15, alpha = 0.5, size = 1.5) +
   geom_text(
@@ -2284,7 +2308,7 @@ ggplot(task_usable, aes(x = Age, y = avg_usable_pct * 100, fill = Age)) +
     legend.position = "none",
     panel.spacing   = unit(0.5, "lines")
   )
-
+usable_frames_plot 
 # task_completion %>%
 #   mutate(high_completion = completion_pct == 0) %>%
 #   group_by(task, Age) %>%
@@ -2565,11 +2589,98 @@ vpc_stim_by_age <- as.data.frame(
   emmeans(mod, pairwise ~ Stimulus_type | Age)$contrasts
 )
 
-save(
+make_table5_raw <- function(results_list, age_levels = c("6", "12")) {
+
+  extract_non_interaction <- function(tab, label) {
+    tibble::tibble(
+      Task = label,
+      Overall_Estimate = tab %>% filter(Condition == "Overall") %>% pull(estimate_ci),
+      Overall_P = tab %>% filter(Condition == "Overall") %>% pull(p_value),
+      Age_6_Estimate = tab %>% filter(Condition == "6") %>% pull(estimate_ci),
+      Age_6_P = tab %>% filter(Condition == "6") %>% pull(p_value),
+      Age_12_Estimate = tab %>% filter(Condition == "12") %>% pull(estimate_ci),
+      Age_12_P = tab %>% filter(Condition == "12") %>% pull(p_value),
+      Contrast_Estimate = tab %>% filter(Condition == "Age 12 - Age 6") %>% pull(estimate_ci),
+      Contrast_P = tab %>% filter(Condition == "Age 12 - Age 6") %>% pull(p_value)
+    )
+  }
+
+  extract_interaction <- function(tab, stim_levels, stim_labels) {
+    purrr::map2_dfr(stim_levels, stim_labels, function(stim, label) {
+      tibble::tibble(
+        Task = label,
+        Overall_Estimate = tab %>% filter(Condition == paste0(stim, " | Overall")) %>% pull(estimate_ci),
+        Overall_P = tab %>% filter(Condition == paste0(stim, " | Overall")) %>% pull(p_value),
+        Age_6_Estimate = tab %>% filter(Condition == paste0(stim, " | Age 6")) %>% pull(estimate_ci),
+        Age_6_P = tab %>% filter(Condition == paste0(stim, " | Age 6")) %>% pull(p_value),
+        Age_12_Estimate = tab %>% filter(Condition == paste0(stim, " | Age 12")) %>% pull(estimate_ci),
+        Age_12_P = tab %>% filter(Condition == paste0(stim, " | Age 12")) %>% pull(p_value),
+        Contrast_Estimate = tab %>% filter(Condition == paste0(stim, " | Age 12 - Age 6")) %>% pull(estimate_ci),
+        Contrast_P = tab %>% filter(Condition == paste0(stim, " | Age 12 - Age 6")) %>% pull(p_value)
+      )
+    })
+  }
+
+  dplyr::bind_rows(
+    extract_non_interaction(tab_geo_full, "Geo-Social Attention"),
+    extract_interaction(
+      tab_vpc_full,
+      c("Social", "Non-social"),
+      c("VPC Social (face)", "VPC Non-social (fribbles)")
+    ),
+    extract_interaction(
+      tab_pred_full,
+      c("Block 1", "Block 2"),
+      c("Prediction Block 1", "Prediction Block 2")
+    ),
+    extract_non_interaction(tab_av_full, "AV Synchrony"),
+    extract_non_interaction(tab_word_full, "Word Recognition"),
+    extract_interaction(
+      tab_num_full,
+      c("Small Constant", "Large Constant"),
+      c("Numeracy 5-item stream constant", "Numeracy 20-item stream constant")
+    ),
+    extract_non_interaction(tab_hh_full, "Social Evaluation")
+  ) %>%
+    dplyr::rename(
+      `Estimate (95% CI)` = Overall_Estimate,
+      `p` = Overall_P,
+      `6 months Estimate (95% CI)` = Age_6_Estimate,
+      `6 months p` = Age_6_P,
+      `12 months Estimate (95% CI)` = Age_12_Estimate,
+      `12 months p` = Age_12_P,
+      `Age Effect Estimate (95% CI)` = Contrast_Estimate,
+      `Age Effect p` = Contrast_P
+    )
+}
+
+table5_df <- make_table5_raw()
+
+figure3_rise <- cowplot::plot_grid(
+  plot1_rise + theme(axis.title.y = element_text(size = 9)),
+  plot4_rise + theme(axis.title.y = element_text(size = 9)),
+  plot3_rise + theme(axis.title.y = element_text(size = 9)),
+  plot2_rise + theme(axis.title.y = element_text(size = 9)),
+  plot5_rise + theme(axis.title.y = element_text(size = 9)),
+  plot6_rise + theme(axis.title.y = element_text(size = 9)),
+  plot7_rise + theme(axis.title.y = element_text(size = 9)),
+  NULL,
+  ncol = 2,
+  labels = c("a", "b", "c", "d", "e", "f", "g", ""),
+  label_size = 10,
+  rel_widths = c(1.15, 1.35),
+  align = "none"
+)
+
+save(usable_frames_plot ,
   Part_Age,
 
   table3,
   table4,
+  table5_df,
+  
+  figure3_rise,
+  prediction_aem_fig,
 
   tab_geo_full,
   tab_vpc_full,

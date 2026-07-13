@@ -1,0 +1,10 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[H]
+
+{\centering \includegraphics[width=0.60\linewidth]{images/frame_captures}
+
+}
+
+\caption{Frame captures from the five base tasks (a) Geo-Social, (b) Visual Paired Comparison, (c) Prediction, (d) Multimodal Processing, (e) Word Comprehension, and two exploratory tasks (f) Helper-Hinderer, and (g) Numeracy}\label{fig:frame-capture}
+\end{figure*}
