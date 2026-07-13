@@ -2679,6 +2679,8 @@ save(usable_frames_plot ,
   table4,
   table5_df,
   
+  task_usable,
+  
   figure3_rise,
   prediction_aem_fig,
 
