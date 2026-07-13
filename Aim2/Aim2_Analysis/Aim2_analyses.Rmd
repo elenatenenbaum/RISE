@@ -1428,7 +1428,7 @@ word_comp_timecourse_by_pair <-
   theme_bw() +
   theme(
     text = element_text(size = 20),
-    axis.text.x = element_text(size = 12),
+    axis.text.x = element_text(size = 8),
     panel.spacing.x = unit(1.5, "lines")
   ) +
   labs(

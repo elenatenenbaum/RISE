@@ -100,9 +100,9 @@ The battery includes seven tasks to remotely assess developmental trajectories.
 This study expands on previous pilot work with a larger sample and modified methods.
 Data from `r nrow(Part_Age)` infants (`r sum(Part_Age$Age == 6)` 6-month-olds and `r sum(Part_Age$Age == 12)` 12-month-olds) were collected asynchronously.
 Infant looking behavior was recorded with open-source software.
-Results for attention, memory, and prediction were consistent with preregistered predictions.
-Here we demonstrate replication as well as new information with an overlapping set of tasks with some modifications to the approach.
+Results for attention, memory, and prediction replicated expected patterns, supporting the feasibility of remote assessment in those domains. Other tasks assessing word comprehension and multimodal processing were not consistent with predictions, highlighting areas for further modifications of the remote tools. Overall, we demonstrate the translation and remote replication of several key tasks that assess early development which provides the opportunity for scalability of these tasks for larger, diverse populations. 
 <!-- eb2et: I'd say at least the domains where the results were not consistent, and in general abstract could do more to tell us what was found and why we care imho -->
+<!-- 2eb: updated -->
 
 **Keywords:** cognitive development, remote, infant
 
@@ -434,7 +434,7 @@ For the *Visual Paired Comparison (VPC) task*, each object was presented twice i
 For the *Prediction task*, trials 1 and 9 were excluded as the first trial of each block; participants were additionally required to have at least one anticipatory eye movement in Block 2 and at least two usable trials per block for the corresponding block outcome to be included (consistent with [@reuter2018]).
 The *Word Comprehension task* presented five word–image pairs across two repetition blocks (trials 1–10 and trials 11–20).
 For each pair, the target word appeared as the fixation target in one block and as the distractor in the other (e.g., for the pair foot-milk, foot was the target in trial 1 and the distractor in trial 9, and vice versa.) The outcome for each pair was the proportion of time infants looked at an item when it was the target (across both blocks of trials) minus how much they looked at that same item when it was the distractor (across both blocks of trials), as in Bergelson & Swingley, 2012.
-This yields 5 pair-level differences scores per participant.
+This yields 5 pair-level difference scores per participant.
 <!-- The outcome for each pair was computed as the average proportion of looking time to the target minus the average proportion of looking time to the distractor, with proportions averaged across both repetition blocks before subtraction, yielding up to 5 difference scores per participant.  --> <!-- eb2et: i reworded the above to be consistent with what i think you intended, can you confirm that this is what was done? --> <!-- 2eb: confirmed --> For the *Social Evaluation task*, only trials 7 and 14 served as test trials (one per block); participants were required to have at least one usable helper trial and one usable hinderer trial within each block (Block 1: trials 1–6; Block 2: trials 8–13) for the corresponding test trial to be included.
 No additional task-specific criteria were applied for Geo-Social Attention, Audiovisual Synchrony, or Numeracy.
 The number of analytic trials, therefore, differs from the total administered trials for four tasks; Table \ref{tab:task-retention} summarizes analytic sample size and trial counts.
@@ -461,8 +461,7 @@ For the Prediction task, a Block term (Block 1 vs. Block 2) was included as a wi
 For the Numeracy task, Constant Stream Size (5-item vs. 20-item) was included as a between-participant factor, as infants were randomly assigned to view only one constant stream condition for the entire task; an Age × Constant Stream Size interaction was included to test whether preferences for the alternating stream differed by condition.
 The statistical analyses closely followed the preregistered analysis plan.
 To better reflect the within-participant design of several tasks, mixed-effects models for the Visual Paired Comparison, Prediction, and Numeracy tasks included interaction terms (Age × Stimulus Type, Age × Block, and Age × Constant Stream Size, respectively).
-With the Prediction task, we modeled Block as a within-participant factor in a single mixed-effects model rather than fitting separate models for overall performance and Block 2.
-Overall, with these modifications we tested the preregistered hypotheses without changing the primary outcomes.
+With the Prediction task, we modeled Block as a within-participant factor in a single mixed-effects model rather than fitting separate models for overall performance and Block 2. Overall, with these modifications, we tested the preregistered hypotheses without changing the primary outcomes.
 <!-- eb2et: if any of the above diverges or expands beyond the prereg, good to say so here. i didn't check. --> <!-- 2eb: included -->
 
 Where consent was provided, participant videos are available on Databrary.
@@ -530,7 +529,7 @@ Note that for Prediction, Word Comprehension, and Social Evaluation, the final a
 
 Results are reported as model-based estimates, corresponding 95% confidence limits, and p-value of the corresponding hypothesis test (with significance defined as two-sided p \< 0.05).
 
-```{r task-results-figure, echo=FALSE, fig.width=9, fig.height=10.5, out.width="95%", fig.align="center",fig.cap="Results for (a) Geo-Social Attention, (b) Visual Paired Comparison, (c) Prediction, (d) Audiovisual Synchrony, (e) Word Recognition, (f) Numeracy, and (g) Social Evaluation. \\label{fig:task-results}"}
+```{r task-results-figure, echo=FALSE, fig.width=9, fig.height=10.5, out.width="95%", fig.align="center",fig.cap="Results for (a) Geo-Social Attention, (b) Visual Paired Comparison, (c) Prediction, (d) Audiovisual Synchrony, (e) Word Comprehension, (f) Numeracy, and (g) Social Evaluation. \\label{fig:task-results}"}
 
 figure3_rise
 ```
@@ -545,7 +544,7 @@ See Figure \@ref(fig:task-results-figure)a and Table \ref{tab:modeltable}.
 #### Visual Paired Comparison (VPC) Task
 
 Our preregistered hypothesis was that 12-month-olds would show a stronger novelty effect than 6-month-olds and that the effects of novelty would be stronger for faces than for Fribbles.
-The results showed that both 12-month-olds but not 6-month-olds demonstrated signficant preference for novel faces (12-m: M = `r format_bv(tab_vpc_full %>% filter(Condition == "Social | Age 12") %>% pull(estimate_ci))`, *p* = `r tab_vpc_full %>% filter(Condition == "Social | Age 12") %>% pull(p_value)`; 6-m: M = `r format_bv(tab_vpc_full %>% filter(Condition == "Social | Age 6") %>% pull(estimate_ci))`, *p* = `r tab_vpc_full %>% filter(Condition == "Social | Age 6") %>% pull(p_value)`), without a significant effect of age (*p* = `r tab_vpc_full %>% filter(Condition == "Social | Age 12 - Age 6") %>% pull(p_value)`).
+The results showed that 12-month-olds but not 6-month-olds demonstrated significant preference for novel faces (12-m: M = `r format_bv(tab_vpc_full %>% filter(Condition == "Social | Age 12") %>% pull(estimate_ci))`, *p* = `r tab_vpc_full %>% filter(Condition == "Social | Age 12") %>% pull(p_value)`; 6-m: M = `r format_bv(tab_vpc_full %>% filter(Condition == "Social | Age 6") %>% pull(estimate_ci))`, *p* = `r tab_vpc_full %>% filter(Condition == "Social | Age 6") %>% pull(p_value)`), without a significant effect of age (*p* = `r tab_vpc_full %>% filter(Condition == "Social | Age 12 - Age 6") %>% pull(p_value)`).
 For non-face objects (Fribbles), 6-month-olds (M = `r format_bv(tab_vpc_full %>% filter(Condition == "Non-social | Age 6") %>% pull(estimate_ci))`, *p* = `r tab_vpc_full %>% filter(Condition == "Non-social | Age 6") %>% pull(p_value)`), and 12-month-olds (M = `r format_bv(tab_vpc_full %>% filter(Condition == "Non-social | Age 12") %>% pull(estimate_ci))`, *p* = `r tab_vpc_full %>% filter(Condition == "Non-social | Age 12") %>% pull(p_value)`) showed a reliable preference for the novel object at test, and again there was not a significant effect of age (*p* = `r tab_vpc_full %>% filter(Condition == "Non-social | Age 12 - Age 6") %>% pull(p_value)`).
 The effect of stimulus type was not significant for either 6- or 12-month-olds (*p* = `r round(vpc_stim_by_age %>% filter(Age == 6) %>% pull(p.value), 3)` and *p* = `r round(vpc_stim_by_age %>% filter(Age == 12) %>% pull(p.value), 3)`, respectively).
 See Figure \@ref(fig:task-results-figure)b and Table \ref{tab:modeltable}.
@@ -554,16 +553,12 @@ See Figure \@ref(fig:task-results-figure)b and Table \ref{tab:modeltable}.
 #### Prediction Task
 
 The pre-registered hypothesis was that 12-month-old infants would demonstrate more AEMs to the target side (versus the distractor side) than 6-month-old infants.
-As seen in Table \ref{tab:modeltable}, this hypothesis held true in that there were more AEMs to target amongst the 12-month-olds; however, these differences between age groups were not significant (Block 1: 12-m: M = `r format_bv(tab_pred_full %>% filter(Condition == "Block 1 | Age 12") %>% pull(estimate_ci))`, *p* = `r tab_pred_full %>% filter(Condition == "Block 1 | Age 12") %>% pull(p_value)`; 6-m: M = `r format_bv(tab_pred_full %>% filter(Condition == "Block 1 | Age 6") %>% pull(estimate_ci))`, *p* = `r tab_pred_full %>% filter(Condition == "Block 1 | Age 6") %>% pull(p_value)`; 12-m vs. 6-m: M = `r format_bv(tab_pred_full %>% filter(Condition == "Block 1 | Age 12 - Age 6") %>% pull(estimate_ci))`, *p* = `r tab_pred_full %>% filter(Condition == "Block 1 | Age 12 - Age 6") %>% pull(p_value)`.
+As seen in Table \ref{tab:modeltable}, there were more AEMs to target amongst the 12-month-olds; however, these differences between age groups were not significant (Block 1: 12-m: M = `r format_bv(tab_pred_full %>% filter(Condition == "Block 1 | Age 12") %>% pull(estimate_ci))`, *p* = `r tab_pred_full %>% filter(Condition == "Block 1 | Age 12") %>% pull(p_value)`; 6-m: M = `r format_bv(tab_pred_full %>% filter(Condition == "Block 1 | Age 6") %>% pull(estimate_ci))`, *p* = `r tab_pred_full %>% filter(Condition == "Block 1 | Age 6") %>% pull(p_value)`; 12-m vs. 6-m: M = `r format_bv(tab_pred_full %>% filter(Condition == "Block 1 | Age 12 - Age 6") %>% pull(estimate_ci))`, *p* = `r tab_pred_full %>% filter(Condition == "Block 1 | Age 12 - Age 6") %>% pull(p_value)`.
 Block 2: 12-m: M = `r format_bv(tab_pred_full %>% filter(Condition == "Block 2 | Age 12") %>% pull(estimate_ci))`, *p* = `r tab_pred_full %>% filter(Condition == "Block 2 | Age 12") %>% pull(p_value)`; 6-m: M = `r format_bv(tab_pred_full %>% filter(Condition == "Block 2 | Age 6") %>% pull(estimate_ci))`, *p* = `r tab_pred_full %>% filter(Condition == "Block 2 | Age 6") %>% pull(p_value)`; 12-m vs. 6-m: M = `r format_bv(tab_pred_full %>% filter(Condition == "Block 2 | Age 12 - Age 6") %>% pull(estimate_ci))`, *p* = `r tab_pred_full %>% filter(Condition == "Block 2 | Age 12 - Age 6") %>% pull(p_value)`).
 As reflected in these analyses, both 6-month-olds and 12-month-olds failed to show reliable AEMs to the target side in Block 1.
-In Block 1, 6-month-olds overall were even significantly not showing anticipatory looks towards the target side but rather looking towards the incorrect side.
-The pattern with the 12-month-olds was also surprising given that the 12-month-olds seem to show reliable predictions to the updated location in Block 2.
-(See Figure \@ref(fig:task-results-figure)c and Table \ref{tab:modeltable}.) <!-- eb2et: i'm not sure i'm following but i think the stats disagree somewhat with how the sentences are worded above/below given significant 6mo in block1 and then marginal in block 2? --> <!-- 2eb: reworded for clarity -->
+In Block 1, 6-month-olds overall were even significantly not showing anticipatory looks towards the target side but rather looking towards the incorrect side. The pattern with the 12-month-olds was also surprising given that the 12-month-olds seem to show reliable predictions to the updated location in Block 2. (See Figure \@ref(fig:task-results-figure)c and Table \ref{tab:modeltable}.) <!-- eb2et: i'm not sure i'm following but i think the stats disagree somewhat with how the sentences are worded above/below given significant 6mo in block1 and then marginal in block 2? --> <!-- 2eb: reworded for clarity -->
 
-To clarify the source of these unexpected results, we ran an exploratory analysis comparing the proportion of infants with AEMs to chance on each trial (uncorrected).
-In Block 1, results indicated that overall, neither 6-month-olds nor 12-month-olds reliably demonstrated AEMs on any individual trial (Figure \@ref(fig:prediction-trial-by-trial)).
-In Block 2, most 12-month-olds were able to update their predictions about the new location reliably by Trial 11 (the 2nd trial in Block 2), whereas 6-month-olds were able to do so on Trial 11 and Trial 14 but were not consistent on other trials (and as such on average across the trials in Block 2 did not show a reliable tendency to predict the updated location).
+To clarify the source of these unexpected results, we ran an exploratory analysis comparing the proportion of infants with AEMs to chance on each trial (uncorrected). In Block 1, results indicated that overall, neither 6-month-olds nor 12-month-olds reliably demonstrated AEMs on any individual trial (Figure \@ref(fig:prediction-trial-by-trial)). In Block 2, most 12-month-olds were able to update their predictions about the new location reliably by Trial 11 (the 2nd trial in Block 2), whereas 6-month-olds were able to do so on Trial 11 and Trial 14 but were not consistent on other trials (and as such on average across the trials in Block 2 did not show a reliable tendency to predict the updated location).
 
 ```{r prediction-trial-by-trial, echo=FALSE, echo=FALSE, fig.width=10, fig.height=6.2, out.width="100%", fig.align="center", fig.cap="Proportion of infants showing anticipatory eye movements (AEMs) to the target side by trial, for (a) 6-month-olds and (b) 12-month-olds (Block 1: Trials 2--8; Block 2: Trials 10--16)."}
 
@@ -576,8 +571,8 @@ In contrast to our pre-registered predictions, we did not find a reliable prefer
 See Figure \@ref(fig:task-results-figure)d and Table \ref{tab:modeltable}.
 
 #### Word Comprehension Task
-
-Again in contrast from our preregistered hypothesis, the 12-month-olds did not differ from the 6-month-olds in their looks to the target (M = `r format_bv(tab_word_full %>% filter(Condition == "Age 12 - Age 6") %>% pull(estimate_ci))`, *p* = `r tab_word_full %>% filter(Condition == "Age 12 - Age 6") %>% pull(p_value)`).
+<!-- 2eb:  please disregard text here until window of analysis is chosen for data -->
+Again, in contrast from our preregistered hypothesis, the 12-month-olds did not differ from the 6-month-olds in their looks to the target (M = `r format_bv(tab_word_full %>% filter(Condition == "Age 12 - Age 6") %>% pull(estimate_ci))`, *p* = `r tab_word_full %>% filter(Condition == "Age 12 - Age 6") %>% pull(p_value)`).
 Neither the 12-month-olds nor the 6-month-olds looked more to the target object when it was the target than when it was the distractor (12-m: M = `r format_bv(tab_word_full %>% filter(Condition == "12") %>% pull(estimate_ci))`, *p* = `r tab_word_full %>% filter(Condition == "12") %>% pull(p_value)`; 6-m: M = `r format_bv(tab_word_full %>% filter(Condition == "6") %>% pull(estimate_ci))`, *p* = `r tab_word_full %>% filter(Condition == "6") %>% pull(p_value)`).
 See Figure \@ref(fig:task-results-figure)e and Table \ref{tab:modeltable}.
 
