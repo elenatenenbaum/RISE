@@ -140,14 +140,21 @@ The current study assessed these concerns in 6 and 12-month-old infants recruite
 In addition, we were interested in making modifications to the task battery used in Tenenbaum et al. (2025) in light of the data reported there, as well as adding new exploratory tasks to expand our coverage of different cognitive constructs.
 Below, we enumerate the constructs we measured and note modifications from the previous versions of these tasks, as relevant (see Figure \@ref(fig:frame-capture) and Table \@ref(tab:rise-battery-summary)).
 
-```{r frame-capture, fig.cap="Frame captures from the five base tasks (a) Geo-Social, (b) Visual Paired Comparison, (c) Prediction, (d) Multimodal Processing, (e) Word Comprehension, and two exploratory tasks (f) Helper-Hinderer, and (g) Numeracy",fig.pos='H', out.width="0.75\\linewidth", fig.align='center'}
-# Paths to the image
+```{r frame-capture, fig.cap="Frame captures from the five base tasks (a) Geo-Social, (b) Visual Paired Comparison, (c) Prediction, (d) Multimodal Processing, (e) Word Comprehension, and two exploratory tasks (f) Helper-Hinderer, and (g) Numeracy", out.width="75%", fig.align='center'}
+
 img_path <- here::here(
   "Aim2", "Aim2_manuscript", "images", "frame_captures.png"
 )
 
-knitr::include_graphics(img_path)
+stopifnot(file.exists(img_path))
+
+knitr::include_graphics(
+  normalizePath(img_path, winslash = "/", mustWork = TRUE),
+  auto_pdf = FALSE,
+  rel_path = FALSE
+)
 ```
+
 
 *Attention:* To explore social preference, infants viewed dynamic geometric shapes contrasted with children dancing [@chawarska2016; @pierce2016].
 In our pilot work, 12-month-olds, but not 6-month-olds, looked reliably longer at the social stimuli (cf. [@imafuku2017]).

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.7.12)  13 JUL 2026 08:20
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.7.12)  14 JUL 2026 14:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1027,8 +1027,8 @@ Package fancyhdr Warning: \headheight is too small (15.2pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.21803pt}.
 
 [4]
-File: images/frame_captures.png Graphic file (type bmp)
-<images/frame_captures.png>
+File: /Users/krg/Documents/RISE_7_12/Aim2/Aim2_manuscript/images/frame_captures.png Graphic file (type bmp)
+</Users/krg/Documents/RISE_7_12/Aim2/Aim2_manuscript/images/frame_captures.png>
 
 Package fancyhdr Warning: \headheight is too small (15.2pt): 
 (fancyhdr)                Make it at least 27.41803pt, for example:
@@ -1086,9 +1086,13 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 364.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Package fancyhdr Warning: \headheight is too small (15.2pt): 
+(fancyhdr)                Make it at least 27.41803pt, for example:
+(fancyhdr)                \setlength{\headheight}{27.41803pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-12.21803pt}.
 
-
+[8]
 Overfull \hbox (5.95296pt too wide) in paragraph at lines 407--407
  \TU/lmr/m/n/8 Comprehension| 
  []
@@ -1102,20 +1106,9 @@ Overfull \hbox (4.41696pt too wide) in paragraph at lines 407--407
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Package fancyhdr Warning: \headheight is too small (15.2pt): 
-(fancyhdr)                Make it at least 27.41803pt, for example:
-(fancyhdr)                \setlength{\headheight}{27.41803pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.21803pt}.
-
-[8]
-
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Missing character: There is no ≥ (U+2265) in font [lmroman12-regular]:mapping=tex-text;!
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 
 Package fancyhdr Warning: \headheight is too small (15.2pt): 
 (fancyhdr)                Make it at least 27.41803pt, for example:
@@ -1124,6 +1117,9 @@ Package fancyhdr Warning: \headheight is too small (15.2pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.21803pt}.
 
 [9]
+Missing character: There is no ≥ (U+2265) in font [lmroman12-regular]:mapping=tex-text;!
+Missing character: There is no ≥ (U+2265) in font [lmroman12-regular]:mapping=tex-text;!
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1134,11 +1130,6 @@ Package fancyhdr Warning: \headheight is too small (15.2pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.21803pt}.
 
 [10]
-Missing character: There is no ≥ (U+2265) in font [lmroman12-regular]:mapping=tex-text;!
-Missing character: There is no ≥ (U+2265) in font [lmroman12-regular]:mapping=tex-text;!
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 
 Package fancyhdr Warning: \headheight is too small (15.2pt): 
 (fancyhdr)                Make it at least 27.41803pt, for example:
@@ -1167,6 +1158,8 @@ Package fancyhdr Warning: \headheight is too small (15.2pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.21803pt}.
 
 [13]
+Missing character: There is no ≥ (U+2265) in font [lmroman8-regular]:mapping=tex-text;!
+Missing character: There is no ≥ (U+2265) in font [lmroman8-regular]:mapping=tex-text;!
 
 Package fancyhdr Warning: \headheight is too small (15.2pt): 
 (fancyhdr)                Make it at least 27.41803pt, for example:
@@ -1175,9 +1168,9 @@ Package fancyhdr Warning: \headheight is too small (15.2pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.21803pt}.
 
 [14]
-Missing character: There is no ≥ (U+2265) in font [lmroman8-regular]:mapping=tex-text;!
-Missing character: There is no ≥ (U+2265) in font [lmroman8-regular]:mapping=tex-text;!
 Missing character: There is no ≥ (U+2265) in font [lmroman12-regular]:mapping=tex-text;!
+File: RISE_Aim2_Manuscript_files/figure-latex/task-results-figure-1.pdf Graphic file (type pdf)
+<use RISE_Aim2_Manuscript_files/figure-latex/task-results-figure-1.pdf>
 
 Package fancyhdr Warning: \headheight is too small (15.2pt): 
 (fancyhdr)                Make it at least 27.41803pt, for example:
@@ -1186,8 +1179,6 @@ Package fancyhdr Warning: \headheight is too small (15.2pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.21803pt}.
 
 [15]
-File: RISE_Aim2_Manuscript_files/figure-latex/task-results-figure-1.pdf Graphic file (type pdf)
-<use RISE_Aim2_Manuscript_files/figure-latex/task-results-figure-1.pdf>
 
 Package fancyhdr Warning: \headheight is too small (15.2pt): 
 (fancyhdr)                Make it at least 27.41803pt, for example:
@@ -1207,9 +1198,6 @@ Package fancyhdr Warning: \headheight is too small (15.2pt):
 File: RISE_Aim2_Manuscript_files/figure-latex/prediction-trial-by-trial-1.pdf Graphic file (type pdf)
 <use RISE_Aim2_Manuscript_files/figure-latex/prediction-trial-by-trial-1.pdf>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Package fancyhdr Warning: \headheight is too small (15.2pt): 
 (fancyhdr)                Make it at least 27.41803pt, for example:
 (fancyhdr)                \setlength{\headheight}{27.41803pt}.
@@ -1217,6 +1205,10 @@ Package fancyhdr Warning: \headheight is too small (15.2pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.21803pt}.
 
 [18]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1227,8 +1219,6 @@ Package fancyhdr Warning: \headheight is too small (15.2pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.21803pt}.
 
 [19]
-Underfull \vbox (badness 5548) has occurred while \output is active []
-
 
 Package fancyhdr Warning: \headheight is too small (15.2pt): 
 (fancyhdr)                Make it at least 27.41803pt, for example:
@@ -1245,6 +1235,8 @@ Package fancyhdr Warning: \headheight is too small (15.2pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.21803pt}.
 
 [21]
+Underfull \vbox (badness 3977) has occurred while \output is active []
+
 
 Package fancyhdr Warning: \headheight is too small (15.2pt): 
 (fancyhdr)                Make it at least 27.41803pt, for example:
@@ -1253,6 +1245,8 @@ Package fancyhdr Warning: \headheight is too small (15.2pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.21803pt}.
 
 [22]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 Package fancyhdr Warning: \headheight is too small (15.2pt): 
 (fancyhdr)                Make it at least 27.41803pt, for example:
@@ -1375,10 +1369,10 @@ L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 21992 strings out of 469794
- 404079 string characters out of 5467655
- 1023939 words of memory out of 5000000
- 50623 multiletter control sequences out of 15000+600000
+ 21991 strings out of 469794
+ 405057 string characters out of 5467655
+ 1010938 words of memory out of 5000000
+ 50622 multiletter control sequences out of 15000+600000
  655578 words of font info for 104 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  90i,12n,114p,2259b,508s stack positions out of 10000i,1000n,20000p,200000b,200000s
