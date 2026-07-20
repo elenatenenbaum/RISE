@@ -107,6 +107,7 @@ Infant looking behavior was recorded with open-source software.
 Results for tasks assessing attention, memory, and prediction replicated expected patterns, supporting the feasibility of remote assessment in those domains. Other tasks assessing word comprehension and multimodal processing were not consistent with predictions, highlighting areas for further modifications of the remote tools. Overall, we demonstrate the translation and remote replication of several key tasks that assess early development which provides the opportunity for scalability of these tasks for larger, diverse populations. 
 <!-- eb2et: I'd say at least the domains where the results were not consistent, and in general abstract could do more to tell us what was found and why we care imho -->
 <!-- 2eb: updated -->
+<!-- ET2KG: AH, I get it now. 2eb are YOUR answers to Elika's comments. -->
 
 **Keywords:** cognitive development, remote, infant
 
@@ -114,7 +115,7 @@ Results for tasks assessing attention, memory, and prediction replicated expecte
 
 ## Introduction
 
-Our understanding of early cognitive and linguistic development draws on more decades of laboratory-based studies that have generally required caregivers to travel to the lab with their infants for in-person assessments.
+Our understanding of early cognitive and linguistic development draws on decades of laboratory-based studies that have generally required caregivers to travel to the lab with their infants for in-person assessments.
 While this approach brought us much of our foundational knowledge about infant cognitive development, a number of important findings have failed to replicate from one lab to the next [@lavelle2024].
 It is unclear whether these replication failures are because the findings are unreliable, the populations studied in the different locations differ in some way that has a meaningful effect on the results, or because the labs used different methods.
 Recent movements in “Big Science” [@byers-heinlein2021; @byers-heinlein2021a; @themanybabiesconsortium2020; @soderstrom2025; @zettersten2024a; @frank2017a] have improved our efforts to reproduce studies in larger samples, in some cases, with mixed results as some recent studies have failed to replicate seminal studies [@lucca2025; @schreiner2024].
@@ -122,7 +123,7 @@ Recent movements in “Big Science” [@byers-heinlein2021; @byers-heinlein2021a
 The Remote Infant Studies of Early Learning (RISE) Battery was established to expand on these efforts using a single platform to present a consistent set of stimuli and one automated approach to responses.
 One of its overall aims is to facilitate the study of cognitive and linguistic development in early infancy in a scalable, generalizable manner; this in turn would allow for its application in other populations, such as infants with high risk of Autism Spectrum Disorders in future work.
 <!-- eb2et: i reworded previous sentence to mention the ASD aim, feel free to delete/reword; it gets detailed in next section too --> <!-- 2eb: nice! noted-->The RISE Battery consists of seven tasks modeled on traditional laboratory measures, adapted for remote use in the home.
-In conjunction with remote administration options through the Children Helping Science platform [@scott2017; @scott2017a] and automated coding of infant looking behavior via the open source software, iCatcher+ [@erel2023], the RISE Battery allows us to test developmental milestones without sources of unintentional experimenter bias and inconsistent stimuli presentation associated with lab-specific methods.
+In conjunction with remote administration options through the Children Helping Science platform [@scott2017; @scott2017a] and automated coding of infant looking behavior via open source software, iCatcher+ [@erel2023], the RISE Battery allows us to test developmental milestones without sources of unintentional experimenter bias and inconsistent stimuli presentation associated with lab-specific methods.
 Therefore, the RISE battery greatly reduces possible epistemic uncertainty.
 Recent work demonstrated the feasibility of this approach in a small sample of infants at 6 (n = 29) and 12 months (n = 26) [@tenenbaum2025].
 In the current study, we expand on those findings with (1) updated stimuli adapted from the pilot work and (2) a larger sample of infants.
@@ -130,7 +131,7 @@ In the current study, we expand on those findings with (1) updated stimuli adapt
 ## The RISE Battery
 
 The RISE Battery includes assessments of attention, memory, prediction, multisensory processing, word comprehension, social evaluation, and numeracy.
-These originally lab-based tasks were selected due to their demonstrated or hypothesized associations with developmental outcomes, including language skills, mathematical abilities, social skills, or autism diagnosis [@arunachalam2016; @bradshaw2011; @decarli2023; @hamlin2007; @li2024; @pierce2016; @reuter2018; @senju2013; @sinha2014; @starr2013] (see Figure \@ref(fig:frame-capture)).
+These originally lab-based tasks were selected due to their associations with developmental outcomes, including language skills, mathematical abilities, social skills, and/or autism diagnosis [@arunachalam2016; @bradshaw2011; @decarli2023; @hamlin2007; @li2024; @pierce2016; @reuter2018; @senju2013; @sinha2014; @starr2013] (see Figure \@ref(fig:frame-capture)).
 With mixed success, the pilot study [@tenenbaum2025] added to growing evidence that established laboratory-based measures of language and cognitive development can be translated to in-home remote assessment [@bacon2021; @banki2022; @chuey2024; @silver2021].
 
 In addition to establishing consistent methods for presentation of the experiment on the Children Helping Science platform, creating unified stimuli across infants, and exploring automated (i.e., scalable) coding methods, the RISE Battery adds a number of methodological advances that increase accessibility.
