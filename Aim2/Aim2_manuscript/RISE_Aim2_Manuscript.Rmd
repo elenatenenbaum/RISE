@@ -25,11 +25,15 @@ editor_options:
 
 <!-- eb2et: looks like kristen basically put this in a nice minimal .rmd format! to make the doc, just click the knit button, should knit to a word doc by default. I"m just editing and commenting below, leaving notes if it's more than a small reword. In theory this could turn into the manuscript itself without *too* much more work, would need to import the figures from the Aim2_analysis.Rmd file that my made (which knits to html right now) and e.g. automate the figure/table reference numbers, the citations, etc. but up to you if you want to go that route-->
 
+<!--ET2KG: I still have not figured out how to knit from here, but will try commenting here on what I see in the pdf version. Will ideally need an editabel word or pdf doc for those who want to review.-->
+
 <!-- 2eb: updated-->
 
 <!-- eb2et: sorry but i inadvertently messed up the style of the headers; if we switch this to what's called a papaja rmd it'll do them automagically otherwise they'll need a manual fix later sorrrry -->
 
 <!-- 2eb: changed to papaja and pdf format -->
+
+<!--ET2KG: reminder that this the word doc is still having formatting issues. -->
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F, warning = F, message =  F)
@@ -100,7 +104,7 @@ The battery includes seven tasks to remotely assess developmental trajectories.
 This study expands on previous pilot work with a larger sample and modified methods.
 Data from `r nrow(Part_Age)` infants (`r sum(Part_Age$Age == 6)` 6-month-olds and `r sum(Part_Age$Age == 12)` 12-month-olds) were collected asynchronously.
 Infant looking behavior was recorded with open-source software.
-Results for attention, memory, and prediction replicated expected patterns, supporting the feasibility of remote assessment in those domains. Other tasks assessing word comprehension and multimodal processing were not consistent with predictions, highlighting areas for further modifications of the remote tools. Overall, we demonstrate the translation and remote replication of several key tasks that assess early development which provides the opportunity for scalability of these tasks for larger, diverse populations. 
+Results for tasks assessing attention, memory, and prediction replicated expected patterns, supporting the feasibility of remote assessment in those domains. Other tasks assessing word comprehension and multimodal processing were not consistent with predictions, highlighting areas for further modifications of the remote tools. Overall, we demonstrate the translation and remote replication of several key tasks that assess early development which provides the opportunity for scalability of these tasks for larger, diverse populations. 
 <!-- eb2et: I'd say at least the domains where the results were not consistent, and in general abstract could do more to tell us what was found and why we care imho -->
 <!-- 2eb: updated -->
 
