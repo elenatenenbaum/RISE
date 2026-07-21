@@ -190,7 +190,7 @@ In the current study, the same pilot stimuli were used to assess social evaluati
 Results suggested the ability to discriminate quantities differing by a 1:4-ratio (i.e., 5 vs 20 dots) at 12 months but not 6 months.
 Because the results among 12-month-olds were consistent with preregistered hypotheses, and the lack of effect among 6-month-olds may have been related to the small sample size in the pilot study, in the current study, the same pilot stimuli were used.
 
-The hypotheses for the current study were the same as those set out in the pre-registration for the pilot study.
+The hypotheses for the current study were the same as those set out in the pre-registration for the pilot study https://osf.io/2xqmn/overview?view_only=d312ac2acea048c598700aa2e0906b35.
 <!-- eb2et: i feel like a crazy person but i can't ever find stuff on osf when i try anymore, --> <!-- that link does *not* take me to somewhere i can seem to find the prereg file anonymized. if i log in then i can find it here:
 https://osf.io/yhg95/overview but no clue how to direct reviewers to the anonymized one. mike probably knows or you can write to osf tech support something  --> <!-- 2eb: WIP retracting for now, noting to add in b4 sending -->
 
@@ -404,6 +404,7 @@ Infant gaze direction was detected using iCatcher+ [@erel2023], open-access soft
 iCatcher+ uses an artificial neural network to identify and classify gaze direction from low-resolution videos.
 To address concerns in the pilot study that the caregiver gaze was at times mistakenly identified as infant gaze (despite the fact that iCatcher+ is designed to select the lowest bounding face), caregivers were asked to avert their gaze by looking down, away, or by wearing darkened glasses.
 <!-- eb2et: wait so what was the reliability? --> <!-- 2eb: removed due to needs to be re-hand coded here -->
+<!-- ET2EB: Sumin and Maria are working on this (had to redo after video corrections). Hope to have ready for revised version.  -->
 
 ```{r table3-data-quality, echo=FALSE, results='asis'}
 table3_latex <-
