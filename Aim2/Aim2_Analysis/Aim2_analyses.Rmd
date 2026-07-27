@@ -1214,77 +1214,72 @@ pair_key <- WL_item.pairs %>%
     DistTrial = as.character(DistTrial)) %>%
   distinct()
 
-
-target_trial_scores <- trial_target_prop_common %>%
-  rename(
-    TargTrial = Trial,
-    target = target_prop) %>%
-  dplyr::select(
-    response_uuid,
-    TargTrial,
-    target)
-
-distractor_trial_scores <- trial_target_prop_common %>%
-  rename(
-    DistTrial = Trial,
-    other_word_target_prop = target_prop) %>%
+pair_target_key_common <- pair_key %>%
   mutate(
-    # word when distractor
-    distractor = 1 - other_word_target_prop) %>%
+    Word_Pair = case_when(
+      Word %in% c("foot", "milk") ~ "foot ~ milk",
+      Word %in% c("banana", "hair") ~ "banana ~ hair",
+      Word %in% c("hand", "yogurt") ~ "hand ~ yogurt",
+      Word %in% c("eyes", "cookie") ~ "eyes ~ cookie",
+      Word %in% c("mouth", "apple") ~ "mouth ~ apple",
+      TRUE ~ NA_character_)) %>%
   dplyr::select(
-    response_uuid,
-    DistTrial,
-    distractor)
+    Word, TargTrial, Word_Pair) %>%
+  distinct() %>%
+  group_by(Word_Pair) %>%
+  arrange(TargTrial, .by_group = TRUE) %>%
+  mutate(
+    target_label = paste0(
+      "target",
+      row_number())) %>%
+  ungroup()
 
 
-word_difference_common <- pair_key %>%
-  left_join(
-    target_trial_scores,
+participant_pair_scores_common <- trial_target_prop_common %>%
+  rename(
+    TargTrial = Trial) %>%
+
+  inner_join(
+    pair_target_key_common,
     by = "TargTrial",
     relationship = "many-to-many") %>%
-  left_join(
-    distractor_trial_scores,
-    by = c("response_uuid", "DistTrial")) %>%
-  filter(!is.na(target),!is.na(distractor)) %>%
-  mutate(diff = target - distractor,
-    Word_Pair = case_when(
-      Word %in% c("foot", "milk") ~
-        "foot ~ milk",
-      
-      Word %in% c("banana", "hair") ~
-        "banana ~ hair",
-      
-      Word %in% c("hand", "yogurt") ~
-        "hand ~ yogurt",
-      
-      Word %in% c("eyes", "cookie") ~
-        "eyes ~ cookie",
-      
-      Word %in% c("mouth", "apple") ~
-        "mouth ~ apple",
-      TRUE ~ NA_character_ ))
 
-# pair scores for each participant 
-
-participant_pair_scores_common <- word_difference_common %>%
   group_by(
     response_uuid,
-    Word,
-    Word_Pair) %>%
+    Word_Pair,
+    target_label) %>%
+
   summarise(
-    word_diff = mean(diff, na.rm = TRUE),
-    .groups = "drop" ) %>%
-  group_by(response_uuid, Word_Pair) %>%
-  summarise(diff = mean(word_diff, na.rm = TRUE), .groups = "drop") %>%
+    target_mean_propt = mean(target_prop, na.rm = TRUE),
+    .groups = "drop") %>%
+
+  tidyr::pivot_wider(
+    names_from = target_label,
+    values_from = target_mean_propt) %>%
+
+ # difference score 
+  mutate(
+    diff = target1 - (1 - target2)) %>%
+
+  filter(
+    !is.na(target1),
+    !is.na(target2),
+    is.finite(diff)) %>%
+
   left_join(
     Part_Age %>%
-      distinct(response_uuid, Age), by = "response_uuid") %>%
+      distinct(
+        response_uuid, Age),
+    by = "response_uuid") %>%
+
   mutate(
     Age = factor(
       as.character(Age),
       levels = c("6", "12"),
-      labels = c("6 months", "12 months")),
-    
+      labels = c(
+        "6 months",
+        "12 months")),
+
     Word_Pair = factor(
       Word_Pair,
       levels = c(
@@ -1293,8 +1288,9 @@ participant_pair_scores_common <- word_difference_common %>%
         "hand ~ yogurt",
         "eyes ~ cookie",
         "mouth ~ apple"))) %>%
-  filter(!is.na(Age),!is.na(Word_Pair), is.finite(diff))
 
+  filter(!is.na(Age),
+    !is.na(Word_Pair))
 # by age and by pair
 pair_plot_summary_common <- participant_pair_scores_common %>%
   group_by(Age, Word_Pair) %>%
@@ -1519,8 +1515,7 @@ trial_target_prop_pair_window <- WL_results$frame_level %>%
       TRUE                 ~ NA_real_),
     # time from picture onset
     picture_time_ms =
-      (frame_within_trial - 1) * ms_per_frame
-  ) %>%
+      (frame_within_trial - 1) * ms_per_frame) %>%
   
   left_join(
     word_event_times_trial %>%
@@ -1528,26 +1523,17 @@ trial_target_prop_pair_window <- WL_results$frame_level %>%
         Trial,
         target_word_onset_ms,
         picture_end_ms,
-        time_word_to_picture_end
-      ),
-    by = "Trial"
-  ) %>%
+        time_word_to_picture_end),
+    by = "Trial") %>%
   
-  left_join(
-    trial_pair_key,
-    by = "Trial"
-  ) %>%
+  left_join(trial_pair_key, by = "Trial" ) %>%
   
-  left_join(
-    pair_common_end,
-    by = "Word_Pair"
-  ) %>%
+  left_join(pair_common_end, by = "Word_Pair") %>%
   
   mutate(
     # Target-word onset is 0!!!
     time_from_word_onset =
-      picture_time_ms - target_word_onset_ms
-  ) %>%
+      picture_time_ms - target_word_onset_ms) %>%
   
   filter(
     !is.na(Word_Pair),
@@ -1576,78 +1562,72 @@ trial_target_prop_pair_window <- WL_results$frame_level %>%
       usable_frames > 0,
       target_prop,
       NA_real_))
-target_trial_scores <- trial_target_prop_pair_window %>%
-  rename(TargTrial = Trial, target = target_prop) %>%
+
+pair_target_key <- pair_key %>%
   dplyr::select(
-    response_uuid,
+    Word,
     TargTrial,
-    Word_Pair,
-    target)
-
-# difference scores
-distractor_trial_scores <- trial_target_prop_pair_window %>%
-  rename(
-    DistTrial = Trial,
-    other_word_target_prop = target_prop) %>%
+    Word_Pair
+  ) %>%
+  distinct() %>%
+  group_by(Word_Pair) %>%
+  arrange(TargTrial, .by_group = TRUE) %>%
   mutate(
-    distractor = 1 - other_word_target_prop) %>%
-  dplyr::select(
-    response_uuid,
-    DistTrial,
-    Word_Pair,
-    distractor)
+    target_label = paste0(
+      "target",
+      row_number()))%>%
+  ungroup()
 
-word_difference_pair_window <- pair_key %>%
-  left_join(
-    target_trial_scores,
+
+participant_pair_scores <- trial_target_prop_pair_window %>%
+  rename(
+    TargTrial = Trial) %>%
+
+  inner_join(
+    pair_target_key,
     by = c(
       "TargTrial",
       "Word_Pair"),
     relationship = "many-to-many") %>%
-  
-  left_join(
-    distractor_trial_scores,
-    by = c(
-      "response_uuid",
-      "DistTrial",
-      "Word_Pair")
-    ) %>%
-  
-  filter(!is.na(target), !is.na(distractor)) %>%
-  mutate(diff = target - distractor)
 
-# diff score by pariticpants 
-participant_pair_scores <- word_difference_pair_window %>%
   group_by(
     response_uuid,
-    Word,
-    Word_Pair
+    Word_Pair,
+    target_label
   ) %>%
+
+
   summarise(
-    word_diff = mean(diff, na.rm = TRUE),
+    target_mean_propt = mean(
+      target_prop,
+      na.rm = TRUE
+    ),
     .groups = "drop"
   ) %>%
-  
-  group_by(
-    response_uuid,
-    Word_Pair
-  ) %>%
-  summarise(
-    diff = mean(word_diff, na.rm = TRUE),
-    .groups = "drop"
-  ) %>%
-  
+
+  tidyr::pivot_wider(
+    names_from = target_label,
+    values_from = target_mean_propt) %>%
+
+  # pair difference score
+  mutate(diff = target1 - (1 - target2)) %>%
+
+  filter(!is.na(target1), !is.na(target2), is.finite(diff)) %>%
+
   left_join(
     Part_Age %>%
-      distinct(response_uuid, Age),  by = "response_uuid") %>%
-  
+      distinct(
+        response_uuid,Age),
+    by = "response_uuid") %>%
+
   mutate(
     Age = factor(
       as.character(Age),
       levels = c("6", "12"),
-      labels = c("6 months", "12 months")
-    ),
-    
+      labels = c(
+        "6 months",
+        "12 months")),
+
     Word_Pair = factor(
       Word_Pair,
       levels = c(
@@ -1656,11 +1636,10 @@ participant_pair_scores <- word_difference_pair_window %>%
         "hand ~ yogurt",
         "eyes ~ cookie",
         "mouth ~ apple"))) %>%
-  
+
   filter(
     !is.na(Age),
-    !is.na(Word_Pair),
-    is.finite(diff))
+    !is.na(Word_Pair))
 
 # by age and by the pair
 pair_plot_summary <- participant_pair_scores %>%
@@ -1676,9 +1655,7 @@ pair_plot_summary <- participant_pair_scores %>%
     
     ci_upper =
       mean_diff + qt(.975, df = n - 1) * se,
-    
-    .groups = "drop"
-  )
+    .groups = "drop")
 
 #plot
 rise_word_pair_plot <- ggplot(
@@ -1686,24 +1663,19 @@ rise_word_pair_plot <- ggplot(
   aes(
     x = Word_Pair,
     y = mean_diff,
-    color = Word_Pair
-  )
-) +
+    color = Word_Pair)) +
   
   geom_hline(
     yintercept = 0,
     linetype = "dashed",
-    linewidth = 0.7
-  ) +
+    linewidth = 0.7) +
   
   geom_errorbar(
     aes(
       ymin = ci_lower,
-      ymax = ci_upper
-    ),
+      ymax = ci_upper),
     width = 0,
-    linewidth = 1
-  ) +
+    linewidth = 1) +
   
   geom_point(
     shape = 1,
@@ -1722,9 +1694,7 @@ rise_word_pair_plot <- ggplot(
       "banana ~ hair" = "#65A30D",
       "hand ~ yogurt" = "#16A6B6",
       "eyes ~ cookie" = "#A855F7",
-      "mouth ~ apple" = "#E69F00"
-    )
-  ) +
+      "mouth ~ apple" = "#E69F00")) +
   
   scale_y_continuous(
     breaks = seq(-0.2, 0.5, by = 0.1),
