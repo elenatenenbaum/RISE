@@ -2396,6 +2396,148 @@ word_comp_timecourse_by_pair
 
 ```
 
+```{r timecourse-by-item-paired}
+trial_item_key <- WL_item.pairs_1 %>%
+  dplyr::transmute(
+    Trial = as.character(TargTrial),
+    Variable = sub(" .*", "", as.character(Variable)),
+    word_pair = dplyr::case_when(
+      Variable %in% c("foot", "milk") ~ "foot ~ milk",
+      Variable %in% c("banana", "hair") ~ "banana ~ hair",
+      Variable %in% c("hand", "yogurt") ~ "hand ~ yogurt",
+      Variable %in% c("eyes", "cookie") ~ "eyes ~ cookie",
+      Variable %in% c("mouth", "apple") ~ "mouth ~ apple",
+      TRUE ~ NA_character_)) %>%
+  dplyr::filter(!is.na(Trial),
+    !is.na(Variable),
+    !is.na(word_pair)) %>%
+  dplyr::distinct(Trial, Variable, word_pair)
+
+
+
+word_comp_timeseries_by_item_pair <- WL_results$frame_level %>%
+  
+  dplyr::mutate(Trial = as.character(Trial)) %>%
+  
+  dplyr::left_join(Part_Age %>%
+      dplyr::distinct(response_uuid, Age),
+    by = "response_uuid") %>%
+  
+  dplyr::left_join(
+    word_event_times_trial %>%
+      dplyr::mutate(Trial = as.character(Trial)) %>%
+      dplyr::select(
+        Trial,
+        target_word_onset_ms,
+        picture_end_ms,
+        time_word_to_picture_end),
+    by = "Trial") %>%
+  
+  dplyr::left_join(trial_item_key, by = "Trial") %>%
+  
+  dplyr::mutate(propt = dplyr::case_when(
+      look == "target" ~ 1,
+      look == "non_target" ~ 0,
+      TRUE ~ NA_real_),
+    
+    age_group = factor(as.character(Age),
+      levels = c("6", "12"),
+      labels = c("6 months", "12 months")),
+    
+    picture_time_ms = (frame_within_trial - 1) * ms_per_frame,
+    
+    # time 0 to the target word
+    t_onset = picture_time_ms - target_word_onset_ms,
+    
+    word_pair = factor(
+      word_pair,
+      levels = c(
+        "foot ~ milk",
+        "banana ~ hair",
+        "hand ~ yogurt",
+        "eyes ~ cookie",
+        "mouth ~ apple")),
+    
+    Variable = factor(
+      Variable,
+      levels = c(
+        "foot", "milk",
+        "banana", "hair",
+        "hand", "yogurt",
+        "eyes", "cookie",
+        "mouth", "apple"))) %>%
+  
+  dplyr::filter(
+    !is.na(propt),
+    !is.na(age_group),
+    !is.na(word_pair),
+    !is.na(Variable),
+    !is.na(t_onset),
+    !is.na(time_word_to_picture_end),
+    
+    # time to show before target word onset
+    t_onset >= -2000,
+    
+    # Use the actual available post-target duration for this trial
+    t_onset <= time_word_to_picture_end) %>%
+  
+  # Give each participant equal weight at each time point
+  dplyr::group_by(
+    response_uuid,
+    age_group,
+    word_pair,
+    Variable,
+    t_onset) %>%
+  
+  dplyr::summarise(propt = mean(propt, na.rm = TRUE),
+    .groups = "drop")
+
+word_comp_timecourse_by_item_pair <-
+  ggplot(
+    word_comp_timeseries_by_item_pair,
+    aes(x = t_onset,
+      y = propt,
+      color = Variable,
+      fill = Variable)) +
+  
+  stat_smooth(geom = "errorbar", size = 0.3, alpha = 0.3) +
+  
+  geom_hline(yintercept = 0.5, linetype = "dashed") +
+  
+  geom_vline(xintercept = c(0), linetype = "dashed") +
+  
+  facet_grid(age_group ~ word_pair, scales = "free_x") +
+  
+  scale_x_continuous(
+    breaks = c(-2000, -1000, 0, 1000, 2000, 3000, 4000)) +
+  
+  scale_y_continuous(limits = c(0, 1)) +
+  
+  labs(
+    x = "Time following Target Word Onset (ms)",
+    y = "Mean Proportion Target-Looking",
+    color = "Target word",
+    fill = "Target word") +
+  
+  theme_bw() +
+  
+  theme(
+    text = element_text(size = 18),
+    axis.text.x = element_text(
+      size = 8,
+      angle = 45,
+      hjust = 1),
+    strip.text = element_text(size = 12),
+    panel.spacing.x = unit(1.2, "lines"),
+    panel.spacing.y = unit(1.2, "lines"),
+    legend.position = "bottom") +
+  
+  guides(color = guide_legend(override.aes = list(linewidth = 8)))
+
+word_comp_timecourse_by_item_pair
+```
+
+
 Number (and percent) of infants who viewed the task at all (2nd column, as % of consented sample with any icatcher data & in frame data , with sufficient usable data (3rd column, as % of infants who viewed the task),  with fixation on a single side >80% of the task (4th column, as % of infants with usable data), and final N in the analytic dataset. 
 
 ```{r word-rec-enrollment, fig.width=10}
