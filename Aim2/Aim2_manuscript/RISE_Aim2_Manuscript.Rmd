@@ -100,10 +100,10 @@ The battery includes seven tasks to remotely assess developmental trajectories.
 This study expands on previous pilot work with a larger sample and modified methods.
 Data from `r nrow(Part_Age)` infants (`r sum(Part_Age$Age == 6)` 6-month-olds and `r sum(Part_Age$Age == 12)` 12-month-olds) were collected asynchronously.
 Infant looking behavior was recorded with open-source software.
-Results for tasks assessing attention, memory, and prediction replicated expected patterns, supporting the feasibility of remote assessment in those domains. Other tasks assessing word comprehension and multimodal processing were not consistent with predictions, highlighting areas for further modifications of the remote tools. Overall, we demonstrate the translation and remote replication of several key tasks that assess early development which provides the opportunity for scalability of these tasks for larger, diverse populations. 
-<!-- eb2et: I'd say at least the domains where the results were not consistent, and in general abstract could do more to tell us what was found and why we care imho -->
-<!-- 2eb: updated -->
-
+Results for tasks assessing attention, memory, and prediction replicated expected patterns, supporting the feasibility of remote assessment in those domains.
+Other tasks assessing word comprehension and multimodal processing were not consistent with predictions, highlighting areas for further modifications of the remote tools.
+Overall, we demonstrate the translation and remote replication of several key tasks that assess early development which provides the opportunity for scalability of these tasks for larger, diverse populations.
+<!-- eb2et: I'd say at least the domains where the results were not consistent, and in general abstract could do more to tell us what was found and why we care imho --> <!-- 2eb: updated -->
 
 **Keywords:** cognitive development, remote, infant
 
@@ -114,7 +114,8 @@ Results for tasks assessing attention, memory, and prediction replicated expecte
 Our understanding of early cognitive and linguistic development draws on decades of laboratory-based studies that have generally required caregivers to travel to the lab with their infants for in-person assessments.
 While this approach brought us much of our foundational knowledge about infant cognitive development, a number of important findings have failed to replicate from one lab to the next [@lavelle2024].
 It is unclear whether these replication failures are because the findings are unreliable, the populations studied in the different locations differ in some way that has a meaningful effect on the results, or because the labs used different methods.
-Recent movements in "Big Science" [@byers-heinlein2021; @byers-heinlein2021a; @themanybabiesconsortium2020; @soderstrom2025; @zettersten2024a; @frank2017a] have strengthened efforts to replicate findings in larger samples, with mixed results, as some recent studies have failed to reproduce the findings of seminal investigations. [@lucca2025; @schreiner2024].
+Recent movements in "Big Science" [@byers-heinlein2021; @byers-heinlein2021a; @themanybabiesconsortium2020; @soderstrom2025; @zettersten2024a; @frank2017a] have strengthened efforts to replicate findings in larger samples, with mixed results, as some recent studies have failed to reproduce the findings of seminal investigations.
+[@lucca2025; @schreiner2024].
 
 The Remote Infant Studies of Early Learning (RISE) Battery was established to expand on these efforts using a single platform to present a consistent set of stimuli and one automated approach to responses.
 One of its overall aims is to facilitate the study of cognitive and linguistic development in early infancy in a scalable, generalizable manner; this in turn would allow for its application in other populations, such as infants with high risk of Autism Spectrum Disorders in future work.
@@ -131,7 +132,8 @@ These originally lab-based tasks were selected due to their associations with de
 With mixed success, the pilot study [@tenenbaum2025] added to growing evidence that established laboratory-based measures of language and cognitive development can be translated to in-home remote assessment [@bacon2021; @banki2022; @chuey2024; @silver2021].
 
 In addition to establishing consistent methods for presentation of the experiment on the Children Helping Science platform, creating unified stimuli across infants, and exploring automated (i.e., scalable) coding methods, the RISE Battery adds a number of methodological advances that increase accessibility.
-These advances include testing infants in their own homes, thereby reducing the burden of travel to a novel setting and interactions with unfamiliar experimenters. This approach also increases the feasibility of testing large populations (e.g., for population effect studies of environmental variables such as food or income supplements on infant development; in studies comparing populations across several locations, etc.).
+These advances include testing infants in their own homes, thereby reducing the burden of travel to a novel setting and interactions with unfamiliar experimenters.
+This approach also increases the feasibility of testing large populations (e.g., for population effect studies of environmental variables such as food or income supplements on infant development; in studies comparing populations across several locations, etc.).
 Further, it improves access for infants from special populations, including infant siblings of autistic children and infants with rare genetic profiles who may be too dispersed geographically to allow for in-person testing.
 
 Though the described merits of a scalable automated assessment of infant cognitive and language development are clear, there are, of course, potential challenges associated with this approach as well.
@@ -140,7 +142,7 @@ The current study assessed these concerns in 6 and 12-month-old infants recruite
 In addition, we were interested in making modifications to the task battery used in Tenenbaum et al. (2025) in light of the data reported there, as well as adding new exploratory tasks to expand our coverage of different cognitive constructs.
 Below, we enumerate the constructs we measured and note modifications from the previous versions of these tasks, as relevant (see Figure \@ref(fig:frame-capture) and Table \@ref(tab:rise-battery-summary)).
 
-```{r frame-capture, fig.cap="Frame captures from the five base tasks (a) Attention, (b) Memory, (c) Prediction, (d) Multimodal Processing, (e) Word Comprehension, and two exploratory tasks (f) Social Evaluation, and (g) Numeracy", out.width="75%", fig.align='center'}
+```{r frame-capture, fig.cap="Frame captures from the five base tasks (a) Geo-Social Attention, (b) Visual Paired Comparison, (c) Prediction, (d) Audiovisual Synchrony, (e) Word Comprehension, and two exploratory tasks (f) Social Evaluation, and (g) Numeracy", out.width="75%", fig.align='center'}
 
 img_path <- here::here(
   "Aim2", "Aim2_manuscript", "images", "frame_captures.png"
@@ -155,16 +157,15 @@ knitr::include_graphics(
 )
 ```
 
-
-*Attention:* To explore social preference, infants viewed dynamic geometric shapes contrasted with children dancing [@chawarska2016; @pierce2016].
+*Attention:* To explore social preference, infants viewed dynamic geometric shapes contrasted with children dancing with the Geo-Social Attention task [@chawarska2016; @pierce2016].
 In our pilot work, 12-month-olds, but not 6-month-olds, looked reliably longer at the social stimuli (cf. [@imafuku2017]).
 Here, the stimuli were modified for younger participants by muting the colors of the geometric figures and zooming in on the faces of the children.
 
-*Memory:* Visual paired comparison (VPC) [@manns2000] was used to evaluate memory of both face and non-face stimuli (“Fribbles,” which maintain the complexity of face processing while removing the social elements of the task [@barry2014]).
+*Memory:* The Visual Paired Comparison (VPC) task [@manns2000] was used to evaluate memory of both face and non-face stimuli (“Fribbles,” which maintain the complexity of face processing while removing the social elements of the task [@barry2014]).
 In the pilot study, results showed consistent preference for the novel face at test among 12-month-olds, but not 6-month-olds.
 Given the expected developmental gains between 6 and 12 months, this task was unchanged from the pilot study.
 
-*Prediction*: The RISE Prediction task explores anticipatory looks to a cued visual location following familiarization.
+*Prediction*: The Prediction task explores anticipatory looks to a cued visual location following familiarization.
 Previous research has shown correlations between this type of prediction and language abilities in infants without autism [@reuter2018].
 In the pilot study, infants consistently made anticipatory eye movements at 12 months but not at 6 months.
 Given the expected developmental shift, this task was unchanged from the pilot study.
@@ -185,7 +186,7 @@ In the current study, the same pilot stimuli were used to assess social evaluati
 Results suggested the ability to discriminate quantities differing by a 1:4-ratio (i.e., 5 vs 20 dots) at 12 months but not 6 months.
 Because the results among 12-month-olds were consistent with preregistered hypotheses, and the lack of effect among 6-month-olds may have been related to the small sample size in the pilot study, in the current study, the same pilot stimuli were used.
 
-The hypotheses for the current study were the same as those set out in the pre-registration for the pilot study https://osf.io/2xqmn/overview?view_only=d312ac2acea048c598700aa2e0906b35.
+The hypotheses for the current study were the same as those set out in the pre-registration for the pilot study <https://osf.io/2xqmn/overview?view_only=d312ac2acea048c598700aa2e0906b35>.
 <!-- eb2et: i feel like a crazy person but i can't ever find stuff on osf when i try anymore, --> <!-- that link does *not* take me to somewhere i can seem to find the prereg file anonymized. if i log in then i can find it here:
 https://osf.io/yhg95/overview but no clue how to direct reviewers to the anonymized one. mike probably knows or you can write to osf tech support something  --> <!-- 2eb: WIP retracting for now, noting to add in b4 sending -->
 
@@ -308,6 +309,7 @@ See Table \@ref(tab:rise-battery-summary).
 
 ```{r rise-battery-summary, echo=FALSE, message=FALSE, warning=FALSE}
 #ET2KG: THIS IS SHOWING UP WITH WEIRD BORDERS IN PDF.
+#2et: edited: hopefully that helps! 
 rise_table <- tribble(
   ~Task, ~Domain, ~`Pilot Description`, ~`Pilot Results`, ~Modifications,
 
@@ -360,10 +362,11 @@ row_cols <- c(
 rise_table %>%
   kable(
     format = "latex",
-    booktabs = FALSE,
+    booktabs = TRUE,
+    linesep = "",
     escape = FALSE,
     caption = "The RISE Battery summary of results from the Pilot Study and modifications for the current study.",
-    align = "c"
+    align = c("c", "c", "l", "l", "l")
   ) %>%
   kable_styling(
     latex_options = c("hold_position", "scale_down"),
@@ -398,8 +401,7 @@ The time between tasks ranged from 3 seconds to 73 minutes with a median of 11 s
 Infant gaze direction was detected using iCatcher+ [@erel2023], open-access software.
 iCatcher+ uses an artificial neural network to identify and classify gaze direction from low-resolution videos.
 To address concerns in the pilot study that the caregiver gaze was at times mistakenly identified as infant gaze (despite the fact that iCatcher+ is designed to select the lowest bounding face), caregivers were asked to avert their gaze by looking down, away, or by wearing darkened glasses.
-<!-- eb2et: wait so what was the reliability? --> <!-- 2eb: removed due to needs to be re-hand coded here -->
-<!-- ET2EB: Sumin and Maria are working on this (had to redo after video corrections). Hope to have ready for revised version. Not the primary focus of this paper.  -->
+<!-- eb2et: wait so what was the reliability? --> <!-- 2eb: removed due to needs to be re-hand coded here --> <!-- ET2EB: Sumin and Maria are working on this (had to redo after video corrections). Hope to have ready for revised version. Not the primary focus of this paper.  -->
 
 ```{r table3-data-quality, echo=FALSE, results='asis'}
 table3_latex <-
@@ -435,18 +437,15 @@ Frames were defined as usable if (1) the infant's face was visible, (2) the infa
 Data quality metrics were evaluated across all administered trials for each task (see Table \ref{tab:data-quality}); note that the number of trials entering the analytic dataset differs from the total administered trials due to task-specific inclusion criteria described below (see Table \ref{tab:task-retention} for analytic trial counts).
 <!-- eb2et: nitpicky reviewer me wants to know how many were excluded for 1/2/3. oh i now see you have this in the results; tell us it's coming there then? --> <!-- 2eb: added in-->
 
-For the analytic dataset, for a trial to be considered usable, infants were required to have ≥33% usable frames.
-Participants were additionally excluded from a given task if they showed a side bias, defined as fixating on a single side for ≥80% of the task.
-<!-- ET2KG: the >= sign before 80% is not showing up in the knit text.  -->
-Task-specific inclusion criteria were applied as follows.
-<!-- ET2KG: can we be consistent in calling it Geo-Social Attention OR Attention and VPC OR Memory -->
-For the *Visual Paired Comparison (VPC) task*, each object was presented twice in succession (trials 1a and 1b); looking time was averaged across the pair, yielding 6 analytic units from 12 administered trials.
+For the analytic dataset, for a trial to be considered usable, infants were required to have $\geq 33\%$ usable frames.
+Participants were additionally excluded from a given task if they showed a side bias, defined as fixating on a single side for $\geq 80\%$ of the task.
+<!-- ET2KG: the >= sign before 80% is not showing up in the knit text.  --> <!-- kg2et: fixed and upated.  --> Task-specific inclusion criteria were applied as follows.
+<!-- ET2KG: can we be consistent in calling it Geo-Social Attention OR Attention and VPC OR Memory --> For the *Visual Paired Comparison (VPC) task*, each object was presented twice in succession (trials 1a and 1b); looking time was averaged across the pair, yielding 6 analytic units from 12 administered trials.
 For the *Prediction task*, trials 1 and 9 were excluded as the first trial of each block; participants were additionally required to have at least one anticipatory eye movement in Block 2 and at least two usable trials per block for the corresponding block outcome to be included (consistent with [@reuter2018]).
 The *Word Comprehension task* presented five word–image pairs across two repetition blocks (trials 1–10 and trials 11–20).
-For each pair, the target word appeared as the fixation target in one block and as the distractor in the other (e.g., for the pair foot-milk, foot was the target in trial 1 and the distractor in trial 9, and vice versa.) The outcome for each pair was the proportion of time infants looked at an item when it was the target (across both blocks of trials) minus how much they looked at that same item when it was the distractor (across both blocks of trials), as in Bergelson & Swingley, 2012.
-<!-- ET2KG: I'm not sure this is accurate. Didn't both images serve as target and distracter in EACH block? Otherwise we'd need 10 pairs.  -->
-This yields 5 pair-level difference scores per participant.
-<!-- The outcome for each pair was computed as the average proportion of looking time to the target minus the average proportion of looking time to the distractor, with proportions averaged across both repetition blocks before subtraction, yielding up to 5 difference scores per participant.  --> <!-- eb2et: i reworded the above to be consistent with what i think you intended, can you confirm that this is what was done? --> <!-- 2eb: confirmed --> For the *Social Evaluation task*, only trials 7 and 14 served as test trials (one per block); participants were required to have at least one usable helper trial and one usable hinderer trial within each block (Block 1: trials 1–6; Block 2: trials 8–13) for the corresponding test trial to be included.
+For each pair, the target word appeared as the fixation target and as the distractor in each block (e.g., for the pair foot-milk, foot was the target in trial 1 and the distractor in trial 9, for each block.) The outcome for each pair was the proportion of time infants looked at an item when it was the target (across both blocks of trials) minus how much they looked at that same item when it was the distractor (across both blocks of trials), as in Bergelson & Swingley, 2012.
+<!-- ET2KG: I'm not sure this is accurate. Didn't both images serve as target and distracter in EACH block? Otherwise we'd need 10 pairs.  --> <!-- 2et: updated.  -->  This yields 5 pair-level difference scores per participant.
+<!-- The outcome for each pair was computed as the average proportion of looking time to the target minus the average proportion of looking time to the distractor, with proportions averaged across both repetition blocks before subtraction, yielding up to 5 difference scores per participant.  --> <!-- eb2et: i reworded the above to be consistent with what i think you intended, can you confirm that this is what was done? --> For the *Social Evaluation task*, only trials 7 and 14 served as test trials (one per block); participants were required to have at least one usable helper trial and one usable hinderer trial within each block (Block 1: trials 1–6; Block 2: trials 8–13) for the corresponding test trial to be included.
 No additional task-specific criteria were applied for Geo-Social Attention, Audiovisual Synchrony, or Numeracy.
 The number of analytic trials, therefore, differs from the total administered trials for four tasks; Table \ref{tab:task-retention} summarizes analytic sample size and trial counts.
 
@@ -472,7 +471,8 @@ For the Prediction task, a Block term (Block 1 vs. Block 2) was included as a wi
 For the Numeracy task, Constant Stream Size (5-item vs. 20-item) was included as a between-participant factor, as infants were randomly assigned to view only one constant stream condition for the entire task; an Age × Constant Stream Size interaction was included to test whether preferences for the alternating stream differed by condition.
 The statistical analyses closely followed the preregistered analysis plan.
 To better reflect the within-participant design of several tasks, mixed-effects models for the Visual Paired Comparison, Prediction, and Numeracy tasks included interaction terms (Age × Stimulus Type, Age × Block, and Age × Constant Stream Size, respectively).
-With the Prediction task, we modeled Block as a within-participant factor in a single mixed-effects model rather than fitting separate models for overall performance and Block 2. Overall, with these modifications, we tested the preregistered hypotheses without changing the primary outcomes.
+With the Prediction task, we modeled Block as a within-participant factor in a single mixed-effects model rather than fitting separate models for overall performance and Block 2.
+Overall, with these modifications, we tested the preregistered hypotheses without changing the primary outcomes.
 <!-- eb2et: if any of the above diverges or expands beyond the prereg, good to say so here. i didn't check. --> <!-- 2eb: included -->
 
 Where consent was provided, participant videos are available on Databrary.
@@ -493,6 +493,7 @@ Zero percent task completion was rare, with the exception of the VPC task where 
 Across tasks, frame exclusions were driven by all three sources, though away looks were consistently the largest contributor relative to no-face frames.
 Low-confidence frames were also notably prevalent, particularly for the Prediction task (18.0% and 22.1% for 6- and 12-month-olds, respectively).
 Social Evaluation showed the highest rates of both no-face and away frames (no-face: 13.5% and 6.8%; away: 22.9% and 14.4% for 6- and 12-month-olds, respectively).
+Please note that this task was the longest task and should be considered exploratory.
 <!-- ET2KG: either here or in discussion, we should say that it was also the longest task and considered exploratory so it was shown in the 6th or 7th slot of tasks.  -->
 
 Figure \@ref(fig:usable-frames-figure) displays the average percentage of usable frames per participant across the seven tasks.
@@ -568,9 +569,13 @@ The pre-registered hypothesis was that 12-month-old infants would demonstrate mo
 As seen in Table \ref{tab:modeltable}, there were more AEMs to target amongst the 12-month-olds; however, these differences between age groups were not significant (Block 1: 12-m: M = `r format_bv(tab_pred_full %>% filter(Condition == "Block 1 | Age 12") %>% pull(estimate_ci))`, *p* = `r tab_pred_full %>% filter(Condition == "Block 1 | Age 12") %>% pull(p_value)`; 6-m: M = `r format_bv(tab_pred_full %>% filter(Condition == "Block 1 | Age 6") %>% pull(estimate_ci))`, *p* = `r tab_pred_full %>% filter(Condition == "Block 1 | Age 6") %>% pull(p_value)`; 12-m vs. 6-m: M = `r format_bv(tab_pred_full %>% filter(Condition == "Block 1 | Age 12 - Age 6") %>% pull(estimate_ci))`, *p* = `r tab_pred_full %>% filter(Condition == "Block 1 | Age 12 - Age 6") %>% pull(p_value)`.
 Block 2: 12-m: M = `r format_bv(tab_pred_full %>% filter(Condition == "Block 2 | Age 12") %>% pull(estimate_ci))`, *p* = `r tab_pred_full %>% filter(Condition == "Block 2 | Age 12") %>% pull(p_value)`; 6-m: M = `r format_bv(tab_pred_full %>% filter(Condition == "Block 2 | Age 6") %>% pull(estimate_ci))`, *p* = `r tab_pred_full %>% filter(Condition == "Block 2 | Age 6") %>% pull(p_value)`; 12-m vs. 6-m: M = `r format_bv(tab_pred_full %>% filter(Condition == "Block 2 | Age 12 - Age 6") %>% pull(estimate_ci))`, *p* = `r tab_pred_full %>% filter(Condition == "Block 2 | Age 12 - Age 6") %>% pull(p_value)`).
 As reflected in these analyses, both 6-month-olds and 12-month-olds failed to show reliable AEMs to the target side in Block 1.
-In Block 1, 6-month-olds overall were even significantly not showing anticipatory looks towards the target side but rather looking towards the incorrect side. The pattern with the 12-month-olds was also surprising given that the 12-month-olds seem to show reliable predictions to the updated location in Block 2. (See Figure \@ref(fig:task-results-figure)c and Table \ref{tab:modeltable}.) <!-- eb2et: i'm not sure i'm following but i think the stats disagree somewhat with how the sentences are worded above/below given significant 6mo in block1 and then marginal in block 2? --> <!-- 2eb: reworded for clarity -->
+In Block 1, 6-month-olds overall were even significantly not showing anticipatory looks towards the target side but rather looking towards the incorrect side.
+The pattern with the 12-month-olds was also surprising given that the 12-month-olds seem to show reliable predictions to the updated location in Block 2.
+(See Figure \@ref(fig:task-results-figure)c and Table \ref{tab:modeltable}.) <!-- eb2et: i'm not sure i'm following but i think the stats disagree somewhat with how the sentences are worded above/below given significant 6mo in block1 and then marginal in block 2? --> <!-- 2eb: reworded for clarity -->
 
-To clarify the source of these unexpected results, we ran an exploratory analysis comparing the proportion of infants with AEMs to chance on each trial (uncorrected). In Block 1, results indicated that overall, neither 6-month-olds nor 12-month-olds reliably demonstrated AEMs on any individual trial (Figure \@ref(fig:prediction-trial-by-trial)). In Block 2, most 12-month-olds were able to update their predictions about the new location reliably by Trial 11 (the 2nd trial in Block 2), whereas 6-month-olds were able to do so on Trial 11 and Trial 14 but were not consistent on other trials (and as such on average across the trials in Block 2 did not show a reliable tendency to predict the updated location).
+To clarify the source of these unexpected results, we ran an exploratory analysis comparing the proportion of infants with AEMs to chance on each trial (uncorrected).
+In Block 1, results indicated that overall, neither 6-month-olds nor 12-month-olds reliably demonstrated AEMs on any individual trial (Figure \@ref(fig:prediction-trial-by-trial)).
+In Block 2, most 12-month-olds were able to update their predictions about the new location reliably by Trial 11 (the 2nd trial in Block 2), whereas 6-month-olds were able to do so on Trial 11 and Trial 14 but were not consistent on other trials (and as such on average across the trials in Block 2 did not show a reliable tendency to predict the updated location).
 
 ```{r prediction-trial-by-trial, echo=FALSE, echo=FALSE, fig.width=10, fig.height=6.2, out.width="100%", fig.align="center", fig.cap="Proportion of infants showing anticipatory eye movements (AEMs) to the target side by trial, for (a) 6-month-olds and (b) 12-month-olds (Block 1: Trials 2--8; Block 2: Trials 10--16)."}
 
@@ -583,7 +588,9 @@ In contrast to our pre-registered predictions, we did not find a reliable prefer
 See Figure \@ref(fig:task-results-figure)d and Table \ref{tab:modeltable}.
 
 #### Word Comprehension Task
+
 <!-- 2eb:  please disregard text here until window of analysis is chosen for data -->
+
 Again, in contrast to our preregistered hypothesis, the 12-month-olds did not differ from the 6-month-olds in their looks to the target (M = `r format_bv(tab_word_full %>% filter(Condition == "Age 12 - Age 6") %>% pull(estimate_ci))`, *p* = `r tab_word_full %>% filter(Condition == "Age 12 - Age 6") %>% pull(p_value)`).
 Neither the 12-month-olds nor the 6-month-olds looked more to the target object when it was the target than when it was the distractor (12-m: M = `r format_bv(tab_word_full %>% filter(Condition == "12") %>% pull(estimate_ci))`, *p* = `r tab_word_full %>% filter(Condition == "12") %>% pull(p_value)`; 6-m: M = `r format_bv(tab_word_full %>% filter(Condition == "6") %>% pull(estimate_ci))`, *p* = `r tab_word_full %>% filter(Condition == "6") %>% pull(p_value)`).
 See Figure \@ref(fig:task-results-figure)e and Table \ref{tab:modeltable}.
@@ -657,12 +664,14 @@ Consistent with decades of research showing that young infants are drawn to face
 The current results extend our pilot findings down to 6-month-olds and could provide a means to test for social preference in infants with an elevated likelihood of atypical social development.
 
 In the Visual Paired Comparison Task, we found that both 6- and 12-month-old infants showed a preference for novel stimuli overall (both faces and objects).
-We did not find significant effects of age or stimulus type. As with the Geo-Social Attention task, this lack of age effect and overall success among infants suggests that this task may be appropriate for identifying atypical patterns of attention in infancy as we expand this work to a more diverse sample. 
+We did not find significant effects of age or stimulus type.
+As with the Geo-Social Attention task, this lack of age effect and overall success among infants suggests that this task may be appropriate for identifying atypical patterns of attention in infancy as we expand this work to a more diverse sample.
 <!-- eb2et: what does this 'however' mean for the battery -->
 
 In the Prediction Task, we measured prediction to a cued visual stimulus over a single trained location and then an alternate location that required updated predictions.
 Within-trial results suggest that in Block 1, both 12-month-olds and 6-month-olds did not reliably predict the new location on any trial.
-However, in Block 2, 12-month-olds recognized the pattern by the eleventh trial, whereas 6-month-olds did do so in the eleventh trial but not reliably throughout Block 2. This suggests that the Prediction Task may be appropriate for assessing patterns of learning by 12 months, but not at 6 months. 
+However, in Block 2, 12-month-olds recognized the pattern by the eleventh trial, whereas 6-month-olds did do so in the eleventh trial but not reliably throughout Block 2.
+This suggests that the Prediction Task may be appropriate for assessing patterns of learning by 12 months, but not at 6 months.
 The capacity to update one’s predictions in the visual domain was previously linked to vocabulary size in toddlerhood [@reuter2018].
 Data collection for language outcomes (via a vocabulary checklist) to address this question in the current sample is underway.
 <!-- eb2et: what kind of language outcomes? also this interacts with my comment on results pattern above i think -->
@@ -671,26 +680,30 @@ In the Audiovisual Synchrony task, we did not find the anticipated preference fo
 From the pilot study, we increased the asynchronous delay between the audio and video from 666ms to 1000ms.
 however, this increase was not effective in prompting and observing a preference for the synchronous stimuli.
 While previous work identified a reliable preference for synchronous videos in typically developing toddlers (M = 3.04 years; range: 1-7 years) [@righi2018], the lack of effect here is likely due to the younger age of the participants.
-Few studies have observed this preference with younger infants, with one recent work observing this pattern as early as 18-months [@clark2026]. It is also possible that remote administration of these multimodal stimuli was affected by variable internet connection reliability. To simplify this task for younger infants, it may be necessary to reduce the onscreen information. To that end, we are currently piloting a habituation version of this task with one face on the screen at a time. 
-<!-- ET2KG: please add Lewkowicz citation: https://doi.org/10.1037/a0015579 -->
-<!-- eb2et: say more here? has this ever worked with 12mo or younger? mention that increasing the delay didn't matter relative to pilot?  -->
-<!-- 2eb: edited  -->
+Few studies have observed this preference with younger infants [@lewkowicz2010], with one recent work observing this pattern as early as 18-months [@clark2026].
+It is also possible that remote administration of these multimodal stimuli was affected by variable internet connection reliability.
+To simplify this task for younger infants, it may be necessary to reduce the onscreen information.
+To that end, we are currently piloting a habituation version of this task with one face on the screen at a time.
+<!-- ET2KG: please add Lewkowicz citation: https://doi.org/10.1037/a0015579 --> <!-- 2et: added in  --> <!-- eb2et: say more here? has this ever worked with 12mo or younger? mention that increasing the delay didn't matter relative to pilot?  --> <!-- 2eb: edited  -->
 
-Between the pilot and current versions of the Word Comprehension task, we increased the number of attention getters from 1 (every 10 trials) to 3 (every 5 trials) and used the a subset of word pairs from Bergelson and Swingley (2012). Of note, as compared to the original Bergelson and Swingley (2012) study, the current task had substantially fewer trials, and trial structure diverged somewhat (in the original study, parents produced the sentences and images were onscreen for 3.5s after target word onset; here trials were somewhat shorter, with reduced critical windows. These differences, intended to reduce task length for the battery, may have contributed to the lack of success among the infants. Future versions of the task have been updated to maintain slightly longer trials to match the critical window of the original study. <!-- eb2et: confused here, original trials weren't 10s, i reworded; also references here were to b&s2015 but not sure why, items were from b&2012 (oh B&s2015 did have longer trials but they were videos, don't think that study is relevant; removed ref). reworded a bit. -->
-<!-- 2eb: thank you and noted  -->
+Between the pilot and current versions of the Word Comprehension task, we increased the number of attention getters from 1 (every 10 trials) to 3 (every 5 trials) and used the a subset of word pairs from Bergelson and Swingley (2012).
+Of note, as compared to the original Bergelson and Swingley (2012) study, the current task had substantially fewer trials, and trial structure diverged somewhat (in the original study, parents produced the sentences and images were onscreen for 3.5s after target word onset; here trials were somewhat shorter, with reduced critical windows. These differences, intended to reduce task length for the battery, may have contributed to the lack of success among the infants. Future versions of the task have been updated to maintain slightly longer trials to match the critical window of the original study. <!-- eb2et: confused here, original trials weren't 10s, i reworded; also references here were to b&s2015 but not sure why, items were from b&2012 (oh B&s2015 did have longer trials but they were videos, don't think that study is relevant; removed ref). reworded a bit. --> <!-- 2eb: thank you and noted  -->
 
-For Numeracy, both 6- and 12-month-olds looked longer at the numerically alternating stream (i.e., the stream alternating between 5 and 20 dots), but only when the constant stream contained the smaller quantity (i.e., 5 dots). This suggests that the effect may have been driven in part by infants attending more to larger numbers of objects. The fact that infants did not significantly prefer the constant stream when it contained the larger quantity suggests that infants’ preference may be driven by a mix of attention to the alternating quantities and the large quantity.
+For Numeracy, both 6- and 12-month-olds looked longer at the numerically alternating stream (i.e., the stream alternating between 5 and 20 dots), but only when the constant stream contained the smaller quantity (i.e., 5 dots).
+This suggests that the effect may have been driven in part by infants attending more to larger numbers of objects.
+The fact that infants did not significantly prefer the constant stream when it contained the larger quantity suggests that infants’ preference may be driven by a mix of attention to the alternating quantities and the large quantity.
 Regardless, our findings do not support the claim that infants’ preferences were solely reflective of discrimination of the alternating numbers of objects in a stream.
 Importantly, this version of the task was shortened relative to the studies on which it was based (from 60 to 20 seconds per trial) (Libertus & Brannon, 2010; Starr et al., 2013).
-Further, the current study differed from previous instantiations in that stimuli were presented on a single screen (rather than on two separate screens). To address this possibility, we are currently piloting a version of this task with longer familiarization phases. 
+Further, the current study differed from previous instantiations in that stimuli were presented on a single screen (rather than on two separate screens).
+To address this possibility, we are currently piloting a version of this task with longer familiarization phases.
 <!-- eb2et: and thus...? -->
 
 In the Social Evaluation task, our results were similar to those from the pilot study, with infants at 6 months and 12 months showing no preference for the helper.
 Previous lab research has shown that infants show a reliable preference for the prosocial agent (the helper) in this task when using a habituation paradigm in many individual lab studies, but this effect was not found in a large multi-lab study (see review in [@margoni2018; @lucca2025]).
 Our continued finding of no preference for the helper character and no age effects suggests a need to reframe the task.
-To address this, in our current pilot work, we are presenting side-by-side displays of helping versus hindering events to better capture infants' preferences with the remote preferential-looking paradigm.
+To address this, in our current pilot task following recent work [@geraci2025], we are presenting side-by-side displays of helping versus hindering events to better capture infants' preferences with the remote preferential-looking paradigm.
 <!-- ET2KG: please add new hamlin citation. doi: 10.1038/s41467-025-61517-3. -->
-
+<!-- 2et: added in  -->
 ## Limitations
 
 Though not outside the range of typical performance among infants, even in laboratory-based experiments [@chawarska2013; @elsabbagh2009; @frank2009; @narayan2010; @peltola2009], substantial data loss is a limitation of this battery.
@@ -701,7 +714,9 @@ Given previously identified relationships between SES and early language, for ex
 
 ## Conclusions
 
-This work provides a demonstration of the feasibility of remote assessment and automated coding of group-level measures of infant abilities in tasks assessing attention (Geo-Social task), memory (Visual Paired Comparison), learning (Prediction). The replication of those tasks exemplify the robustness of both the tasks and the use of the remote setting for those tasks. We plan to continue our investigation of the potential for this battery of tasks to inform our understanding of early cognitive development in large samples of infants so that we can better understand varied developmental trajectories.
+This work provides a demonstration of the feasibility of remote assessment and automated coding of group-level measures of infant abilities in tasks assessing attention (Geo-Social task), memory (Visual Paired Comparison), learning (Prediction).
+The replication of those tasks exemplify the robustness of both the tasks and the use of the remote setting for those tasks.
+We plan to continue our investigation of the potential for this battery of tasks to inform our understanding of early cognitive development in large samples of infants so that we can better understand varied developmental trajectories.
 This approach has significant potential to allow for assessment of large populations of infants that could make it more feasible to assess the effects of interventions that require extremely large samples (e.g., food and income supplement programs).
 This approach also provides a way to quickly test large populations, asynchronously, at times that work best for families.
 Without remote methods, many populations are unintentionally excluded from testing.
