@@ -442,11 +442,11 @@ Participants were additionally excluded from a given task if they showed a side 
 <!-- ET2KG: the >= sign before 80% is not showing up in the knit text.  --> <!-- kg2et: fixed and upated.  --> Task-specific inclusion criteria were applied as follows.
 <!-- ET2KG: can we be consistent in calling it Geo-Social Attention OR Attention and VPC OR Memory --> For the *Visual Paired Comparison (VPC) task*, each object was presented twice in succession (trials 1a and 1b); looking time was averaged across the pair, yielding 6 analytic units from 12 administered trials.
 For the *Prediction task*, trials 1 and 9 were excluded as the first trial of each block; participants were additionally required to have at least one anticipatory eye movement in Block 2 and at least two usable trials per block for the corresponding block outcome to be included (consistent with [@reuter2018]).
-The *Word Comprehension task* presented five word–image pairs across two repetition blocks (trials 1–10 and trials 11–20).
+The *Word Comprehension task* presented five word–image pairs across two repeated blocks (trials 1–10 and trials 11–20).
 For each pair, the target word appeared as the fixation target and as the distractor in each block (e.g., for the pair foot-milk, foot was the target in trial 1 and the distractor in trial 9, for each block.) The outcome for each pair was the proportion of time infants looked at an item when it was the target (across both blocks of trials) minus how much they looked at that same item when it was the distractor (across both blocks of trials), as in Bergelson & Swingley, 2012.
-<!-- ET2KG: I'm not sure this is accurate. Didn't both images serve as target and distracter in EACH block? Otherwise we'd need 10 pairs.  --> <!-- 2et: updated.  -->  This yields 5 pair-level difference scores per participant.
+<!-- ET2KG: I'm not sure this is accurate. Didn't both images serve as target and distracter in EACH block? Otherwise we'd need 10 pairs.  --> <!-- 2et: updated.  --> This yields 5 pair-level difference scores per participant.
 <!-- The outcome for each pair was computed as the average proportion of looking time to the target minus the average proportion of looking time to the distractor, with proportions averaged across both repetition blocks before subtraction, yielding up to 5 difference scores per participant.  --> <!-- eb2et: i reworded the above to be consistent with what i think you intended, can you confirm that this is what was done? --> For the *Social Evaluation task*, only trials 7 and 14 served as test trials (one per block); participants were required to have at least one usable helper trial and one usable hinderer trial within each block (Block 1: trials 1–6; Block 2: trials 8–13) for the corresponding test trial to be included.
-No additional task-specific criteria were applied for Geo-Social Attention, Audiovisual Synchrony, or Numeracy.
+No additional task-specific criteria were applied for the Geo-Social Attention, Audiovisual Synchrony, or Numeracy tasks.
 The number of analytic trials, therefore, differs from the total administered trials for four tasks; Table \ref{tab:task-retention} summarizes analytic sample size and trial counts.
 
 ```{r usable-frames-figure, echo=FALSE, fig.width=14, fig.height=5,out.width="100%",fig.align="center",fig.cap="Average percentage of usable frames per participant by task across all administered trials."}
@@ -459,8 +459,7 @@ usable_frames_plot
 Demographics and participant characteristics were summarized using median and interquartile range (IQR) for continuous variables and frequency and percentage for categorical variables.
 The dependent variable differed by task.
 For the preferential looking tasks (Geo-Social Attention, Visual Paired Comparison, Audiovisual Synchrony, Numeracy, and Social Evaluation), the dependent measure was the proportion of looks to the target stimulus relative to total looking time to the screen, treated as continuous with an expected proportion greater than 0.5.
-For the Word Comprehension task, the dependent measure was a difference score calculated as the proportion of attention to the target image when it was named by the auditory stimulus minus the same proportion when it served as the distracter image, averaged across trials.
-This was treated as continuous with an expected mean difference score greater than 0.
+For the Word Comprehension task, the dependent measure was a difference score calculated as the proportion of attention to the target image when it was named by the auditory stimulus minus the same proportion when it served as the distracter image, averaged across trials. To accommodate for trial differences, the proportion of attention was calculated from 367ms to 2200ms following the onset of the target word. This was treated as continuous with an expected mean difference score greater than 0.
 For the Prediction task, the dependent measure was the proportion of anticipatory eye movements (AEMs) to the target side, calculated as the number of usable trials with at least one AEM divided by the total number of usable trials, separately for each block (Block 1: trials 2–8; Block 2: trials 10–16), with an expected mean proportion greater than 0.5.
 
 All statistical analyses were conducted in R (version 4.5.2) using the packages lme4 and lmerTest.
@@ -493,8 +492,8 @@ Zero percent task completion was rare, with the exception of the VPC task where 
 Across tasks, frame exclusions were driven by all three sources, though away looks were consistently the largest contributor relative to no-face frames.
 Low-confidence frames were also notably prevalent, particularly for the Prediction task (18.0% and 22.1% for 6- and 12-month-olds, respectively).
 Social Evaluation showed the highest rates of both no-face and away frames (no-face: 13.5% and 6.8%; away: 22.9% and 14.4% for 6- and 12-month-olds, respectively).
-Please note that this task was the longest task and should be considered exploratory.
-<!-- ET2KG: either here or in discussion, we should say that it was also the longest task and considered exploratory so it was shown in the 6th or 7th slot of tasks.  -->
+Please note that this task was the longest task and should be considered exploratory (see Figure \@ref(fig:frame-capture)).
+<!-- ET2KG: either here or in discussion, we should say that it was also the longest task and considered exploratory so it was shown in the 6th or 7th slot of tasks.  --> <!-- 2ET: updated here  -->
 
 Figure \@ref(fig:usable-frames-figure) displays the average percentage of usable frames per participant across the seven tasks.
 Overall, usable frame rates were moderate to high, with median values ranging from approximately 50% (Social Evaluation, 6-month-olds) to 85% (Geo-Social Attention, 12-month-olds), suggesting adequate data quality for most participants.
@@ -702,9 +701,7 @@ In the Social Evaluation task, our results were similar to those from the pilot 
 Previous lab research has shown that infants show a reliable preference for the prosocial agent (the helper) in this task when using a habituation paradigm in many individual lab studies, but this effect was not found in a large multi-lab study (see review in [@margoni2018; @lucca2025]).
 Our continued finding of no preference for the helper character and no age effects suggests a need to reframe the task.
 To address this, in our current pilot task following recent work [@geraci2025], we are presenting side-by-side displays of helping versus hindering events to better capture infants' preferences with the remote preferential-looking paradigm.
-<!-- ET2KG: please add new hamlin citation. doi: 10.1038/s41467-025-61517-3. -->
-<!-- 2et: added in  -->
-## Limitations
+<!-- ET2KG: please add new hamlin citation. doi: 10.1038/s41467-025-61517-3. --> <!-- 2et: added in  --> \## Limitations
 
 Though not outside the range of typical performance among infants, even in laboratory-based experiments [@chawarska2013; @elsabbagh2009; @frank2009; @narayan2010; @peltola2009], substantial data loss is a limitation of this battery.
 Additionally, this study requires access to adequate high-speed internet and a laptop, which may lead to overrepresentation of high-SES families and ultimately undermine the clinical generalizability of the findings.

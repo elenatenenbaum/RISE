@@ -1305,6 +1305,18 @@ pair_plot_summary_common <- participant_pair_scores_common %>%
       mean_diff + qt(.975, df = n - 1) * se,
      .groups = "drop")
 
+#Final overall summary 
+
+# Final Word Recognition score:
+# average of the available pair-difference scores for each child
+word_final <- participant_pair_scores_common %>%
+  group_by(response_uuid, Age) %>%
+  summarise(
+    diff_avg = mean(diff, na.rm = TRUE),
+    n_pairs = sum(!is.na(diff)),
+    .groups = "drop") %>%
+  filter(n_pairs > 0, is.finite(diff_avg))
+
 # PLOT
 rise_word_pair_plot_common <- ggplot(
   pair_plot_summary_common,
@@ -2651,9 +2663,9 @@ tab_word <- run_condition_model(
 ```{r word-rec-plot}
 word_fig <- df_list_diff_enroll %>% dplyr::group_by(response_uuid) %>% dplyr::summarise(diff_good_avg = mean(diff)) %>% merge(Part_Age,all.x=TRUE)  %>% dplyr::select(response_uuid, Age, diff_good_avg)%>% dplyr::mutate(Age = factor(Age, levels = c(6, 12)))
 
-plot5_rise <- ggplot(data = word_fig, 
+plot5_rise <- ggplot(data = word_final, 
        mapping = aes(x = Age, 
-                     y = diff_good_avg, 
+                     y = diff_avg, 
                      fill = Age)) + 
   geom_flat_violin(scale = "count", 
                    trim = FALSE) + 
@@ -2668,7 +2680,7 @@ plot5_rise <- ggplot(data = word_fig,
                position = position_nudge(-0.025)) + 
   theme(legend.position = "none") + 
   labs(x = "Age",
-       y = "Difference in proportions\n(target - distractor)\n") + stat_n_text(size = 4,y.pos = -0.7)  +scale_fill_manual(values=c("darkolivegreen2", "darkolivegreen3")) + theme_few() + geom_hline(yintercept=0, linetype="dashed", color = "red") + theme(text = element_text(size = 15)) + guides(fill="none") 
+       y = "Average pair difference score \n(target - distractor)\n") + stat_n_text(size = 4,y.pos = -0.7)  +scale_fill_manual(values=c("darkolivegreen2", "darkolivegreen3")) + theme_few() + geom_hline(yintercept=0, linetype="dashed", color = "red") + theme(text = element_text(size = 15)) + guides(fill="none") 
 
 ```
 

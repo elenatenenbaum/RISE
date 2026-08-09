@@ -1,11 +1,11 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.7.28)  4 AUG 2026 10:34
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.8.5)  9 AUG 2026 19:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **RISE_Aim2_Manuscript.tex
 (./RISE_Aim2_Manuscript.tex
 LaTeX2e <2026-06-01>
-L3 programming layer <2026-06-18>
+L3 programming layer <2026-07-20>
 (/Users/krg/Library/TinyTeX/texmf-dist/tex/latex/apa6/apa6.cls
 Document Class: apa6 2023/08/07 v2.35 APA formatting (6th edition)
 (/Users/krg/Library/TinyTeX/texmf-dist/tex/latex/base/article.cls
@@ -299,7 +299,7 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )) (/Users/krg/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (/Users/krg/Library/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2026-06-18 L3 programming layer (loader) 
+Package: expl3 2026-07-20 L3 programming layer (loader) 
 (/Users/krg/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2026-02-18 L3 backend support: XeTeX
 \g__graphics_track_int=\count310
@@ -1186,9 +1186,6 @@ Missing character: There is no ≥ (U+2265) in font [lmroman8-regular]:mapping=t
 Missing character: There is no ≥ (U+2265) in font [lmroman8-regular]:mapping=tex-text;!
 Missing character: There is no ≥ (U+2265) in font [lmroman12-regular]:mapping=tex-text;!
 
-Underfull \vbox (badness 7832) has occurred while \output is active []
-
-
 Package fancyhdr Warning: \headheight is too small (15.2pt): 
 (fancyhdr)                Make it at least 27.41803pt, for example:
 (fancyhdr)                \setlength{\headheight}{27.41803pt}.
@@ -1224,6 +1221,8 @@ Package fancyhdr Warning: \headheight is too small (15.2pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.21803pt}.
 
 [18]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 Package fancyhdr Warning: \headheight is too small (15.2pt): 
 (fancyhdr)                Make it at least 27.41803pt, for example:
@@ -1232,6 +1231,8 @@ Package fancyhdr Warning: \headheight is too small (15.2pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.21803pt}.
 
 [19]
+Underfull \vbox (badness 5548) has occurred while \output is active []
+
 
 Package fancyhdr Warning: \headheight is too small (15.2pt): 
 (fancyhdr)                Make it at least 27.41803pt, for example:
@@ -1248,6 +1249,8 @@ Package fancyhdr Warning: \headheight is too small (15.2pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.21803pt}.
 
 [21]
+Underfull \vbox (badness 3977) has occurred while \output is active []
+
 
 Package fancyhdr Warning: \headheight is too small (15.2pt): 
 (fancyhdr)                Make it at least 27.41803pt, for example:
@@ -1256,8 +1259,6 @@ Package fancyhdr Warning: \headheight is too small (15.2pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.21803pt}.
 
 [22]
-Underfull \vbox (badness 3977) has occurred while \output is active []
-
 
 Package fancyhdr Warning: \headheight is too small (15.2pt): 
 (fancyhdr)                Make it at least 27.41803pt, for example:
@@ -1374,10 +1375,10 @@ L3 programming layer <2020/03/25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 21991 strings out of 469794
- 405073 string characters out of 5467655
- 1010073 words of memory out of 5000000
- 50622 multiletter control sequences out of 15000+600000
+ 21990 strings out of 469785
+ 405060 string characters out of 5467412
+ 1010362 words of memory out of 5000000
+ 50630 multiletter control sequences out of 15000+600000
  655578 words of font info for 104 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  90i,12n,114p,2259b,508s stack positions out of 10000i,1000n,20000p,200000b,200000s
