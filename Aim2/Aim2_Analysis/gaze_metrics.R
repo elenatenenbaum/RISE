@@ -244,7 +244,7 @@ compute_gaze_metrics <- function(results,
         `Trial Total` = as.numeric(gsub("[^0-9]", "", `Trial Number`)),
         Trial = as.character(`Trial Number`)       # ensure type matches df_metrics$Trial
       ) %>%
-      dplyr::select(Trial, `Trial Total`, `Stimulus type`)
+      dplyr::select(Trial, `Trial Total`, `Stimulus type`, Version)
     
     # Attach Version from task_icatcher
     version_lookup <- task_icatcher %>%
@@ -253,7 +253,7 @@ compute_gaze_metrics <- function(results,
     
     df_metrics <- df_metrics %>%
       merge(version_lookup, by = "response_uuid") %>%
-      merge(trial_lookup,   by = "Trial") %>%
+      merge(trial_lookup,   by = c("Trial", "Version")) %>%
       group_by(response_uuid, `Trial Total`) %>%
       mutate(
         target_prop = mean(target_prop, na.rm = TRUE)  # average across sub-trials in pair
