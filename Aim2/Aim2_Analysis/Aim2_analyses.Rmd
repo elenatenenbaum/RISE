@@ -2673,15 +2673,23 @@ plot5_rise <- ggplot(data = word_final,
                fun.args = list(mult = 1), 
                geom = "pointrange", 
                position = position_nudge(0.05)) + 
-  geom_dotplot(binaxis = "y", 
-               dotsize = 0.6, 
-               stackdir = "down", 
-               #binwidth = 0.1, 
-               position = position_nudge(-0.025)) + 
+  geom_dotplot(binaxis = "y",
+               dotsize = 0.6,
+               stackdir = "down",
+               #binwidth = 0.1,
+               position = position_nudge(-0.025)) +
+  # geom_jitter(width = .25,#binaxis = "y", 
+  #              dotsize = 0.6, 
+  #             # stackdir = "down", 
+  #              #binwidth = 0.1, 
+  #             # position = position_nudge(-0.025)
+  #             ) +
   theme(legend.position = "none") + 
   labs(x = "Age",
        y = "Average pair difference score \n(target - distractor)\n") + stat_n_text(size = 4,y.pos = -0.7)  +scale_fill_manual(values=c("darkolivegreen2", "darkolivegreen3")) + theme_few() + geom_hline(yintercept=0, linetype="dashed", color = "red") + theme(text = element_text(size = 15)) + guides(fill="none") 
 
+#word_final %>% filter(diff_avg==0)
+#word_final %>% group_by(Age) %>% summarise(mean(diff_avg), length(response_uuid), sum(diff_avg>0))
 ```
 
 ```{r word-rec-plot2}
