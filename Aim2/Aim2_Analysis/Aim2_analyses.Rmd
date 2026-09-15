@@ -231,7 +231,7 @@ GS_icatcher <- GS_icatcher %>% merge(df_diff) %>% mutate(
 
 ```{r geosocial-timestamps}
 
-aim2_timestamps_final <- here("Aim2", "Aim2_Data", "aim2_timestamps_final_2.xlsx")
+aim2_timestamps_final <- here("Aim2", "Aim2_Data", "aim2_timestamps_final_Sept_2026.xlsx")
 
 frame_ct_gs <- read_xlsx(
   aim2_timestamps_final,
@@ -1037,7 +1037,8 @@ WL_icatcher <- WL_icatcher %>% merge(df_diff) %>% mutate(
    round((record_1ststart * 1000) / 33.3)) %>% dplyr::select(1:6, frame_to_remove) %>% mutate(frame_to_remove = ifelse(is.na(frame_to_remove), 0, frame_to_remove))
 ```
 
-```{r word-rec-timestamps}
+```{r word-rec-timestamps-for-timcourse}
+# LABEL 
 frame_ct_wl <- read_xlsx(aim2_timestamps_final, sheet = "WordRecognition_Timecourse")
 
 frame_ct_wl <- frame_ct_wl %>% 
@@ -1112,12 +1113,15 @@ WL_item.pairs <- rbind(WL_pair_part1,WL_pair_part2) %>% arrange(TargTrial) %>% d
 
 ```
 
-```{r word-rec-labeling}
+```{r word-rec-labeling-for-timcourse}
 labeled_frames_WL <- frame_ct_wl_fin %>%
   mutate(frame = map2(`Frame Start` , `Frame End`, seq)) %>%
   tidyr::unnest(frame) %>%
   mutate(Trial = str_extract(`Trial Number`, "\\d+")) %>%
   dplyr::select(frame, target.location, Trial) 
+
+# KG2KG: labelled frames pulling from excel
+# KG2KG: make another tab with the frames
 
 #labeled_frames %>% group_by(Trial) %>% summarise(frame_start = min(frame), frame_end = max(frame)) %>% mutate(diff = frame_end - frame_start) %>% arrange(diff)
 
@@ -1132,24 +1136,25 @@ labeled_frames_WL <- labeled_frames_WL %>%
 
 ```
 
-```{r word-rec-results}
+```{r word-rec-results-for-timcourse}
+# for model results
 WL_results <- process_icatcher(WL_icatcher, 
                                labeled_frames_WL, 
                                Part_Age,
                                use_version = F)
 
-write.csv(WL_results$trial_counts %>%
-    merge(WL_results$quality_flags %>% dplyr::select(-Age),
-          by  = c("response_uuid", "Trial"),
-          all = TRUE)%>%
-    dplyr::mutate(
-      has_icatcher  = ifelse(noicatcherdata != frames | is.na(noicatcherdata), T, F) 
-    )%>%
-    mutate(noicatcherdata = tidyr::replace_na(noicatcherdata, 0),
-           n_icatcher     = frames - noicatcherdata) %>%
-    dplyr::mutate(
-      `Usable frames (%)` = round(count_85_non_na / frames,3)) %>% 
-  dplyr::select(response_uuid, Trial, `Usable frames (%)`, has_icatcher) %>% merge(WL_icatcher %>% dplyr::select(response_uuid, icatcher_file_names)),   here("Aim2", "Aim2_Computed_Data", "word_usableframe.csv"), row.names = FALSE)
+# write.csv(WL_results$trial_counts %>%
+#     merge(WL_results$quality_flags %>% dplyr::select(-Age),
+#           by  = c("response_uuid", "Trial"),
+#           all = TRUE)%>%
+#     dplyr::mutate(
+#       has_icatcher  = ifelse(noicatcherdata != frames | is.na(noicatcherdata), T, F) 
+#     )%>%
+#     mutate(noicatcherdata = tidyr::replace_na(noicatcherdata, 0),
+#            n_icatcher     = frames - noicatcherdata) %>%
+#     dplyr::mutate(
+#       `Usable frames (%)` = round(count_85_non_na / frames,3)) %>% 
+#   dplyr::select(response_uuid, Trial, `Usable frames (%)`, has_icatcher) %>% merge(WL_icatcher %>% dplyr::select(response_uuid, icatcher_file_names)),   here("Aim2", "Aim2_Computed_Data", "word_usableframe.csv"), row.names = FALSE)
 ```
 
 ```{r word-diff-score-shortest, fig.width=12, fig.height=6}
@@ -2227,7 +2232,6 @@ word_comp_timecourse_by_item
 ```
 
 
-
 ```{r timecourse-by-pair-end}
 #timecourse by piar where 0 is word onset 
 
@@ -2550,6 +2554,127 @@ word_comp_timecourse_by_item_pair
 ```
 
 
+```{r word-rec-timestamps}
+# LABEL 
+frame_ct_wl <- read_xlsx(aim2_timestamps_final, sheet = "WordRecognition_Updated")
+
+frame_ct_wl <- frame_ct_wl %>% 
+  dplyr::mutate(Image = tolower(Image)) %>%
+  tidyr::separate(Image, c("Image #1", "Image #2"), sep = ",") %>%
+  dplyr::mutate(`Image #2` = trimws(`Image #2`))
+
+frame_ct_wl_fin <- frame_ct_wl  %>% dplyr::mutate(Audio = word(Audio,-1)) %>% 
+   dplyr::mutate(patterns = map_chr(strsplit(`Image #1`, " "),paste,collapse="|"),
+          match = ifelse(str_detect(Audio, patterns), `Image #1`, `Image #2`)) %>% 
+   dplyr::select(-patterns) %>%
+  dplyr::mutate(target.location = word(match,-1))
+
+WL_pair_1 <- frame_ct_wl_fin %>% mutate(Trial = row_number()) %>% dplyr::select(Trial, `Image #1`, match) %>% dplyr::relocate(Trial, .before = `Image #1`) %>% filter(Trial %in% c(1:10)) 
+
+
+for(word in unique(WL_pair_1$`Image #1`)){
+  WL_pair_1 <- WL_pair_1 %>% dplyr::mutate(TargTrial = ifelse(match == `Image #1`, Trial, NA)) %>%
+                              dplyr::mutate(DistTrial = ifelse(match != `Image #1`, Trial, NA))
+}
+
+WL_pair_1_1 <- WL_pair_1 %>%
+  dplyr::group_by(`Image #1`) %>%
+  tidyr::fill(everything(), .direction = "down") %>%
+  tidyr::fill(everything(), .direction = "up") %>%dplyr::slice(1)%>% arrange(Trial)  %>% dplyr::rename(Variable = `Image #1`)
+
+WL_pair_1 <- frame_ct_wl_fin %>% mutate(Trial = row_number()) %>% dplyr::select(Trial, `Image #2`, match) %>% dplyr::relocate(Trial, .before = `Image #2`) %>% filter(Trial %in% c(1:10)) 
+
+
+for(word in unique(WL_pair_1$`Image #2`)){
+  WL_pair_1 <- WL_pair_1 %>% dplyr::mutate(TargTrial = ifelse(match == `Image #2`, Trial, NA)) %>%
+                              dplyr::mutate(DistTrial = ifelse(match != `Image #2`, Trial, NA))
+}
+
+WL_pair_1_2 <- WL_pair_1 %>%
+  dplyr::group_by(`Image #2`) %>%
+   tidyr::fill(everything(), .direction = "down") %>%
+   tidyr::fill(everything(), .direction = "up") %>% filter(Trial %in% c(6:10))%>% arrange(Trial) %>% dplyr::rename(Variable = `Image #2`)
+
+WL_pair_part1 <- rbind(WL_pair_1_1[,-3], WL_pair_1_2[,-3])
+
+
+WL_pair_2 <-frame_ct_wl_fin %>% mutate(Trial = row_number()) %>% dplyr::select(Trial, `Image #1`, match) %>% dplyr::relocate(Trial, .before = `Image #1`) %>% filter(Trial %in% c(11:20)) 
+
+
+for(word in unique(WL_pair_2$`Image #1`)){
+  WL_pair_2 <- WL_pair_2 %>% dplyr::mutate(TargTrial = ifelse(match == `Image #1`, Trial, NA)) %>%
+                              dplyr::mutate(DistTrial = ifelse(match != `Image #1`, Trial, NA))
+}
+
+WL_pair_2_1 <- WL_pair_2 %>%
+  dplyr::group_by(`Image #1`) %>%
+   tidyr::fill(everything(), .direction = "down") %>%
+   tidyr::fill(everything(), .direction = "up") %>%dplyr::slice(1)%>% arrange(Trial) %>% dplyr::rename(Variable = `Image #1`)
+
+WL_pair_2 <- frame_ct_wl_fin %>% mutate(Trial = row_number()) %>% dplyr::select(Trial, `Image #2`, match) %>% dplyr::relocate(Trial, .before = `Image #2`) %>% filter(Trial %in% c(11:20)) 
+
+
+for(word in unique(WL_pair_2$`Image #2`)){
+  WL_pair_2 <- WL_pair_2 %>% dplyr::mutate(TargTrial = ifelse(match == `Image #2`, Trial, NA)) %>%
+                              dplyr::mutate(DistTrial = ifelse(match != `Image #2`, Trial, NA))
+}
+
+WL_pair_2_2 <- WL_pair_2 %>%
+  dplyr::group_by(`Image #2`) %>%
+   tidyr::fill(everything(), .direction = "down") %>%
+   tidyr::fill(everything(), .direction = "up") %>% filter(Trial %in% c(16:20)) %>% arrange(Trial)  %>% dplyr::rename(Variable = `Image #2`)
+
+WL_pair_part2 <- rbind(WL_pair_2_1[,-3], WL_pair_2_2[,-3])
+
+WL_item.pairs <- rbind(WL_pair_part1,WL_pair_part2) %>% arrange(TargTrial) %>% dplyr::select(-Trial) 
+
+```
+
+```{r word-rec-labeling}
+labeled_frames_WL <- frame_ct_wl_fin %>%
+  mutate(frame = map2(`Frame Start` , `Frame End`, seq)) %>%
+  tidyr::unnest(frame) %>%
+  mutate(Trial = str_extract(`Trial Number`, "\\d+")) %>%
+  dplyr::select(frame, target.location, Trial) 
+
+# KG2KG: labelled frames pulling from excel
+# KG2KG: make another tab with the frames
+
+#labeled_frames %>% group_by(Trial) %>% summarise(frame_start = min(frame), frame_end = max(frame)) %>% mutate(diff = frame_end - frame_start) %>% arrange(diff)
+
+
+labeled_frames_WL <- labeled_frames_WL %>%
+  mutate(target.location = case_when(
+    target.location == "left"  ~ "right",
+    target.location == "right" ~ "left",
+    TRUE ~ target.location
+  )) %>% dplyr::rename(position = target.location)
+
+
+```
+
+```{r word-rec-results}
+# for model results
+WL_results <- process_icatcher(WL_icatcher, 
+                               labeled_frames_WL, 
+                               Part_Age,
+                               use_version = F)
+
+write.csv(WL_results$trial_counts %>%
+    merge(WL_results$quality_flags %>% dplyr::select(-Age),
+          by  = c("response_uuid", "Trial"),
+          all = TRUE)%>%
+    dplyr::mutate(
+      has_icatcher  = ifelse(noicatcherdata != frames | is.na(noicatcherdata), T, F) 
+    )%>%
+    mutate(noicatcherdata = tidyr::replace_na(noicatcherdata, 0),
+           n_icatcher     = frames - noicatcherdata) %>%
+    dplyr::mutate(
+      `Usable frames (%)` = round(count_85_non_na / frames,3)) %>% 
+  dplyr::select(response_uuid, Trial, `Usable frames (%)`, has_icatcher) %>% merge(WL_icatcher %>% dplyr::select(response_uuid, icatcher_file_names)),   here("Aim2", "Aim2_Computed_Data", "word_usableframe.csv"), row.names = FALSE)
+```
+
+
 Number (and percent) of infants who viewed the task at all (2nd column, as % of consented sample with any icatcher data & in frame data , with sufficient usable data (3rd column, as % of infants who viewed the task),  with fixation on a single side >80% of the task (4th column, as % of infants with usable data), and final N in the analytic dataset. 
 
 ```{r word-rec-enrollment, fig.width=10}
@@ -2663,9 +2788,9 @@ tab_word <- run_condition_model(
 ```{r word-rec-plot}
 word_fig <- df_list_diff_enroll %>% dplyr::group_by(response_uuid) %>% dplyr::summarise(diff_good_avg = mean(diff)) %>% merge(Part_Age,all.x=TRUE)  %>% dplyr::select(response_uuid, Age, diff_good_avg)%>% dplyr::mutate(Age = factor(Age, levels = c(6, 12)))
 
-plot5_rise <- ggplot(data = word_final, 
+plot5_rise <- ggplot(data = word_fig, 
        mapping = aes(x = Age, 
-                     y = diff_avg, 
+                     y = diff_good_avg, 
                      fill = Age)) + 
   geom_flat_violin(scale = "count", 
                    trim = FALSE) + 
@@ -2673,23 +2798,15 @@ plot5_rise <- ggplot(data = word_final,
                fun.args = list(mult = 1), 
                geom = "pointrange", 
                position = position_nudge(0.05)) + 
-  geom_dotplot(binaxis = "y",
-               dotsize = 0.6,
-               stackdir = "down",
-               #binwidth = 0.1,
-               position = position_nudge(-0.025)) +
-  # geom_jitter(width = .25,#binaxis = "y", 
-  #              dotsize = 0.6, 
-  #             # stackdir = "down", 
-  #              #binwidth = 0.1, 
-  #             # position = position_nudge(-0.025)
-  #             ) +
+  geom_dotplot(binaxis = "y", 
+               dotsize = 0.6, 
+               stackdir = "down", 
+               #binwidth = 0.1, 
+               position = position_nudge(-0.025)) + 
   theme(legend.position = "none") + 
   labs(x = "Age",
        y = "Average pair difference score \n(target - distractor)\n") + stat_n_text(size = 4,y.pos = -0.7)  +scale_fill_manual(values=c("darkolivegreen2", "darkolivegreen3")) + theme_few() + geom_hline(yintercept=0, linetype="dashed", color = "red") + theme(text = element_text(size = 15)) + guides(fill="none") 
 
-#word_final %>% filter(diff_avg==0)
-#word_final %>% group_by(Age) %>% summarise(mean(diff_avg), length(response_uuid), sum(diff_avg>0))
 ```
 
 ```{r word-rec-plot2}
