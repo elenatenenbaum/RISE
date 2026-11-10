@@ -1,0 +1,5 @@
+"response_uuid","child_hashed_id","frame_id","event_number","key","value"
+"b8f6a14b-6d97-4a2d-8601-b1640431a77a","XRMBFZ","global","0","exitType","browserNavigationAttempt"
+"b8f6a14b-6d97-4a2d-8601-b1640431a77a","XRMBFZ","global","0","eventType","exitEarly"
+"b8f6a14b-6d97-4a2d-8601-b1640431a77a","XRMBFZ","global","0","timestamp","2023-05-18T19:03:08.482Z"
+"b8f6a14b-6d97-4a2d-8601-b1640431a77a","XRMBFZ","global","0","lastPageSeen",0

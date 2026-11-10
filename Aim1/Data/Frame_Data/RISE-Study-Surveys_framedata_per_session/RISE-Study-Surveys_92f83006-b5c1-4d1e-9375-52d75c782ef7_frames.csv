@@ -1,0 +1,1123 @@
+"response_uuid","child_hashed_id","frame_id","event_number","key","value"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formData.Q1","Somewhat"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formData.Q2","Somewhat"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formData.Q3","Somewhat"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formData.Q4","Somewhat"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formData.Q5","Not yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formData.Q6","Somewhat"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formData.Q7","Very much"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formData.Q8","Not yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formData.Q9","Somewhat"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formData.Q10","Somewhat"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.view","bootstrap-edit-horizontal"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.emph",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.type","object"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.title","Tufts Survey of Well-being of Young Children (SWYC)"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q1.enum.0","Not yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q1.enum.1","Somewhat"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q1.enum.2","Very much"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q1.title","Runs?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q2.enum.0","Not yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q2.enum.1","Somewhat"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q2.enum.2","Very much"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q2.title","Walks up stairs with help?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q3.enum.0","Not yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q3.enum.1","Somewhat"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q3.enum.2","Very much"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q3.title","Kicks a ball?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q4.enum.0","Not yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q4.enum.1","Somewhat"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q4.enum.2","Very much"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q4.title","Names at least 5 familiar objects - like ball or milk?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q5.enum.0","Not yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q5.enum.1","Somewhat"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q5.enum.2","Very much"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q5.title","Names at least 5 body parts - like nose, hand, or tummy?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q6.enum.0","Not yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q6.enum.1","Somewhat"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q6.enum.2","Very much"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q6.title","Climbs up a ladder at a playground"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q7.enum.0","Not yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q7.enum.1","Somewhat"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q7.enum.2","Very much"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q7.title","Uses words like 'me' or 'mine'?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q8.enum.0","Not yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q8.enum.1","Somewhat"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q8.enum.2","Very much"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q8.title","Jumps off the ground with two feet?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q9.enum.0","Not yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q9.enum.1","Somewhat"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q9.enum.2","Very much"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q9.title","Puts 2 or more words together - like 'more water' or 'go outside'?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q10.enum.0","Not yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q10.enum.1","Somewhat"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q10.enum.2","Very much"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.Q10.title","Uses words to ask for help?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.schema.properties.progress.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q1.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q1.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q1.verticle",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q1.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q1.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q2.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q2.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q2.verticle",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q2.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q2.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q3.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q3.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q3.verticle",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q3.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q3.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q4.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q4.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q4.verticle",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q4.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q4.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q5.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q5.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q5.verticle",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q5.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q5.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q6.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q6.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q6.verticle",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q6.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q6.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q7.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q7.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q7.verticle",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q7.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q7.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q8.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q8.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q8.verticle",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q8.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q8.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q9.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q9.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q9.verticle",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q9.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q9.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q10.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q10.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q10.verticle",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q10.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.Q10.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.progress.view","bootstrap-display"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","formSchema.options.fields.progress.label","<h1 style='inline-block; width:700px; text-align:right; font-size:small'>Page 1 of 1<br><b>Tufts Survey of Well-being of Young Children (SWYC)</b></h1>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","0","eventType","exp-lookit-survey:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","0","timestamp","2024-06-14T17:24:10.898Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","14-SWYC","","frameDuration",36.457
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS","0","eventType","exp-frame-select:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS","0","timestamp","2024-06-14T17:17:38.592Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS","1","eventType","exp-frame-select:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS","1","timestamp","2024-06-14T17:17:38.609Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS","","frameDuration",0.001
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS","","generatedProperties.ELIGIBLE",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS","","generatedProperties.whichFrames",0
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","0-study-intro","0","eventType","exp-lookit-text:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","0-study-intro","0","timestamp","2024-06-14T17:16:01.243Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","0-study-intro","","frameDuration",30.754
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formData.Race.0","White/Caucasian"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formData.Ethnicity","Not Hispanic/Latinx"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formData.MonthsAge",19
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.type","object"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.title","Tell us a little more about your child!"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.Race.enum.0","American Indian/Alaskan Native"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.Race.enum.1","Asian"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.Race.enum.2","Black/African American"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.Race.enum.3","White/Caucasian"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.Race.enum.4","Other"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.Race.type","array"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.Race.title","What is your child's race?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.Race.required",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.Ethnicity.enum.0","Hispanic/Latinx"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.Ethnicity.enum.1","Not Hispanic/Latinx"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.Ethnicity.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.Ethnicity.title","What is your child's ethnicity?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.Ethnicity.required",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.MonthsAge.type","integer"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.MonthsAge.title","How many months old is your baby today?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.MonthsAge.maximum",24
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.MonthsAge.minimum",0
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.schema.properties.MonthsAge.required",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.options.fields.Race.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.options.fields.Race.type","checkbox"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.options.fields.Race.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.options.fields.Race.optionLabels.0","American Indian/Alaskan Native"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.options.fields.Race.optionLabels.1","Asian"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.options.fields.Race.optionLabels.2","Black/African American"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.options.fields.Race.optionLabels.3","White/Caucasian"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.options.fields.Race.optionLabels.4","Other"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.options.fields.Race.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.options.fields.Ethnicity.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.options.fields.Ethnicity.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.options.fields.Ethnicity.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.options.fields.MonthsAge.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.options.fields.MonthsAge.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","formSchema.options.fields.MonthsAge.numericEntry",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","0","eventType","exp-lookit-survey:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","0","timestamp","2024-06-14T17:17:24.045Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","1-Demographics","","frameDuration",82.745
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0","0","eventType","exp-frame-select:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0","0","timestamp","2024-06-14T17:17:38.592Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0","1","eventType","exp-frame-select:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0","1","timestamp","2024-06-14T17:17:38.609Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0","","frameDuration",0.018
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formData.Sibling","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formData.referral.0","Children Helping Science"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.type","object"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.properties.email.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.properties.email.title","What is the email address associated with your SPARK account?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.properties.Sibling.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.properties.Sibling.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.properties.Sibling.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.properties.Sibling.title","Do you have an older child with an existing Autism diagnosis?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.properties.Sibling.required",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.properties.referral.enum.0","Children Helping Science"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.properties.referral.enum.1","Facebook"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.properties.referral.enum.2","Instagram"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.properties.referral.enum.3","Google"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.properties.referral.enum.4","Particpated in Another Study"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.properties.referral.enum.5","Simons SPARK"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.properties.referral.enum.6","Other"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.properties.referral.type","array"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.properties.referral.title","How did you hear about this study?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.properties.referral.required",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.schema.dependencies.email.0","referral"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.options.fields.email.type","text"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.options.fields.email.helper","Sharing this helps us connect your data with SPARK!"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.options.fields.email.dependencies.referral","Simons SPARK"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.options.fields.Sibling.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.options.fields.Sibling.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.options.fields.Sibling.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.options.fields.referral.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.options.fields.referral.type","checkbox"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.options.fields.referral.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.options.fields.referral.optionLabels.0","Children Helping Science"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.options.fields.referral.optionLabels.1","Facebook"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.options.fields.referral.optionLabels.2","Instagram"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.options.fields.referral.optionLabels.3","Google"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.options.fields.referral.optionLabels.4","Particpated in Another Study"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.options.fields.referral.optionLabels.5","Simons SPARK"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.options.fields.referral.optionLabels.6","Other"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","formSchema.options.fields.referral.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","0","eventType","exp-lookit-survey:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","0","timestamp","2024-06-14T17:17:38.554Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","2-SPARKQuestions","","frameDuration",14.473
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-0","0","eventType","exp-lookit-instructions:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-0","0","timestamp","2024-06-14T17:18:22.993Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-0","0","streamTime",""
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-0","","frameDuration",44.353
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-1","0","eventType","exp-lookit-instructions:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-1","0","timestamp","2024-06-14T17:18:25.485Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-1","0","streamTime",""
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-1","","frameDuration",2.467
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 1","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 2","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 3","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 4","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 5","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 6","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 7","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 8","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 9","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 10","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 11","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 12","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 13","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 14","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 15","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 16","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 17","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 18","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 19","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formData.Question 20","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.view","bootstrap-edit-horizontal"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.type","object"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.title","M-CHAT Checklist"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.progress.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 1.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 1.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 1.title","1. If you point at something across the room, does your child look at it? (FOR EXAMPLE, if you point at a toy or an animal, does your child look at the toy or animal?)"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 2.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 2.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 2.title","2. Have you ever wondered if your child might be deaf?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 3.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 3.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 3.title","3. Does your child play pretend or make-believe? (FOR EXAMPLE, pretend to drink from an empty cup, pretend to talk on a phone, or pretend to feed a doll or stuffed animal?)"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 4.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 4.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 4.title","4. Does your child like climbing on things? (FOR EXAMPLE, furniture, playground equipment, or stairs)"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 5.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 5.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 5.title","5. Does your child make unusual finger movements near his or her eyes? (FOR EXAMPLE, does your child wiggle his or her fingers close to his or her eyes?)"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 6.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 6.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 6.title","6. Does your child point with one finger to ask for something or to get help? (FOR EXAMPLE, pointing to a snack or toy that is out of reach)"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 7.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 7.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 7.title","7. Does your child point with one finger to show you something interesting? (FOR EXAMPLE, pointing to an airplane in the sky or a big truck in the road)"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 8.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 8.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 8.title","8. Is your child interested in other children? (FOR EXAMPLE, does your child watch other children, smile at them, or go to them?)"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 9.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 9.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 9.title","9. Does your child show you things by bringing them to you or holding them up for you to see – not to get help, but just to share? (FOR EXAMPLE, showing you a flower, a stuffed animal, or a toy truck)"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 10.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 10.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 10.title","10. Does your child respond when you call his or her name? (FOR EXAMPLE, does he or she look up, talk or babble, or stop what he or she is doing when you call his or her name?)"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 11.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 11.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 11.title","11. When you smile at your child, does he or she smile back at you?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 12.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 12.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 12.title","12. Does your child get upset by everyday noises? (FOR EXAMPLE, does your child scream or cry to noise such as a vacuum cleaner or loud music?)"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 13.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 13.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 13.title","13. Does your child walk?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 14.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 14.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 14.title","14. Does your child look you in the eye when you are talking to him or her, playing with him or her, or dressing him or her?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 15.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 15.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 15.title","15. Does your child try to copy what you do? (FOR EXAMPLE, wave bye-bye, clap, or make a funny noise when you do)"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 16.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 16.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 16.title","16. If you turn your head to look at something, does your child look around to see what you are looking at?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 17.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 17.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 17.title","17. Does your child try to get you to watch him or her? (FOR EXAMPLE, does your child look at you for praise, or say “look” or “watch me”?)"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 18.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 18.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 18.title","18. Does your child understand when you tell him or her to do something? (FOR EXAMPLE, if you don’t point, can your child understand “put the book on the chair” or “bring me the blanket”?)"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 19.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 19.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 19.title","19. If something new happens, does your child look at your face to see how you feel about it? (FOR EXAMPLE, if he or she hears a strange or funny noise, or sees a new toy, will he or she look at your face?)"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 20.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 20.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.schema.properties.Question 20.title","20. Does your child like movement activities? (FOR EXAMPLE, being swung or bounced on your knee)"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.progress.view","bootstrap-display"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.progress.label","<h1 style='inline-block; width:700px; text-align:right; font-size:small'>Page 1 of 1<br><b>Modified Checklist for Autism in Toddlers, Revised (M-CHAT-R)</b></h1>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 1.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 1.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 1.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 1.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 1.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 2.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 2.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 2.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 2.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 2.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 3.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 3.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 3.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 3.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 3.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 4.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 4.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 4.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 4.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 4.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 5.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 5.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 5.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 5.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 5.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 6.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 6.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 6.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 6.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 6.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 7.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 7.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 7.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 7.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 7.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 8.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 8.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 8.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 8.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 8.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 9.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 9.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 9.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 9.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 9.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 10.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 10.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 10.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 10.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 10.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 11.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 11.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 11.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 11.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 11.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 12.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 12.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 12.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 12.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 12.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 13.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 13.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 13.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 13.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 13.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 14.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 14.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 14.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 14.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 14.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 15.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 15.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 15.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 15.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 15.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 16.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 16.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 16.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 16.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 16.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 17.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 17.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 17.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 17.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 17.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 18.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 18.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 18.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 18.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 18.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 19.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 19.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 19.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 19.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 19.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 20.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 20.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 20.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 20.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","formSchema.options.fields.Question 20.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","0","eventType","exp-lookit-survey:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","0","timestamp","2024-06-14T17:19:44.002Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-2","","frameDuration",78.491
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-3","0","eventType","exp-lookit-instructions:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-3","0","timestamp","2024-06-14T17:20:18.514Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-3","0","streamTime",""
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","3-MCHAT-CSBS-0-3","","frameDuration",34.436
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","4-CSBS-Instructions2","0","eventType","exp-lookit-instructions:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","4-CSBS-Instructions2","0","timestamp","2024-06-14T17:20:37.704Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","4-CSBS-Instructions2","0","streamTime",""
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","4-CSBS-Instructions2","","frameDuration",19.166
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","12-SWYC-Instructions1","0","eventType","exp-lookit-instructions:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","12-SWYC-Instructions1","0","timestamp","2024-06-14T17:23:32.743Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","12-SWYC-Instructions1","0","streamTime",""
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","12-SWYC-Instructions1","","frameDuration",1.472
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","13-SWYC-Instructions2","0","eventType","exp-lookit-instructions:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","13-SWYC-Instructions2","0","timestamp","2024-06-14T17:23:34.426Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","13-SWYC-Instructions2","0","streamTime",""
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","13-SWYC-Instructions2","","frameDuration",1.664
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formData.Q1","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formData.Q2","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formData.Q3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formData.Q4","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.view","bootstrap-edit-horizontal"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.emph",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.type","object"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.title","<center><img src='https://github.com/cgstone1/lookit-stimuli-template/blob/master/img/MotorResponse.JPG?raw=true' width='700' height='122'></center><br>When held up against your shoulder, your child will...</br>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q1.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q1.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q1.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q1.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q1.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q1.title","snuggle in and rest at your body immediately."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q2.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q2.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q2.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q2.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q2.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q2.title","hold head steady without support when looking around."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q3.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q3.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q3.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q3.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q3.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q3.title","hold head steady while you bounce up and down."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q4.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q4.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q4.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q4.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q4.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.Q4.title","hold heady steady while you walk or bend down."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.schema.properties.progress.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q1.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q1.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q1.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q1.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q1.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q1.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q2.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q2.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q2.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q2.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q2.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q2.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q3.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q3.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q3.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q3.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q3.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q3.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q4.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q4.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q4.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q4.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q4.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.Q4.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.progress.view","bootstrap-display"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","formSchema.options.fields.progress.label","<h1 style='inline-block; width:700px; text-align:right; font-size:small'>Page 1 of 37<br>Early Motor Questionnaire - Extended (EMQ-X)</h1>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","0","eventType","exp-lookit-survey:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","0","timestamp","2024-06-14T17:24:42.672Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","18-MotorQuestionnaire1","","frameDuration",26.752
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formData.Q5","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formData.Q6","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formData.Q7","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.view","bootstrap-edit-horizontal"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.emph",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.type","object"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.title","<center><img src='https://github.com/cgstone1/lookit-stimuli-template/blob/master/img/MotorResponse.JPG?raw=true' width='700' height='122'></center><br>When lying on his/her tummy, your child will... </br>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q5.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q5.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q5.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q5.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q5.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q5.title","lift head slightly up from the ground and turn head to one side."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q6.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q6.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q6.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q6.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q6.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q6.title","lift head fully off the ground by pushing on his/her forearms."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q7.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q7.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q7.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q7.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q7.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.Q7.title","roll over to be on his/her back."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.schema.properties.progress.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q5.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q5.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q5.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q5.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q5.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q5.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q6.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q6.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q6.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q6.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q6.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q6.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q7.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q7.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q7.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q7.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q7.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.Q7.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.progress.view","bootstrap-display"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","formSchema.options.fields.progress.label","<h1 style='inline-block; width:700px; text-align:right; font-size:small'>Page 2 of 37<br>Early Motor Questionnaire - Extended (EMQ-X)</h1>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","0","eventType","exp-lookit-survey:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","0","timestamp","2024-06-14T17:24:53.046Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","19-MotorQuestionnaire2","","frameDuration",10.357
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formData.Q8","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formData.Q9","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formData.Q10","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formData.Q11","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formData.Q12","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formData.Q13","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.view","bootstrap-edit-horizontal"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.emph",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.type","object"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.title","<center><img src='https://github.com/cgstone1/lookit-stimuli-template/blob/master/img/MotorResponse.JPG?raw=true' width='700' height='122'></center><br>When lying on his/her back, your child will... </br>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q8.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q8.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q8.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q8.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q8.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q8.title","move arms and legs vigorously (kicking and reaching movements)."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q9.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q9.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q9.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q9.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q9.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q9.title","hold onto your hands and pull herself/himself up to a sit without help."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q10.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q10.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q10.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q10.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q10.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q10.title","roll over to be on tummy."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q11.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q11.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q11.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q11.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q11.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q11.title","roll over to one side and push up into a crawling position."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q12.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q12.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q12.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q12.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q12.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q12.title","get up into a standing position by rolling to a side without help or aids."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q13.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q13.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q13.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q13.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q13.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.Q13.title","stand up without rolling to a side by sitting up and then moving forward."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.schema.properties.progress.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q8.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q8.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q8.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q8.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q8.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q8.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q9.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q9.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q9.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q9.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q9.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q9.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q10.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q10.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q10.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q10.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q10.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q10.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q11.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q11.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q11.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q11.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q11.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q11.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q12.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q12.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q12.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q12.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q12.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q12.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q13.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q13.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q13.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q13.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q13.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.Q13.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.progress.view","bootstrap-display"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","formSchema.options.fields.progress.label","<h1 style='inline-block; width:700px; text-align:right; font-size:small'>Page 3 of 37<br>Early Motor Questionnaire - Extended (EMQ-X)</h1>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","0","eventType","exp-lookit-survey:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","0","timestamp","2024-06-14T17:25:05.935Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","20-MotorQuestionnaire3","","frameDuration",12.871
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formData.Q14","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.view","bootstrap-edit-horizontal"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.schema.emph",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.schema.type","object"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.schema.title","<center><img src='https://github.com/cgstone1/lookit-stimuli-template/blob/master/img/MotorResponse.JPG?raw=true' width='700' height='122'></center><br>When sitting on your lap with back support provided by you, your child will... </br>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.schema.properties.Q14.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.schema.properties.Q14.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.schema.properties.Q14.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.schema.properties.Q14.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.schema.properties.Q14.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.schema.properties.Q14.title","hold his/her head up and steady when looking around the room."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.schema.properties.progress.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.options.fields.Q14.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.options.fields.Q14.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.options.fields.Q14.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.options.fields.Q14.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.options.fields.Q14.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.options.fields.Q14.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.options.fields.progress.view","bootstrap-display"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","formSchema.options.fields.progress.label","<h1 style='inline-block; width:700px; text-align:right; font-size:small'>Page 4 of 37<br>Early Motor Questionnaire - Extended (EMQ-X)</h1>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","0","eventType","exp-lookit-survey:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","0","timestamp","2024-06-14T17:25:08.919Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","21-MotorQuestionnaire4","","frameDuration",2.944
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formData.Q15","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formData.Q16","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formData.Q17","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.view","bootstrap-edit-horizontal"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.emph",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.type","object"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.title","<center><img src='https://github.com/cgstone1/lookit-stimuli-template/blob/master/img/MotorResponse.JPG?raw=true' width='700' height='122'></center><br>When placed into a crawling position resting on hands and knees, your child will...</br>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q15.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q15.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q15.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q15.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q15.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q15.title","shift weight to one arm and extend the other to reach, wave, or point."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q16.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q16.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q16.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q16.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q16.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q16.title","lift up bottom and remain in this position for a short time."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q17.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q17.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q17.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q17.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q17.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.Q17.title","crawl forward for a few steps (3-5)."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.schema.properties.progress.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q15.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q15.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q15.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q15.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q15.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q15.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q16.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q16.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q16.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q16.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q16.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q16.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q17.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q17.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q17.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q17.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q17.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.Q17.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.progress.view","bootstrap-display"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","formSchema.options.fields.progress.label","<h1 style='inline-block; width:700px; text-align:right; font-size:small'>Page 5 of 37<br>Early Motor Questionnaire - Extended (EMQ-X)</h1>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","0","eventType","exp-lookit-survey:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","0","timestamp","2024-06-14T17:25:13.886Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","22-MotorQuestionnaire5","","frameDuration",4.949
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formData.Q18","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formData.Q19","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formData.Q20","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formData.Q21","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formData.Q22","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.view","bootstrap-edit-horizontal"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.emph",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.type","object"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.title","<center><img src='https://github.com/cgstone1/lookit-stimuli-template/blob/master/img/MotorResponse.JPG?raw=true' width='700' height='122'></center><br>When placed into a sitting position on the floor, your child is able to... </br>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q18.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q18.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q18.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q18.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q18.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q18.title","sit independently without support (hands lifted up)."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q19.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q19.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q19.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q19.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q19.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q19.title","use hands and legs to scoot forward with his/her bottom."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q20.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q20.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q20.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q20.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q20.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q20.title","maintain a stable sitting position while turning head and torso to look around."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q21.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q21.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q21.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q21.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q21.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q21.title","hold onto some furniture and pull into a standing position."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q22.enum.0","-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q22.enum.1","-1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q22.enum.2","0"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q22.enum.3","1"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q22.enum.4","2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.Q22.title","shift into a crawling position and try to crawl forward."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.schema.properties.progress.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q18.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q18.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q18.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q18.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q18.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q18.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q19.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q19.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q19.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q19.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q19.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q19.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q20.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q20.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q20.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q20.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q20.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q20.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q21.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q21.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q21.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q21.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q21.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q21.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q22.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q22.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q22.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q22.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q22.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.Q22.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.progress.view","bootstrap-display"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","formSchema.options.fields.progress.label","<h1 style='inline-block; width:70px; text-align:right; font-size:small'>Page 6 of 37<br>Early Motor Questionnaire - Extended (EMQ-X)</h1>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","0","eventType","exp-lookit-survey:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","0","timestamp","2024-06-14T17:25:21.625Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","23-MotorQuestionnaire6","","frameDuration",7.705
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formData.Question 1","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formData.Question 2","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formData.Question 3","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formData.Question 4","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.view","bootstrap-edit-horizontal"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.type","object"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.title","<center><img src='https://github.com/cgstone1/lookit-stimuli-template/blob/master/img/trademark_infantscale.jpg?raw=true'></center><br><b>Emotion and Eye Gaze</b>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.properties.Question 1.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.properties.Question 1.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.properties.Question 1.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.properties.Question 1.title","1. Do you know when your child is happy and when your child is upset?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.properties.Question 2.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.properties.Question 2.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.properties.Question 2.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.properties.Question 2.title","2. When your child plays with toys, does he/she look at you to see if you are watching?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.properties.Question 3.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.properties.Question 3.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.properties.Question 3.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.properties.Question 3.title","3. Does your child smile or laugh while looking at you?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.properties.Question 4.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.properties.Question 4.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.properties.Question 4.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.properties.Question 4.title","4. When you look at and point to a toy across the room, does your child look at it?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.schema.properties.progresscopyright.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 1.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 1.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 1.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 1.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 1.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 1.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 2.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 2.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 2.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 2.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 2.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 2.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 3.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 3.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 3.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 3.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 3.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 3.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 4.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 4.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 4.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 4.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 4.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.Question 4.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.progresscopyright.view","bootstrap-display"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","formSchema.options.fields.progresscopyright.label","<h1 style='inline-block; width:700px; text-align:right; font-size:small'>Page 1 of 7<br><b>Communication and Symbolic Behavior Scales Developmental Profile™ CSBS DP™</b></h1>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","0","eventType","exp-lookit-survey:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","0","timestamp","2024-06-14T17:20:51.089Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","5-Infant-Toddler-Checklist","","frameDuration",13.359
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","15-EarlyMotor-Instructions1","0","eventType","exp-lookit-instructions:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","15-EarlyMotor-Instructions1","0","timestamp","2024-06-14T17:24:12.253Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","15-EarlyMotor-Instructions1","0","streamTime",""
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","15-EarlyMotor-Instructions1","","frameDuration",1.291
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","16-EarlyMotor-Instructions2","0","eventType","exp-lookit-text:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","16-EarlyMotor-Instructions2","0","timestamp","2024-06-14T17:24:14.455Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","16-EarlyMotor-Instructions2","","frameDuration",2.181
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formData.Question 5","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formData.Question 6","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formData.Question 7","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formData.Question 8","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.view","bootstrap-edit-horizontal"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.type","object"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.title","<center><img src='https://github.com/cgstone1/lookit-stimuli-template/blob/master/img/trademark_infantscale.jpg?raw=true'></center><br><b>Communication</b>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.properties.Question 5.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.properties.Question 5.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.properties.Question 5.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.properties.Question 5.title","5. Does your child let you know that he/she needs help or wants an object out of reach?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.properties.Question 6.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.properties.Question 6.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.properties.Question 6.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.properties.Question 6.title","6. When you are not paying attention to your child, does he/she try to get your attention?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.properties.Question 7.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.properties.Question 7.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.properties.Question 7.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.properties.Question 7.title","7. Does your child do things just to get you to laugh?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.properties.Question 8.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.properties.Question 8.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.properties.Question 8.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.properties.Question 8.title","8. Does your child try to get you to notice interesting objects—just to get you to look at the objects, not to get you to do anything with them?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.schema.properties.progresscopyright.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 5.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 5.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 5.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 5.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 5.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 5.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 6.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 6.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 6.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 6.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 6.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 6.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 7.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 7.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 7.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 7.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 7.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 7.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 8.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 8.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 8.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 8.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 8.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.Question 8.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.progresscopyright.view","bootstrap-display"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","formSchema.options.fields.progresscopyright.label","<h1 style='inline-block; width:700px; text-align:right; font-size:small'>Page 3 of 7<br><b>Communication and Symbolic Behavior Scales Developmental Profile™ CSBS DP™</b></h1>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","0","eventType","exp-lookit-survey:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","0","timestamp","2024-06-14T17:21:06.213Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","6-Infant-Toddler-Checklist2","","frameDuration",15.084
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formData.Question 9","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formData.Question 10","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formData.Question 11","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formData.Question 12","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formData.Question 13","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.view","bootstrap-edit-horizontal"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.type","object"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.title","<center><img src='https://github.com/cgstone1/lookit-stimuli-template/blob/master/img/trademark_infantscale.jpg?raw=true'></center><br><b>Gestures</b>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 9.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 9.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 9.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 9.title","9. Does your child pick up objects and give them to you?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 10.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 10.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 10.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 10.title","10. Does your child show objects to you without giving you the object?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 11.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 11.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 11.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 11.title","11. Does your child wave to greet people?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 12.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 12.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 12.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 12.title","12. Does your child point to objects?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 13.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 13.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 13.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.Question 13.title","13. Does your child nod his/her head to indicate yes?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.schema.properties.progresscopyright.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 9.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 9.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 9.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 9.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 9.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 9.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 10.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 10.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 10.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 10.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 10.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 10.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 11.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 11.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 11.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 11.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 11.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 11.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 12.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 12.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 12.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 12.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 12.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 12.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 13.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 13.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 13.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 13.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 13.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.Question 13.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.progresscopyright.view","bootstrap-display"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","formSchema.options.fields.progresscopyright.label","<h1 style='inline-block; width:700px; text-align:right; font-size:small'>Page 3 of 7<br><b>Communication and Symbolic Behavior Scales Developmental Profile™ CSBS DP™</b></h1>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","0","eventType","exp-lookit-survey:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","0","timestamp","2024-06-14T17:21:20.822Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","7-Infant-Toddler-Checklist3","","frameDuration",14.575
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formData.Question 14","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formData.Question 15","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formData.Question 16","5-8"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.view","bootstrap-edit-horizontal"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.schema.type","object"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.schema.title","<center><img src='https://github.com/cgstone1/lookit-stimuli-template/blob/master/img/trademark_infantscale.jpg?raw=true'></center><br><b>Sounds</b>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.schema.properties.Question 14.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.schema.properties.Question 14.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.schema.properties.Question 14.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.schema.properties.Question 14.title","14. Does your child use sounds or words to get attention or help?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.schema.properties.Question 15.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.schema.properties.Question 15.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.schema.properties.Question 15.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.schema.properties.Question 15.title","15. Does your child string sounds together, such as uh oh, mama, gaga, bye bye, bada?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.schema.properties.Question 16.enum.0","None"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.schema.properties.Question 16.enum.1","1-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.schema.properties.Question 16.enum.2","3-4"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.schema.properties.Question 16.enum.3","5-8"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.schema.properties.Question 16.enum.4","over 8"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.schema.properties.Question 16.title","16. About how many of the following consonant sounds does your child use: ma, na, ba, da, ga, wa, la, ya, sa, sha? "
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.schema.properties.progresscopyright.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 14.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 14.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 14.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 14.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 14.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 14.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 15.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 15.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 15.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 15.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 15.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 15.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 16.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 16.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 16.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 16.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 16.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.Question 16.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.progresscopyright.view","bootstrap-display"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","formSchema.options.fields.progresscopyright.label","<h1 style='inline-block; width:700px; text-align:right; font-size:small'>Page 4 of 7<br><b>Communication and Symbolic Behavior Scales Developmental Profile™ CSBS DP™</b></h1>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","0","eventType","exp-lookit-survey:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","0","timestamp","2024-06-14T17:21:46.772Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","8-Infant-Toddler-Checklist4","","frameDuration",25.909
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formData.Question 17","4-10"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formData.Question 18","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.view","bootstrap-edit-horizontal"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.schema.type","object"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.schema.title","<center><img src='https://github.com/cgstone1/lookit-stimuli-template/blob/master/img/trademark_infantscale.jpg?raw=true'></center><br><b>Words</b>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.schema.properties.Question 17.enum.0","None"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.schema.properties.Question 17.enum.1","1-3"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.schema.properties.Question 17.enum.2","4-10"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.schema.properties.Question 17.enum.3","11-30"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.schema.properties.Question 17.enum.4","over 30"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.schema.properties.Question 17.title","17. About how many different words does your child use meaningfully that you recognize (such as baba for bottle; gaggie for doggie)? "
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.schema.properties.Question 18.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.schema.properties.Question 18.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.schema.properties.Question 18.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.schema.properties.Question 18.title","18. Does your child put two words together (for example, more cookie, bye bye Daddy)?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.schema.properties.progresscopyright.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.options.fields.Question 17.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.options.fields.Question 17.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.options.fields.Question 17.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.options.fields.Question 17.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.options.fields.Question 17.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.options.fields.Question 17.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.options.fields.Question 18.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.options.fields.Question 18.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.options.fields.Question 18.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.options.fields.Question 18.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.options.fields.Question 18.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.options.fields.Question 18.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.options.fields.progresscopyright.view","bootstrap-display"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","formSchema.options.fields.progresscopyright.label","<h1 style='inline-block; width:700px; text-align:right; font-size:small'>Page 5 of 7<br><b>Communication and Symbolic Behavior Scales Developmental Profile™ CSBS DP™</b></h1>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","0","eventType","exp-lookit-survey:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","0","timestamp","2024-06-14T17:22:02.699Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","9-Infant-Toddler-Checklist5","","frameDuration",15.909
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formData.Question 19","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formData.Question 20","1-3"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.view","bootstrap-edit-horizontal"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.schema.type","object"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.schema.title","<center><img src='https://github.com/cgstone1/lookit-stimuli-template/blob/master/img/trademark_infantscale.jpg?raw=true'></center><br><b>Understanding</b>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.schema.properties.Question 19.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.schema.properties.Question 19.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.schema.properties.Question 19.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.schema.properties.Question 19.title","19. When you call your child’s name, does he/she respond by looking or turning toward you?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.schema.properties.Question 20.enum.0","None"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.schema.properties.Question 20.enum.1","1-3"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.schema.properties.Question 20.enum.2","4-10"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.schema.properties.Question 20.enum.3","11-30"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.schema.properties.Question 20.enum.4","over 30"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.schema.properties.Question 20.title","20. About how many different words or phrases does your child understand without gestures? For example, if you say “where’s your tummy,” “where’s Daddy,” “give me the ball,” or “come here,” without showing or pointing, your child will respond appropriately."
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.schema.properties.progresscopyright.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.options.fields.Question 19.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.options.fields.Question 19.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.options.fields.Question 19.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.options.fields.Question 19.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.options.fields.Question 19.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.options.fields.Question 19.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.options.fields.Question 20.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.options.fields.Question 20.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.options.fields.Question 20.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.options.fields.Question 20.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.options.fields.Question 20.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.options.fields.Question 20.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.options.fields.progresscopyright.view","bootstrap-display"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","formSchema.options.fields.progresscopyright.label","<h1 style='inline-block; width:700px; text-align:right; font-size:small'>Page 6 of 7<br><b>Communication and Symbolic Behavior Scales Developmental Profile™ CSBS DP™</b></h1>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","0","eventType","exp-lookit-survey:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","0","timestamp","2024-06-14T17:22:16.983Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","10-Infant-Toddler-Checklist6","","frameDuration",14.266
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formData.Question 21","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formData.Question 22","5-8"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formData.Question 23","3-4 blocks"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formData.Question 24","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formData.Last Question","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.view","bootstrap-edit-horizontal"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.type","object"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.title","<center><img src='https://github.com/cgstone1/lookit-stimuli-template/blob/master/img/trademark_infantscale.jpg?raw=true'></center><br><b>Object Use</b>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 21.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 21.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 21.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 21.title","21. Does your child show interest in playing with a variety of objects?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 22.enum.0","None"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 22.enum.1","1-2"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 22.enum.2","3-4"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 22.enum.3","5-8"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 22.enum.4","over 8"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 22.title","22. About how many of the following objects does your child use appropriately: cup, bottle, bowl, spoon, comb or brush, toothbrush, washcloth, ball, toy vehicle, toy telephone? "
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 23.enum.0","None"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 23.enum.1","2 blocks"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 23.enum.2","3-4 blocks"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 23.enum.3","5 or more"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 23.title","23. About how many blocks (or rings) does your child stack?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 24.enum.0","Not Yet"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 24.enum.1","Sometimes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 24.enum.2","Often"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Question 24.title","24. Does your child pretend to play with toys (for example, feed a stuffed animal, put a doll to sleep, put an animal figure in a vehicle)?"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Last Question.enum.0","Yes"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Last Question.enum.1","No"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.Last Question.title","25. Do you have any concerns about your child's development? "
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.schema.properties.progresscopyright.type","string"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 21.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 21.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 21.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 21.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 21.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 21.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 22.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 22.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 22.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 22.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 22.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 22.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 23.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 23.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 23.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 23.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 23.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 23.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 24.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 24.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 24.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 24.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 24.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Question 24.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Last Question.sort",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Last Question.type","radio"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Last Question.vertical",False
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Last Question.validator","required-field"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Last Question.removeDefaultNone",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.Last Question.hideInitValidationError",True
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.progresscopyright.view","bootstrap-display"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","formSchema.options.fields.progresscopyright.label","<h1 style='inline-block; width:700px; text-align:right; font-size:small'>Page 7 of 7<br><b>Communication and Symbolic Behavior Scales Developmental Profile™ CSBS DP™</b></h1>"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","0","eventType","exp-lookit-survey:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","0","timestamp","2024-06-14T17:23:31.247Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","11-Infant-Toddler-Checklist7","","frameDuration",74.247
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","17-EarlyMotor-GrossMotorInstructions","0","eventType","exp-lookit-text:nextFrame"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","17-EarlyMotor-GrossMotorInstructions","0","timestamp","2024-06-14T17:24:15.902Z"
+"92f83006-b5c1-4d1e-9375-52d75c782ef7","UUSHcB","17-EarlyMotor-GrossMotorInstructions","","frameDuration",1.431

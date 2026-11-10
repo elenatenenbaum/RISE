@@ -1,0 +1,8 @@
+"response_uuid","child_hashed_id","frame_id","event_number","key","value"
+"b323e143-c1a1-48d7-8e91-5581d97c497f","EQcE3N","global","0","exitType","browserNavigationAttempt"
+"b323e143-c1a1-48d7-8e91-5581d97c497f","EQcE3N","global","0","eventType","exitEarly"
+"b323e143-c1a1-48d7-8e91-5581d97c497f","EQcE3N","global","0","timestamp","2023-05-28T22:15:53.743Z"
+"b323e143-c1a1-48d7-8e91-5581d97c497f","EQcE3N","global","0","lastPageSeen",1
+"b323e143-c1a1-48d7-8e91-5581d97c497f","EQcE3N","0-study-intro","0","eventType","exp-lookit-text:nextFrame"
+"b323e143-c1a1-48d7-8e91-5581d97c497f","EQcE3N","0-study-intro","0","timestamp","2023-05-28T22:15:51.219Z"
+"b323e143-c1a1-48d7-8e91-5581d97c497f","EQcE3N","0-study-intro","","frameDuration",4.836

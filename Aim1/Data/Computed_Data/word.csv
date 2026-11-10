@@ -1,0 +1,71 @@
+"response_uuid","Age","Word_Pair","diff"
+"05a6c763-c9ae-47e0-acc5-a109c535a438","6","foot ~ milk",0.206
+"05a6c763-c9ae-47e0-acc5-a109c535a438","6","hand ~ yogurt",-0.208
+"05a6c763-c9ae-47e0-acc5-a109c535a438","6",NA,-0.724
+"129ae736-993a-4970-aea3-990df58c2629","12","foot ~ milk",-0.39
+"129ae736-993a-4970-aea3-990df58c2629","12",NA,-0.631
+"23f96111-a5ec-40c5-9d5e-c493fd5fb636","6",NA,-0.357
+"37dfe9fb-dbf0-4b7b-a6c6-4e1c750fa6a5","12",NA,0.476
+"38a73cfc-a0db-40e7-a592-63ae9c363c2c","12","foot ~ milk",0.198
+"38a73cfc-a0db-40e7-a592-63ae9c363c2c","12","hand ~ yogurt",-0.116
+"38a73cfc-a0db-40e7-a592-63ae9c363c2c","12",NA,-0.091
+"41fff0a2-aa5e-46ff-adc8-a2c557fcdb86","12","foot ~ milk",0.715
+"41fff0a2-aa5e-46ff-adc8-a2c557fcdb86","12",NA,0.23
+"42df5ffb-87c4-4422-8da8-f0a29c2d26a5","6","foot ~ milk",0.047
+"42df5ffb-87c4-4422-8da8-f0a29c2d26a5","6","hand ~ yogurt",-0.039
+"42df5ffb-87c4-4422-8da8-f0a29c2d26a5","6",NA,-0.157
+"4b9a5d8d-abb4-4e6d-a86e-094178e937c8","12","foot ~ milk",0.612
+"4b9a5d8d-abb4-4e6d-a86e-094178e937c8","12","hand ~ yogurt",0.373
+"4b9a5d8d-abb4-4e6d-a86e-094178e937c8","12",NA,-0.106
+"510ce501-f2b4-4c71-baef-5722ca1d840b","12","foot ~ milk",-0.015
+"510ce501-f2b4-4c71-baef-5722ca1d840b","12",NA,0.027
+"69296e59-1aec-4e58-8c60-3e7d2f717892","12","foot ~ milk",0.34
+"69296e59-1aec-4e58-8c60-3e7d2f717892","12","hand ~ yogurt",-0.333
+"69296e59-1aec-4e58-8c60-3e7d2f717892","12",NA,0.467
+"6eedc391-a9e2-4f7b-9906-02ac49332f84","12","hand ~ yogurt",0.33
+"6eedc391-a9e2-4f7b-9906-02ac49332f84","12",NA,-0.431
+"7429cbef-2376-4c33-a67e-73f1c7247558","6","foot ~ milk",0.11
+"7429cbef-2376-4c33-a67e-73f1c7247558","6","hand ~ yogurt",-0.244
+"7429cbef-2376-4c33-a67e-73f1c7247558","6",NA,0.1595
+"91376d6c-bf00-4480-ae05-8e1b8018bc79","6",NA,-0.191
+"946c2360-cad0-45b6-9157-c238ef148691","12","foot ~ milk",0.241
+"946c2360-cad0-45b6-9157-c238ef148691","12","hand ~ yogurt",0.584
+"946c2360-cad0-45b6-9157-c238ef148691","12",NA,0.49
+"9ca6f0dc-cbf8-45d0-af57-6d0e3a05e342","6",NA,0.249
+"9f5ffe6b-1fa7-48a0-9a78-0c418c6d9895","6",NA,-0.033
+"a443ccf6-9920-40f8-a25d-3ed6846c26eb","6","foot ~ milk",0.179
+"a443ccf6-9920-40f8-a25d-3ed6846c26eb","6",NA,0.218
+"a5fae6ce-8417-4fd8-8e58-b0faaed2356e","6","hand ~ yogurt",0.143
+"a5fae6ce-8417-4fd8-8e58-b0faaed2356e","6",NA,-0.107
+"ad8986ae-2592-4f48-89b4-3e3ee922860f","12","foot ~ milk",0.223
+"ad8986ae-2592-4f48-89b4-3e3ee922860f","12","hand ~ yogurt",-0.373
+"ad8986ae-2592-4f48-89b4-3e3ee922860f","12",NA,-0.313
+"b02e83c3-8e89-408c-8a20-dc774853a7c9","12","hand ~ yogurt",-0.074
+"bc7c22c3-c29a-44f0-a262-0e3ad8508c8c","6","foot ~ milk",-0.138
+"bc7c22c3-c29a-44f0-a262-0e3ad8508c8c","6","hand ~ yogurt",-0.283
+"bc7c22c3-c29a-44f0-a262-0e3ad8508c8c","6",NA,-0.037
+"c053c0b9-6594-4a4e-9ddf-8c546bc2865a","6","foot ~ milk",0.233
+"c053c0b9-6594-4a4e-9ddf-8c546bc2865a","6","hand ~ yogurt",0.252
+"c053c0b9-6594-4a4e-9ddf-8c546bc2865a","6",NA,0.114
+"c26eeff1-cf6b-4e88-b21f-10386bc08b06","6","foot ~ milk",-0.299
+"c4cca634-6ed3-4194-a6ac-01ee45a90f8d","12",NA,-0.097
+"c5ad0dd5-2f09-4be0-bd65-35351e595938","6","foot ~ milk",0.191
+"c5ad0dd5-2f09-4be0-bd65-35351e595938","6","hand ~ yogurt",-0.26
+"c5ad0dd5-2f09-4be0-bd65-35351e595938","6",NA,-0.186
+"ceac9e49-7f0e-41c6-9e89-81d8fa286499","6","foot ~ milk",-0.133
+"ceac9e49-7f0e-41c6-9e89-81d8fa286499","6",NA,-0.352
+"d5c00f11-5f46-4919-835f-ff52db609317","12","hand ~ yogurt",0.041
+"d5c00f11-5f46-4919-835f-ff52db609317","12",NA,-0.272
+"db073f15-743f-44c0-a00f-f933f02ae741","12","foot ~ milk",-0.113
+"db21e9a1-478a-4b07-a79d-9c586c711f40","6","hand ~ yogurt",0.122
+"db21e9a1-478a-4b07-a79d-9c586c711f40","6",NA,-0.369
+"e1de4a92-a702-4f77-92cb-437799e28dae","6","foot ~ milk",-0.266
+"e1de4a92-a702-4f77-92cb-437799e28dae","6","hand ~ yogurt",0.096
+"e1de4a92-a702-4f77-92cb-437799e28dae","6",NA,-0.1435
+"e840a295-de8b-4a29-9bbb-b6a0740d8112","6",NA,-0.608
+"f22b3366-1a35-4b22-8bdf-d29879221af7","6","hand ~ yogurt",-0.087
+"f22b3366-1a35-4b22-8bdf-d29879221af7","6",NA,-0.284
+"f53c1242-7c7e-441e-b24e-f1745def2023","12","foot ~ milk",0.887
+"f53c1242-7c7e-441e-b24e-f1745def2023","12",NA,0.303
+"fb1824e0-7cc6-4939-a9d4-a808e433352a","6","foot ~ milk",-0.553
+"fb1824e0-7cc6-4939-a9d4-a808e433352a","6",NA,-0.1575

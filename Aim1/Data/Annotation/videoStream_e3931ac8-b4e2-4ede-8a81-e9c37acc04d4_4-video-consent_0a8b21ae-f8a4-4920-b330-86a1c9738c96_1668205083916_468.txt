@@ -1,0 +1,15 @@
+4, nobabyface, -1.00
+5, nobabyface, -1.00
+6, nobabyface, -1.00
+7, nobabyface, -1.00
+8, nobabyface, -1.00
+9, nobabyface, -1.00
+10, nobabyface, -1.00
+11, nobabyface, -1.00
+12, nobabyface, -1.00
+13, nobabyface, -1.00
+14, nobabyface, -1.00
+15, nobabyface, -1.00
+16, nobabyface, -1.00
+17, nobabyface, -1.00
+18, nobabyface, -1.00
