@@ -1,0 +1,266 @@
+"response_uuid","child_hashed_id","frame_id","event_number","key","value"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","global","0","exitType","browserNavigationAttempt"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","global","0","eventType","exitEarly"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","global","0","timestamp","2024-01-24T21:06:05.251Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","global","0","lastPageSeen",8
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","3-consentrule","0","eventType","exp-lookit-text:nextFrame"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","3-consentrule","0","timestamp","2024-01-24T20:37:51.733Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","3-consentrule","","frameDuration",4.763
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","1-study-intro1","0","eventType","exp-frame-select:nextFrame"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","1-study-intro1","0","timestamp","2024-01-24T20:37:36.364Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","1-study-intro1","1","eventType","exp-frame-select:nextFrame"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","1-study-intro1","1","timestamp","2024-01-24T20:37:36.390Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","1-study-intro1","","frameDuration",0.001
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","1-study-intro1","","generatedProperties.ELIGIBLE",True
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","1-study-intro1","","generatedProperties.whichFrames",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","2-study-intro2","0","eventType","exp-lookit-text:nextFrame"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","2-study-intro2","0","timestamp","2024-01-24T20:37:46.931Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","2-study-intro2","","frameDuration",4.673
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","","screenWidth",1187
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","0","videoId","videoStream_a1357b2f-7c74-42cc-b3ba-f2cb59883a3e_4-video-config_7417b8ac-8a63-41b4-ac2e-0e7d94c45960_1706128671803_262"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","0","eventType","exp-video-config:setupVideoRecorder"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","0","timestamp","2024-01-24T20:37:51.809Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","0","streamTime",""
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","1","eventType","exp-video-config:recorderReady"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","1","timestamp","2024-01-24T20:37:51.812Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","1","streamTime",""
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","2","eventType","exp-video-config:recorder.hasCamAccess"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","2","timestamp","2024-01-24T20:37:52.609Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","2","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","2","hasCamAccess",True
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","3","status","connected"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","3","eventType","exp-video-config:videoStreamConnection"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","3","timestamp","2024-01-24T20:37:52.787Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","3","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","4","eventType","exp-video-config:destroyingRecorder"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","4","timestamp","2024-01-24T20:37:55.194Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","4","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","5","status","disconnected: io client disconnect"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","5","eventType","exp-video-config:videoStreamConnection"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","5","timestamp","2024-01-24T20:37:55.219Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","5","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","6","videoId","videoStream_a1357b2f-7c74-42cc-b3ba-f2cb59883a3e_4-video-config_7417b8ac-8a63-41b4-ac2e-0e7d94c45960_1706128675219_725"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","6","eventType","exp-video-config:setupVideoRecorder"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","6","timestamp","2024-01-24T20:37:55.222Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","6","streamTime",""
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","7","eventType","exp-video-config:recorder.hasCamAccess"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","7","timestamp","2024-01-24T20:37:55.873Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","7","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","7","hasCamAccess",True
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","8","status","connected"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","8","eventType","exp-video-config:videoStreamConnection"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","8","timestamp","2024-01-24T20:37:56.210Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","8","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","9","eventType","exp-video-config:nextFrame"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","9","timestamp","2024-01-24T20:38:00.127Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","9","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","","screenHeight",667
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","4-video-config","","frameDuration",8.33
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","","videoId","consent-videoStream_a1357b2f-7c74-42cc-b3ba-f2cb59883a3e_5-video-consent_7417b8ac-8a63-41b4-ac2e-0e7d94c45960_1706128680220_351"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","","videoList.0","consent-videoStream_a1357b2f-7c74-42cc-b3ba-f2cb59883a3e_5-video-consent_7417b8ac-8a63-41b4-ac2e-0e7d94c45960_1706128680220_351"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","0","videoId","consent-videoStream_a1357b2f-7c74-42cc-b3ba-f2cb59883a3e_5-video-consent_7417b8ac-8a63-41b4-ac2e-0e7d94c45960_1706128680220_351"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","0","eventType","exp-lookit-video-consent:setupVideoRecorder"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","0","timestamp","2024-01-24T20:38:00.222Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","0","streamTime",""
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","1","eventType","exp-lookit-video-consent:recorderReady"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","1","timestamp","2024-01-24T20:38:00.228Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","1","streamTime",""
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","2","eventType","exp-lookit-video-consent:recorder.hasCamAccess"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","2","timestamp","2024-01-24T20:38:00.712Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","2","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","2","hasCamAccess",True
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","3","status","connected"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","3","eventType","exp-lookit-video-consent:videoStreamConnection"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","3","timestamp","2024-01-24T20:38:01.125Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","3","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","4","status","disconnected: transport close"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","4","eventType","exp-lookit-video-consent:videoStreamConnection"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","4","timestamp","2024-01-24T20:47:51.557Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","4","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","5","status","reconnecting"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","5","eventType","exp-lookit-video-consent:videoStreamConnection"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","5","timestamp","2024-01-24T20:47:52.351Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","5","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","6","status","reconnected"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","6","eventType","exp-lookit-video-consent:videoStreamConnection"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","6","timestamp","2024-01-24T20:47:52.566Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","6","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","7","status","connected"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","7","eventType","exp-lookit-video-consent:videoStreamConnection"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","7","timestamp","2024-01-24T20:47:53.216Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","7","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","8","status","disconnected: ping timeout"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","8","eventType","exp-lookit-video-consent:videoStreamConnection"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","8","timestamp","2024-01-24T21:03:53.720Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","8","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","9","status","reconnecting"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","9","eventType","exp-lookit-video-consent:videoStreamConnection"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","9","timestamp","2024-01-24T21:03:54.575Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","9","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","10","status","reconnected"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","10","eventType","exp-lookit-video-consent:videoStreamConnection"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","10","timestamp","2024-01-24T21:03:54.739Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","10","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","11","status","connected"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","11","eventType","exp-lookit-video-consent:videoStreamConnection"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","11","timestamp","2024-01-24T21:03:55.282Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","11","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","12","pipeId","tsuEtBRmEBMIVT2FjBvxTan3tlleiXW6"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","12","eventType","exp-lookit-video-consent:startRecording"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","12","timestamp","2024-01-24T21:05:17.024Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","12","streamTime",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","13","eventType","exp-lookit-video-consent:stoppingCapture"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","13","timestamp","2024-01-24T21:05:42.068Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","13","streamTime",25.1
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","14","eventType","exp-lookit-video-consent:nextFrame"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","14","timestamp","2024-01-24T21:05:58.469Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","14","streamTime",25.1
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","15","eventType","exp-lookit-video-consent:destroyingRecorder"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","15","timestamp","2024-01-24T21:05:58.471Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","15","streamTime",25.1
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","16","status","disconnected: io client disconnect"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","16","eventType","exp-lookit-video-consent:videoStreamConnection"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","16","timestamp","2024-01-24T21:05:58.480Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","16","streamTime",25.1
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","","frameDuration",1678.246
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","5-video-consent","","consentFormText","
+
+
+                    
+    
+        Consent to participate in research: RISE Study for SPARK
+    
+
+
+
+
+
+     Researchers led by Elena Tenenbaum at Duke University are running this study, ""RISE Study for SPARK,"" on Lookit. With Dr. Shafali Jestse at Children’s Hospital of Los Angeles, Dr. Tenenbaum leads the RISE Consortium, a group of experts around the world who have come together to gain a deeper understanding of infant and toddler cognitive development. 
+
+      Why we are running this study 
+     The purpose of this study is to determine whether we can learn about cognitive and language development by showing infants videos and watching their responses to those videos. Videos like these have been used in studies before to show how infants respond as a group. In this study, we are interested in whether we can learn about individual infants by measuring their responses to these videos. Participation involves having infants watch the series of video stimuli. Caregivers are asked to complete questionnaires about their child’s development. If you are interested in learning more about this study, please continue to read below. 
+
+      What happens during this study 
+     This study takes about 80 minutes (20 minutes for the child and 40-60 minutes for the caregiver) to complete. This study takes about 80 minutes (20 minutes for the child and 40-60 minutes for the caregiver) to complete. You and your child will be asked to watch a 20 minute session of video stimuli. After the videos, you will be asked to complete surveys that can take 40-60 minutes to complete. Approximately 1 week after completing the initial set of videos, you will be asked to repeat the 20 minute session of video stimuli. After 6 months, we will contact you again to complete the same surveys. 
+
+      Participation is voluntary 
+    
+        You and your child are free to choose whether to be in this study. If you do choose to participate, it's okay to stop at any point during the session. Please do pause or stop the session if your child becomes fussy or does not want to participate!
+    
+    
+
+          What are the risks? 
+         There are no physical risks associated with this study. There is, however, the potential risk of loss of confidentiality. Every effort will be made to keep your information confidential; however, this cannot be guaranteed. Some of the questions we will ask you as part of this study may make you feel uncomfortable. You may take a break at any time during the study. You may stop your participation in this study at any time. 
+
+      What are the benefits?  
+     There are no direct benefits to participating in this study. We hope that in the future the information learned from this study will help us understand how children learn about their environment. You will be reimbursed at a rate of $25 for completion of both the video session and all five caregiver surveys. You will receive $25 for the additional video session completion. Finally, you will receive another $25 for the additional survey completion after 6 months, for a total of up to $75 for your participation. Compensation will be provided if your child is present for the video recording and within the designated age ranges.Some of the measures you complete in this study are used as developmental screening tools that can help determine if your child needs an in-person evaluation. If concerns are noted, we will reach out with information that you can discuss with your child’s pediatrician. Please note that you are always able to contact your pediatrician if you have concerns about your child’s development. 
+
+     Data collection and webcam recording 
+    
+        During the session, you and your child will be recorded by your computer's webcam and microphone. These webcam recordings, and other data like answers you enter in forms, are sent securely to the Lookit platform. You can view your past recordings on Lookit at any time.
+    
+    
+        Data are stored securely on Lookit servers and by researchers, and are only shared as described in this document. However, there is always a small risk that data transmitted over the internet may be intercepted or that the security of stored data may be compromised.
+    
+
+     Who will be able to see your webcam recordings?
+    
+        We will first check that you really agreed to participate by watching your consent recording. If we cannot confirm that you agreed to participate, no one will view any other recordings from this session.
+    
+
+        
+            At the end of the session, you will choose a privacy level for your webcam recordings. You can choose one of the following privacy levels for your videos:
+            
+                ""Private"": Researchers with access to your recordings will not share them with anyone else.
+                ""Scientific"": Researchers with access to your recordings may share them for scientific or educational purposes, for instance showing an example in a class or during a scientific conference.
+                
+                ""Publicity"": Researchers with access to your recordings may also share them for publicity, for instance in a news segment about the research or to recruit more participants.
+                
+            
+            You will also have the option to withdraw your recordings. If you do, only your consent recording will be kept and all other recordings will be deleted.
+        
+
+        
+            Separately, you can opt in to give access to your recordings and other data to authorized users of the secure data library Databrary. This means that other researchers besides the ones running this study will have access to your recordings, and may be able to use them to answer other questions about child development. Data sharing can lead to faster progress in research on human development and behavior. Authorized Databrary researchers have to agree to maintain confidentiality and not use the data for commercial purposes. If you have any questions about this data-sharing library, visit Databrary or email ethics@databrary.org.
+        
+
+     How we use your data 
+    
+        If you participate in this study, we (the research group led by Elena Tenenbaum at Duke University) will have access to
+        
+             webcam recordings and other data collected during this session
+             your account profile and demographic survey
+             the child profile for the child who is participating
+        
+        This includes changes you make in the future to any of this information. We may put different types of information together to learn more about child development. For instance, if your child participates in multiple studies from our group, we may look at how his or her responses compare across studies, or we may look at whether siblings tend to respond similarly. We may also study connections between children's responses and family demographic survey data.
+    
+
+     How Lookit uses your data
+    
+        The Lookit core team at MIT will also have access to the data collected during this session, in addition to your account data. They use this data to run and improve Lookit, for instance to provide technical support, check how well data collection is working, or see whether Lookit is reaching a diverse group of families. Lookit stores data indefinitely unless you withdraw your recordings at the end of the study.
+    
+
+
+
+     Publishing the results of this study
+    
+        The results of this study may be presented at scientific meetings or published in scientific journals. We may publish individual responses that cannot identify children, like looking times or sequences of button presses. We never publish children's birthdates or names. Even if you choose to share your recordings, we never publish information that would make it possible to link recordings with your demographic data.
+    
+
+             For SPARK Participants 
+             For those individuals who participated in the SPARK study, we are asking your consent for the SPARK study, hosted by the Simons Foundation, to share with Duke University Medical Center and the Children’s Hospital of Los Angeles the clinical, demographic, and genetic data collected during your participation in SPARK. This information will be shared using your linked research ID number and using a secure transfer system. We are also asking for your consent to share the data we collect during the study here through Duke University and the Children’s Hospital of Los Angeles with SPARK in order to add to the information that was collected during your participation in SPARK. Please note that because you are a participant in both studies, SPARK and this study will be able to share and link your identifying information, as well as any future data you may contribute to either project.The Simons Foundation funds innovative research and provides coded data access (data with your identifying information removed) to qualified researchers. Researchers can file an application with the Simons Foundation to obtain access to your study data for research purposes. Experts at the Simons Foundation who protect health and science information will look at every request carefully to minimize risks to your privacy. 
+
+     Your rights as a participant
+     You may choose not to allow your child to be in the study, or, if you agree to allow your child to be in the study, you may withdraw from the study at any time. If you withdraw your child from the study, no new data about your child will be collected for study purposes other than data needed to keep track of your child’s withdrawal. Your decision not to allow your child to participate or to withdraw your child from the study will not involve any penalty or loss of benefits to which your child is entitled. If you do decide to withdraw your child, we ask that you contact Dr. Tenenbaum in writing and let her know that your child is withdrawing from the study. Her mailing address is Hock Plaza, 2424 Erwin Road, Suite 501, Durham, NC 27705. Your child’s data may be stored and shared for future research without additional informed consent if identifiable private information, such as your child’s name and medical record number, are removed. If your child’s identifying information is removed from their samples or data, we will no longer be able to identify and destroy them. 
+
+
+     How to reach us
+    
+        This study is run by Elena Tenenbaum at Duke University. If you or your child have any questions or concerns about this study, or in the very unlikely event of a research-related injury, please contact This study is run by Elena Tenenbaum at Duke University. If you or your child have any questions or concerns about this study, or in the very unlikely event of a research-related injury, please contact Dr. Tenenbaum at 919-668-2943 during regular business hours, after hours, and on weekends and holidays. For questions about your child’s rights as a research participant, or to discuss problems, concerns or suggestions related to the research, or to obtain information or offer input about the research, contact the Duke University Health System Institutional Review Board (IRB) Office at (919) 668-5111..
+    
+    
+        If you or your child have any questions or concerns about the Lookit platform, please contact Lookit staff at lookit@mit.edu.
+    
+
+
+
+                
+            "
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","1-study-intro1-0","0","eventType","exp-frame-select:nextFrame"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","1-study-intro1-0","0","timestamp","2024-01-24T20:37:36.364Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","1-study-intro1-0","1","eventType","exp-frame-select:nextFrame"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","1-study-intro1-0","1","timestamp","2024-01-24T20:37:36.390Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","1-study-intro1-0","","frameDuration",0.028
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","1-study-intro1-0-0","0","eventType","exp-lookit-text:nextFrame"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","1-study-intro1-0-0","0","timestamp","2024-01-24T20:37:42.243Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","1-study-intro1-0-0","","frameDuration",5.835
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formData.English","Yes"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formData.Resident","Yes"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formData.MonthsAge",5
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.schema.type","object"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.schema.title","Before we get started, please answer the questions below to determine if your child is eligible to participate!"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.schema.properties.English.enum.0","Yes"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.schema.properties.English.enum.1","No"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.schema.properties.English.type","string"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.schema.properties.English.title","Is more than half of the language spoken in the home English?"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.schema.properties.English.required",True
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.schema.properties.Resident.enum.0","Yes"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.schema.properties.Resident.enum.1","No"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.schema.properties.Resident.type","string"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.schema.properties.Resident.title","Do you live in the United States of America?"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.schema.properties.Resident.required",True
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.schema.properties.MonthsAge.type","integer"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.schema.properties.MonthsAge.title","How many months old is your baby?"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.schema.properties.MonthsAge.maximum",24
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.schema.properties.MonthsAge.minimum",0
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.schema.properties.MonthsAge.required",True
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.options.fields.English.type","radio"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.options.fields.English.message","Please answer this question."
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.options.fields.English.validator","required-field"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.options.fields.Resident.type","radio"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.options.fields.Resident.message","Please answer this question."
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.options.fields.Resident.validator","required-field"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","formSchema.options.fields.MonthsAge.numericEntry",True
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","0","eventType","exp-lookit-survey:nextFrame"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","0","timestamp","2024-01-24T20:37:36.323Z"
+"7417b8ac-8a63-41b4-ac2e-0e7d94c45960","cGDGT4","0-eligibility-survey","","frameDuration",23.2

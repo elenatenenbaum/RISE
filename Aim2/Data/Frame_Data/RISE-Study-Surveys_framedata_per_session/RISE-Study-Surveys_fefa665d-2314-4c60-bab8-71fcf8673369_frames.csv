@@ -1,0 +1,8 @@
+"response_uuid","child_hashed_id","frame_id","event_number","key","value"
+"fefa665d-2314-4c60-bab8-71fcf8673369","GLQ27E","global","0","exitType","browserNavigationAttempt"
+"fefa665d-2314-4c60-bab8-71fcf8673369","GLQ27E","global","0","eventType","exitEarly"
+"fefa665d-2314-4c60-bab8-71fcf8673369","GLQ27E","global","0","timestamp","2023-05-19T13:08:43.981Z"
+"fefa665d-2314-4c60-bab8-71fcf8673369","GLQ27E","global","0","lastPageSeen",1
+"fefa665d-2314-4c60-bab8-71fcf8673369","GLQ27E","0-study-intro","0","eventType","exp-lookit-text:nextFrame"
+"fefa665d-2314-4c60-bab8-71fcf8673369","GLQ27E","0-study-intro","0","timestamp","2023-05-19T13:08:31.005Z"
+"fefa665d-2314-4c60-bab8-71fcf8673369","GLQ27E","0-study-intro","","frameDuration",1.886

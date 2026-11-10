@@ -1,0 +1,86 @@
+"response_uuid","child_hashed_id","frame_id","event_number","key","value"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","global","0","exitType","browserNavigationAttempt"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","global","0","eventType","exitEarly"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","global","0","timestamp","2023-05-19T15:34:31.725Z"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","global","0","lastPageSeen",12
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","2-MCHAT-CSBS","0","eventType","exp-frame-select:nextFrame"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","2-MCHAT-CSBS","0","timestamp","2023-05-19T15:30:40.594Z"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","2-MCHAT-CSBS","","frameDuration",0.001
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","2-MCHAT-CSBS","","generatedProperties.ELIGIBLE",False
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","2-MCHAT-CSBS","","generatedProperties.whichFrames",1
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","0-study-intro","0","eventType","exp-lookit-text:nextFrame"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","0-study-intro","0","timestamp","2023-05-19T15:30:34.854Z"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","0-study-intro","","frameDuration",0.994
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formData.Race.0","Other"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formData.Ethnicity","Not Hispanic/Latinx"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formData.MonthsAge",20
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.type","object"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.title","Tell us a little more about your child!"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.Race.enum.0","American Indian/Alaskan Native"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.Race.enum.1","Asian"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.Race.enum.2","Black/African American"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.Race.enum.3","White/Caucasian"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.Race.enum.4","Other"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.Race.type","array"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.Race.title","What is your child's race?"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.Race.required",True
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.Ethnicity.enum.0","Hispanic/Latinx"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.Ethnicity.enum.1","Not Hispanic/Latinx"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.Ethnicity.type","string"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.Ethnicity.title","What is your child's ethnicity?"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.Ethnicity.required",True
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.MonthsAge.type","integer"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.MonthsAge.title","How many months old is your baby today?"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.MonthsAge.maximum",24
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.MonthsAge.minimum",0
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.schema.properties.MonthsAge.required",True
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.options.fields.Race.sort",False
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.options.fields.Race.type","checkbox"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.options.fields.Race.validator","required-field"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.options.fields.Race.optionLabels.0","American Indian/Alaskan Native"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.options.fields.Race.optionLabels.1","Asian"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.options.fields.Race.optionLabels.2","Black/African American"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.options.fields.Race.optionLabels.3","White/Caucasian"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.options.fields.Race.optionLabels.4","Other"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.options.fields.Race.removeDefaultNone",True
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.options.fields.Ethnicity.sort",False
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.options.fields.Ethnicity.type","radio"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.options.fields.Ethnicity.validator","required-field"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.options.fields.MonthsAge.sort",False
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.options.fields.MonthsAge.validator","required-field"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","formSchema.options.fields.MonthsAge.numericEntry",True
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","0","eventType","exp-lookit-survey:nextFrame"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","0","timestamp","2023-05-19T15:30:40.587Z"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","1-Demographics","","frameDuration",5.705
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","2-MCHAT-CSBS-0","0","eventType","exp-lookit-instructions:nextFrame"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","2-MCHAT-CSBS-0","0","timestamp","2023-05-19T15:30:42.148Z"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","2-MCHAT-CSBS-0","0","streamTime",""
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","2-MCHAT-CSBS-0","","frameDuration",1.546
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","3-CSBS-Instructions2","0","eventType","exp-lookit-instructions:nextFrame"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","3-CSBS-Instructions2","0","timestamp","2023-05-19T15:30:43.173Z"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","3-CSBS-Instructions2","0","streamTime",""
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","3-CSBS-Instructions2","","frameDuration",1.01
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","4-SWYC-Instructions1","0","eventType","exp-lookit-instructions:nextFrame"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","4-SWYC-Instructions1","0","timestamp","2023-05-19T15:30:46.901Z"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","4-SWYC-Instructions1","0","streamTime",""
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","4-SWYC-Instructions1","","frameDuration",3.712
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","5-SWYC-Instructions2","0","eventType","exp-lookit-instructions:nextFrame"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","5-SWYC-Instructions2","0","timestamp","2023-05-19T15:30:47.892Z"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","5-SWYC-Instructions2","0","streamTime",""
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","5-SWYC-Instructions2","","frameDuration",0.98
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","6-EarlyMotor-Instructions1","0","eventType","exp-lookit-instructions:nextFrame"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","6-EarlyMotor-Instructions1","0","timestamp","2023-05-19T15:30:48.964Z"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","6-EarlyMotor-Instructions1","0","streamTime",""
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","6-EarlyMotor-Instructions1","","frameDuration",1.056
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","7-EarlyMotor-Instructions2","0","eventType","exp-lookit-text:nextFrame"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","7-EarlyMotor-Instructions2","0","timestamp","2023-05-19T15:30:50.076Z"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","7-EarlyMotor-Instructions2","","frameDuration",1.097
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","9-EarlyMotor-FineMotorInstructions","0","eventType","exp-lookit-text:nextFrame"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","9-EarlyMotor-FineMotorInstructions","0","timestamp","2023-05-19T15:30:51.612Z"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","9-EarlyMotor-FineMotorInstructions","","frameDuration",0.581
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","8-EarlyMotor-GrossMotorInstructions","0","eventType","exp-lookit-text:nextFrame"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","8-EarlyMotor-GrossMotorInstructions","0","timestamp","2023-05-19T15:30:51.020Z"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","8-EarlyMotor-GrossMotorInstructions","","frameDuration",0.928
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","10-EarlyMotor-PerceptionActionInstructions","0","eventType","exp-lookit-text:nextFrame"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","10-EarlyMotor-PerceptionActionInstructions","0","timestamp","2023-05-19T15:30:52.133Z"
+"32f4265a-cdbb-4ad2-a5bf-e1397018fb10","cS2dUA","10-EarlyMotor-PerceptionActionInstructions","","frameDuration",0.508

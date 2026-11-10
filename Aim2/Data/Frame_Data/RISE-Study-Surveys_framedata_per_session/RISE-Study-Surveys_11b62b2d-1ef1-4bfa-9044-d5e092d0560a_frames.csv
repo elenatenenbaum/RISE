@@ -1,0 +1,5 @@
+"response_uuid","child_hashed_id","frame_id","event_number","key","value"
+"11b62b2d-1ef1-4bfa-9044-d5e092d0560a","XRMBFZ","global","0","exitType","browserNavigationAttempt"
+"11b62b2d-1ef1-4bfa-9044-d5e092d0560a","XRMBFZ","global","0","eventType","exitEarly"
+"11b62b2d-1ef1-4bfa-9044-d5e092d0560a","XRMBFZ","global","0","timestamp","2023-05-18T19:17:50.218Z"
+"11b62b2d-1ef1-4bfa-9044-d5e092d0560a","XRMBFZ","global","0","lastPageSeen",0

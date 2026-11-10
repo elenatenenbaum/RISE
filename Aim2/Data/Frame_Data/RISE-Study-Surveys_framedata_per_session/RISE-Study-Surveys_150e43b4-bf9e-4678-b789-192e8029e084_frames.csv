@@ -1,0 +1,69 @@
+"response_uuid","child_hashed_id","frame_id","event_number","key","value"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","global","0","exitType","browserNavigationAttempt"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","global","0","eventType","exitEarly"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","global","0","timestamp","2023-05-19T15:40:01.572Z"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","global","0","lastPageSeen",6
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS","0","eventType","exp-frame-select:nextFrame"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS","0","timestamp","2023-05-19T15:39:01.677Z"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS","1","eventType","exp-frame-select:nextFrame"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS","1","timestamp","2023-05-19T15:39:01.684Z"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS","","frameDuration",0
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS","","generatedProperties.ELIGIBLE",True
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS","","generatedProperties.whichFrames",0
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","0-study-intro","0","eventType","exp-lookit-text:nextFrame"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","0-study-intro","0","timestamp","2023-05-19T15:38:57.487Z"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","0-study-intro","","frameDuration",1.005
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formData.Race.0","Other"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formData.Ethnicity","Hispanic/Latinx"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formData.MonthsAge",16
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.type","object"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.title","Tell us a little more about your child!"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.Race.enum.0","American Indian/Alaskan Native"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.Race.enum.1","Asian"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.Race.enum.2","Black/African American"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.Race.enum.3","White/Caucasian"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.Race.enum.4","Other"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.Race.type","array"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.Race.title","What is your child's race?"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.Race.required",True
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.Ethnicity.enum.0","Hispanic/Latinx"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.Ethnicity.enum.1","Not Hispanic/Latinx"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.Ethnicity.type","string"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.Ethnicity.title","What is your child's ethnicity?"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.Ethnicity.required",True
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.MonthsAge.type","integer"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.MonthsAge.title","How many months old is your baby today?"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.MonthsAge.maximum",24
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.MonthsAge.minimum",0
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.schema.properties.MonthsAge.required",True
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.options.fields.Race.sort",False
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.options.fields.Race.type","checkbox"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.options.fields.Race.validator","required-field"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.options.fields.Race.optionLabels.0","American Indian/Alaskan Native"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.options.fields.Race.optionLabels.1","Asian"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.options.fields.Race.optionLabels.2","Black/African American"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.options.fields.Race.optionLabels.3","White/Caucasian"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.options.fields.Race.optionLabels.4","Other"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.options.fields.Race.removeDefaultNone",True
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.options.fields.Ethnicity.sort",False
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.options.fields.Ethnicity.type","radio"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.options.fields.Ethnicity.validator","required-field"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.options.fields.MonthsAge.sort",False
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.options.fields.MonthsAge.validator","required-field"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","formSchema.options.fields.MonthsAge.numericEntry",True
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","0","eventType","exp-lookit-survey:nextFrame"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","0","timestamp","2023-05-19T15:39:01.665Z"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","1-Demographics","","frameDuration",4.147
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS-0","0","eventType","exp-frame-select:nextFrame"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS-0","0","timestamp","2023-05-19T15:39:01.677Z"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS-0","1","eventType","exp-frame-select:nextFrame"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS-0","1","timestamp","2023-05-19T15:39:01.684Z"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS-0","","frameDuration",0.008
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS-0-0","0","eventType","exp-lookit-instructions:nextFrame"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS-0-0","0","timestamp","2023-05-19T15:39:02.966Z"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS-0-0","0","streamTime",""
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS-0-0","","frameDuration",1.269
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS-0-1","0","eventType","exp-lookit-instructions:nextFrame"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS-0-1","0","timestamp","2023-05-19T15:39:03.894Z"
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS-0-1","0","streamTime",""
+"150e43b4-bf9e-4678-b789-192e8029e084","GLQ27E","2-MCHAT-CSBS-0-1","","frameDuration",0.913

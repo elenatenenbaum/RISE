@@ -1,0 +1,5 @@
+"response_uuid","child_hashed_id","frame_id","event_number","key","value"
+"f1bcb6c0-1e0f-4183-baa7-6a8f47d88c5b","EQcE3N","global","0","exitType","browserNavigationAttempt"
+"f1bcb6c0-1e0f-4183-baa7-6a8f47d88c5b","EQcE3N","global","0","eventType","exitEarly"
+"f1bcb6c0-1e0f-4183-baa7-6a8f47d88c5b","EQcE3N","global","0","timestamp","2023-05-19T00:22:08.349Z"
+"f1bcb6c0-1e0f-4183-baa7-6a8f47d88c5b","EQcE3N","global","0","lastPageSeen",0
