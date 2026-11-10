@@ -1,0 +1,290 @@
+---
+title: "RISE combined Aims 1 & 2"
+author: "Mike Frank & My Vu"
+date: "`r format(Sys.Date(), '%m/%d/%Y')`"
+output: html_document
+---
+
+
+```{r setup, include=F}
+knitr::opts_chunk$set(echo = F, warning = F, message =  F)
+
+library(tidyverse)
+library(lmerTest)   # masks lme4::lmer; same models, but summary() reports p-values (Aim Rmds use lmerTest::lmer too)
+library(emmeans)
+library(EnvStats)   # stat_n_text()
+library(ggpubr)     # ggarrange()
+# Hmisc must be installed (not attached) for stat_summary(fun.data = "mean_cl_boot")
+```
+
+
+# Read in data
+
+| common column   | meaning |
+|-----------------|---------|
+| `sub_id`        | `response_uuid` |
+| `age`           | 6 or 12 months (already snapped in the Aim Rmds); factor with 6 as reference |
+| `measure`       | task outcome (see below) |
+| `item`          | trial / word pair, used as a crossed random intercept (NA where the Aim models don't use one) |
+| `stimulus_type` | VPC (Social / Non-social) and Numeracy (5- / 20-item stream) only |
+| `block`         | Prediction only (Block 1 / Block 2) |
+
+
+```{r}
+main_dir <- here::here()
+
+# same helper functions as the Aim 1 / Aim 2 Rmds (includes run_condition_model in models_func.R)
+invisible(lapply(
+  list.files(
+    here::here("Main_Functions"),
+    pattern = "\\.R$",
+    full.names = TRUE), source))
+
+tasks <- c("geosocial", "vpc", "audiovisual", "prediction",
+           "word_comprehension", "numeracy", "helperhinderer")
+
+# One row per task: file name + which column holds the outcome / random-effect item / stimulus type / block.
+# NA = that task doesn't have that column. Column names are exactly what the Aim Rmds write.
+task_spec <- tribble(
+  ~task,                ~file,            ~measure_col,  ~item_col,     ~stim_col,       ~block_col,
+  "geosocial",          "geosocial.csv",  "target_prop", "Trial",       NA_character_,   NA_character_,
+  "vpc",                "vpc.csv",        "target_prop", "Trial Total", "Stimulus type", NA_character_,
+  "audiovisual",        "av.csv",         "target_prop", "Trial",       NA_character_,   NA_character_,
+  "prediction",         "prediction.csv", "aem_prop",    NA_character_, NA_character_,   "block",
+  "word_comprehension", "word.csv",       "diff",        "Word_Pair",   NA_character_,   NA_character_,
+  "numeracy",           "numeracy.csv",   "target_prop", "Trial",       "Stimulus type", NA_character_,
+  "helperhinderer",     "hh.csv",         "target_prop", "Trial",       NA_character_,   NA_character_
+)
+
+read_task <- function(task, file, measure_col, item_col, stim_col, block_col) {
+  # pull a column if the task has it, otherwise fill with NA
+  grab <- function(raw, col) if (is.na(col)) rep(NA_character_, nrow(raw)) else as.character(raw[[col]])
+  
+  map_df(c(aim1 = "Aim1", aim2 = "Aim2"), .id = "version", function(aim) {
+    raw <- read_csv(here::here(aim, "Data", "Computed_Data", file), show_col_types = FALSE)
+    tibble(
+      sub_id        = raw$response_uuid,
+      age           = raw$Age,
+      measure       = raw[[measure_col]],
+      item          = grab(raw, item_col),
+      stimulus_type = grab(raw, stim_col),
+      block         = grab(raw, block_col)
+    )
+  }) |>
+    mutate(task = task)
+}
+
+d_raw <- pmap_dfr(task_spec, read_task)
+```
+
+Outcomes:
+
+* Geosocial: Outcome is % frames looking at social stimulus (`target_prop`).
+* VPC: Outcome is % frames looking at novel stimulus (`target_prop`).
+* AV: Outcome is % frames looking at synchronous stimulus (`target_prop`).
+* Prediction: Outcome is proportion of trials with an AEM, per participant per block (`aem_prop`).
+* Word Comprehension: Outcome is % target - % distracter (`diff`), per participant per word pair.
+* Numeracy: Outcome is % frames looking at changing stimulus (`target_prop`).
+* Helper/Hinderer: Outcome is % frames looking at helping stimulus (`target_prop`; trials 7 and 14 only).
+
+Recode: Age 6 is the reference level; Numeracy stimulus type uses the same labels as the Aim Rmds
+(Large Constant = 20-item stream, Small Constant = 5-item stream).
+
+```{r}
+d <- d_raw |>
+  mutate(
+    age     = factor(age, levels = c(6, 12)),
+    version = factor(version, levels = c("aim1", "aim2"), labels = c("Study 1", "Study 2")),
+    task    = factor(task, levels = tasks),
+    stimulus_type = case_when(
+      task == "numeracy" & grepl("Large", stimulus_type) ~ "20-item constant stream",
+      task == "numeracy"                                 ~ "5-item constant stream",
+      TRUE                                               ~ stimulus_type
+    ),
+    # Social first for plotting; numeracy 5-item first (reference level)
+    stimulus_type = factor(stimulus_type,
+                           levels = c("Social", "Non-social",
+                                      "5-item constant stream", "20-item constant stream")),
+    block = factor(block)
+  )
+
+# sanity checks: catch a bad merge/recode before it silently drops rows from the models
+# stopifnot(!any(is.na(d$age)), !any(is.na(d$measure)))
+# d |> count(task, version, age) |> pivot_wider(names_from = c(version, age), values_from = n)
+# d |> distinct(task, stimulus_type, block)
+# 
+# # participant-level means (used for plotting only; models use the trial-level rows)
+d_sub <- d |>
+  group_by(version, sub_id, age, task, stimulus_type) |>
+  summarise(measure = mean(measure, na.rm = TRUE), .groups = "drop") |>
+  filter(!is.nan(measure))
+```
+
+Plot.
+
+```{r}
+# One plotting function instead of seven copy-pasted blocks.
+# cols = c(Study 1 colour, Study 2 colour); unit_scale = fix y to 0-1 (proportions); facet = split by stimulus type
+plot_task <- function(task_name, ylab, cols, chance = 0.5, unit_scale = TRUE, facet = FALSE) {
+  dodge <- position_dodge(width = .4)
+  # Facet panels are narrow, so spread the text a bit wider than the points to stop labels touching
+  dodge_txt <- position_dodge(width = if (facet) .65 else .4)
+  dat   <- filter(d_sub, task == task_name)
+
+  rng  <- if (unit_scale) 1 else diff(range(dat$measure))
+  base <- if (unit_scale) 0.02 else min(dat$measure) - 0.10 * rng
+
+  n_lab <- dat |>
+    count(age, version, stimulus_type) |>
+    mutate(y = base)
+
+  p <- ggplot(dat, aes(x = age, y = measure, col = version)) +
+    geom_point(alpha = .4, position = dodge) +
+    geom_text(data = n_lab, aes(x = age, y = y, group = version, label = paste0("n=", n)),
+              position = dodge_txt, colour = "black",
+              size = if (facet) 3.2 else 4, vjust = 0,
+              inherit.aes = FALSE, show.legend = FALSE) +
+    stat_summary(fun.data = "mean_cl_boot", position = dodge, pch = 2) +
+    geom_hline(yintercept = chance, lty = 2) +
+    scale_color_manual(values = cols) +
+    ggthemes::theme_few() +
+    labs(x = "Age", y = ylab, col = "Study")
+
+  p <- if (unit_scale) {
+    p + scale_y_continuous(breaks = c(0, .25, .50, .75, 1), limits = c(0, 1),
+                           labels = c("0.00", "0.25", "0.50", "0.75", "1.00"))
+  } else {
+    p + scale_y_continuous(expand = expansion(mult = c(0.12, 0.05)))
+  }
+
+  if (facet) p <- p + facet_wrap(~stimulus_type)
+  p
+}
+
+# p1 ... p7 definitions unchanged
+
+p1 <- plot_task("geosocial", "Proportion of looks fixating on\nsocial stimuli",
+                c("palevioletred3", "palevioletred4"))
+p2 <- plot_task("vpc", "Proportion of looks fixating on\nnovel images",
+                c("lightpink3", "lightpink4"), facet = TRUE)
+p3 <- plot_task("prediction", "Proportion of AEMs",
+                c("lightsalmon3", "lightsalmon4"))
+p4 <- plot_task("audiovisual", "Proportion of looks fixating on\nsynchronous stimuli",
+                c("lightgoldenrod3", "lightgoldenrod4"))
+p5 <- plot_task("word_comprehension", "Difference in proportions\n(target (%) - distracter (%))",
+                c("darkolivegreen3", "darkolivegreen4"), chance = 0, unit_scale = FALSE)
+p6 <- plot_task("numeracy", "Proportion of looks fixating on\nchanging stimuli",
+                c("mediumpurple3", "mediumpurple4"), facet = TRUE)
+p7 <- plot_task("helperhinderer", "Proportion of looks fixating on\nhelper stimuli",
+                c("lightblue3", "lightblue4"))
+```
+
+```{r, fig.width= 15, fig.height=13}
+figure_combined <- ggarrange(p1, p2, p3, p4, p5, p6, p7,
+                             ncol = 2, nrow = 4, labels = "auto", align = "hv")
+figure_combined   # print once
+
+save(figure_combined,
+     file = file.path(main_dir, "Combined", "combined_figure.RData"))
+```
+
+# Stats
+
+All model output uses `run_condition_model()` (`models_func.R`), the same helper as the Aim 1 and Aim 2 Rmds:
+`lmerTest::lmer` with REML, emmeans estimates tested against chance, 95% CIs, `adjust = "none"`.
+
+
+```{r}
+# Model data: helper expects the age column to be named Age. `by` builds the Study x stimulus/block grouping factor.
+model_d <- function(x, by = NULL) {
+  out <- d |>
+    filter(task == x) |>
+    rename(Age = age) |>
+    mutate(version = as.character(version))
+  if (is.null(by)) out else mutate(out, group = paste(version, .data[[by]], sep = " | "))
+}
+
+re_item <- c("(1 | sub_id)", "(1 | item)")
+re_sub  <- "(1 | sub_id)"
+
+# Thin wrapper so each task below is one line; mirrors the run_condition_model() calls in the Aim Rmds.
+run_comb <- function(task_name, label, chance, random_effects, by = NULL) {
+  run_condition_model(
+    data           = model_d(task_name, by),
+    condition_var  = c("Age", if (is.null(by)) "version" else "group"),
+    metric         = "measure",
+    chance_level   = chance,
+    caption_label  = label,
+    random_effects = random_effects,
+    interaction    = TRUE,
+    return_data    = FALSE   # TRUE returns the raw data frame (Condition, Estimate (95% CI), P-value), as saved in the Aim Rmds
+  )
+}
+```
+
+## Geosocial
+
+```{r}
+tab_geo_comb <- run_comb("geosocial", "Geosocial (Age x Study)", 0.5, re_item)
+tab_geo_comb
+```
+
+## VPC
+
+```{r}
+tab_vpc_comb <- run_comb("vpc", "VPC (Age x Study x Stimulus type)", 0.5, re_item, by = "stimulus_type")
+tab_vpc_comb
+```
+
+## Audiovisual
+
+No stimulus type in either study's AV data (the Aim models are age only).
+
+```{r}
+tab_av_comb <- run_comb("audiovisual", "Audiovisual (Age x Study)", 0.5, re_item)
+tab_av_comb
+```
+
+## Prediction
+
+Let's first look across blocks and then within. Rows are participant x block (`aem_prop`).
+
+```{r}
+tab_pred_comb <- run_comb("prediction", "Prediction, across blocks (Age x Study)", 0.5, re_sub)
+tab_pred_comb
+```
+
+```{r}
+tab_pred_block_comb <- run_comb("prediction", "Prediction (Age x Study x Block)", 0.5, re_sub, by = "block")
+tab_pred_block_comb
+```
+
+## Word comprehension
+
+`item` = word pair (as in the Aim models). Chance is 0 for the target - distracter difference.
+
+```{r}
+tab_word_comb <- run_comb("word_comprehension", "Word comprehension (Age x Study)", 0, re_item)
+tab_word_comb
+```
+
+## Numeracy
+
+Also a stimulus type interaction.
+
+```{r}
+tab_num_comb <- run_comb("numeracy", "Numeracy (Age x Study)", 0.5, re_item)
+tab_num_comb
+```
+
+```{r}
+tab_num_stim_comb <- run_comb("numeracy", "Numeracy (Age x Study x Stimulus type)", 0.5, re_item, by = "stimulus_type")
+tab_num_stim_comb
+```
+
+## Helper hinderer
+
+```{r}
+tab_hh_comb <- run_comb("helperhinderer", "Helper/Hinderer (Age x Study)", 0.5, re_sub)
+tab_hh_comb
+```

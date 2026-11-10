@@ -1,0 +1,62 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, message = F, warning = F)
+```
+
+```{r}
+dir_path <- "/Users/myvu/Library/CloudStorage/OneDrive-CHILDRENSHOSPITALLOSANGELES-BiostatsCore-StaffFiles/My Vu/Current_Sept32026/Elena Tenenbaum Updated"
+
+r_files <- list.files(
+  path       = dir_path,
+  pattern    = "\\.[Rr]$",
+  full.names = TRUE,
+  recursive  = TRUE
+)
+r_files <- sort(r_files)
+
+# Files where we want to print specific objects after sourcing, and which
+# objects to print for each (since the two files don't share the same set)
+print_specs <- list(
+  "ID_find/Aim1/Aim1_ID_find.R" = "qc_summary",
+  "ID_find/Aim2/Aim2_ID_find.R" = c("qc_summary", "check4_babysibs_vs_concurrent", "check5_nt_vs_concurrent")
+)
+
+results <- vector("list", length(r_files))
+names(results) <- r_files
+
+for (f in r_files) {
+  cat("\n===== Running:", basename(f), "=====\n")
+
+  # match by the relative suffix so we don't depend on the full absolute path
+  spec_key <- names(print_specs)[vapply(names(print_specs), function(k) endsWith(f, k), logical(1))]
+
+  env <- new.env(parent = globalenv())
+
+  results[[f]] <- tryCatch(
+    {
+      source(f, echo = FALSE, local = env)
+
+      if (length(spec_key) == 1) {
+        for (obj_name in print_specs[[spec_key]]) {
+          cat("\n----- ", obj_name, " (", basename(f), ") -----\n", sep = "")
+          if (exists(obj_name, envir = env, inherits = FALSE)) {
+            print(get(obj_name, envir = env))
+          } else {
+            cat("  [not found in this script's environment]\n")
+          }
+        }
+      }
+      "OK"
+    },
+    error = function(e) {
+      msg <- conditionMessage(e)
+      cat("  ERROR:", msg, "\n")
+      paste("ERROR:", msg)
+    }
+  )
+}
+
+cat("\n\n===== SUMMARY =====\n")
+for (f in names(results)) {
+  cat(sprintf("%-60s %s\n", basename(f), results[[f]]))
+}
+```
