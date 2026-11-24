@@ -1,9 +1,0 @@
-response_uuid,child_hashed_id,frame_id,key,value,event_number
-96a3ac57-39c8-4a6a-a7f4-b3cc87bd6919,G55472,7-test-instructions-1,eventType,exp-lookit-images-audio:finishAudio,0
-96a3ac57-39c8-4a6a-a7f4-b3cc87bd6919,G55472,7-test-instructions-1,timestamp,2022-11-22T18:38:54.432Z,0
-96a3ac57-39c8-4a6a-a7f4-b3cc87bd6919,G55472,7-test-instructions-1,eventType,exp-lookit-images-audio:displayImages,1
-96a3ac57-39c8-4a6a-a7f4-b3cc87bd6919,G55472,7-test-instructions-1,timestamp,2022-11-22T18:38:54.432Z,1
-96a3ac57-39c8-4a6a-a7f4-b3cc87bd6919,G55472,7-test-instructions-1,eventType,exp-lookit-images-audio:trialComplete,2
-96a3ac57-39c8-4a6a-a7f4-b3cc87bd6919,G55472,7-test-instructions-1,timestamp,2022-11-22T18:39:01.940Z,2
-96a3ac57-39c8-4a6a-a7f4-b3cc87bd6919,G55472,7-test-instructions-1,eventType,exp-lookit-images-audio:nextFrame,3
-96a3ac57-39c8-4a6a-a7f4-b3cc87bd6919,G55472,7-test-instructions-1,timestamp,2022-11-22T18:39:01.967Z,3
