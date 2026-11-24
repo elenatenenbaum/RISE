@@ -1,0 +1,10 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\includegraphics[width=1\linewidth]{supplementary_files/figure-latex/supp-usable-task-order-1} \caption{Percentage of usable frames by task order of presentation among (a) 6-month-olds and (b) 12-month-olds. Each point represents one participant at a given task order position. Kruskal-Wallis tests were used to assess differences across task order positions within each task.}\label{fig:supp-usable-task-order}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\includegraphics[width=1\linewidth]{supplementary_files/figure-latex/supp-usable-task-order-exploratory-1} \caption{Percentage of usable frames by task order of presentation, among (a) 6-month-olds and (b) 12-month-olds. Wilcoxon rank-sum p-values reflect pairwise comparisons between task order positions within each task.}\label{fig:supp-usable-task-order-exploratory}
+\end{figure*}

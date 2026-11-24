@@ -1,0 +1,15 @@
+4, away, 1.00
+5, away, 0.91
+6, away, 0.98
+7, away, 0.79
+8, away, 0.80
+9, left, 0.42
+10, away, 0.51
+11, left, 0.59
+12, left, 0.54
+13, left, 0.51
+14, right, 0.62
+15, right, 0.85
+16, right, 0.90
+17, right, 0.90
+18, right, 0.62

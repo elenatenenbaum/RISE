@@ -1,0 +1,9 @@
+response_uuid,child_hashed_id,frame_id,key,value,event_number
+05baec58-0ff5-4524-a3ea-bc589d5d1e39,PS435W,7-test-instructions-1,eventType,exp-lookit-images-audio:finishAudio,0
+05baec58-0ff5-4524-a3ea-bc589d5d1e39,PS435W,7-test-instructions-1,timestamp,2022-10-30T20:54:05.772Z,0
+05baec58-0ff5-4524-a3ea-bc589d5d1e39,PS435W,7-test-instructions-1,eventType,exp-lookit-images-audio:displayImages,1
+05baec58-0ff5-4524-a3ea-bc589d5d1e39,PS435W,7-test-instructions-1,timestamp,2022-10-30T20:54:05.773Z,1
+05baec58-0ff5-4524-a3ea-bc589d5d1e39,PS435W,7-test-instructions-1,eventType,exp-lookit-images-audio:trialComplete,2
+05baec58-0ff5-4524-a3ea-bc589d5d1e39,PS435W,7-test-instructions-1,timestamp,2022-10-30T20:54:08.603Z,2
+05baec58-0ff5-4524-a3ea-bc589d5d1e39,PS435W,7-test-instructions-1,eventType,exp-lookit-images-audio:nextFrame,3
+05baec58-0ff5-4524-a3ea-bc589d5d1e39,PS435W,7-test-instructions-1,timestamp,2022-10-30T20:54:08.603Z,3

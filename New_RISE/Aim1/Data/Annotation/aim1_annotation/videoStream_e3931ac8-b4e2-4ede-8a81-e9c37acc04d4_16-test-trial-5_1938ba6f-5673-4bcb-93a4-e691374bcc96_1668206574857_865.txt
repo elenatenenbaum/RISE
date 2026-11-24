@@ -1,0 +1,13 @@
+4, left, 0.38
+5, left, 0.78
+6, right, 0.39
+7, left, 0.70
+8, away, 0.47
+9, right, 0.79
+10, nobabyface, -1.00
+11, nobabyface, -1.00
+12, away, 0.53
+13, right, 0.91
+14, right, 0.67
+15, right, 0.99
+16, right, 0.83

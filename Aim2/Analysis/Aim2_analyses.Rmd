@@ -3849,6 +3849,8 @@ save(usable_frames_plot ,
   
   figure3_rise,
   prediction_aem_fig,
+  p1_aem,
+  p2_aem,
 
   tab_geo_full,
   tab_vpc_full,

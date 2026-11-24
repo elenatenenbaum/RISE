@@ -1,0 +1,9 @@
+response_uuid,child_hashed_id,frame_id,key,value,event_number
+75eebeef-3576-4152-9a68-3a6f78137bce,NHDPPG,9-test-instructions-1,eventType,exp-lookit-images-audio:finishAudio,0
+75eebeef-3576-4152-9a68-3a6f78137bce,NHDPPG,9-test-instructions-1,timestamp,2023-09-30T16:35:10.644Z,0
+75eebeef-3576-4152-9a68-3a6f78137bce,NHDPPG,9-test-instructions-1,eventType,exp-lookit-images-audio:displayImages,1
+75eebeef-3576-4152-9a68-3a6f78137bce,NHDPPG,9-test-instructions-1,timestamp,2023-09-30T16:35:10.644Z,1
+75eebeef-3576-4152-9a68-3a6f78137bce,NHDPPG,9-test-instructions-1,eventType,exp-lookit-images-audio:trialComplete,2
+75eebeef-3576-4152-9a68-3a6f78137bce,NHDPPG,9-test-instructions-1,timestamp,2023-09-30T16:35:39.807Z,2
+75eebeef-3576-4152-9a68-3a6f78137bce,NHDPPG,9-test-instructions-1,eventType,exp-lookit-images-audio:nextFrame,3
+75eebeef-3576-4152-9a68-3a6f78137bce,NHDPPG,9-test-instructions-1,timestamp,2023-09-30T16:35:39.812Z,3
